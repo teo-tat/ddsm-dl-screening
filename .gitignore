@@ -218,3 +218,14 @@ __marimo__/
 .streamlit/secrets.toml
 
 .ddsm-env/
+
+data/raw/
+data/processed/
+data/cache/
+data/raw/mass_train_roi/
+data/raw/mass_test_roi/
+
+# Keep the data README files
+!data/README.md
+!data/raw/README.md.DS_Store
+**/.DS_Store
