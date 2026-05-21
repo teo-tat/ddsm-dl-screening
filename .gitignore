@@ -229,3 +229,9 @@ data/raw/mass_test_roi/
 !data/README.md
 !data/raw/README.md.DS_Store
 **/.DS_Store
+
+# Generated outputs — reproduce by running notebooks/scripts
+outputs/figures/
+outputs/weights/
+outputs/logs/
+outputs/results/
