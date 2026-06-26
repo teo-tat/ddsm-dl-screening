@@ -82,7 +82,7 @@ BIRADS_SENSITIVITY_BASELINE: float = 0.897
 BIRADS_AUCPR_BASELINE: float = 0.745
 CLINICAL_SENSITIVITY_MIN: float = 0.80
 
-# Wang (2024) Table 3 project target:
+# Wang (2024) Table 5 classification project target:
 PROJECT_AUC_TARGET: float = 0.90
 PROJECT_SENSITIVITY_TARGET: float = 0.85
 PROJECT_SPECIFICITY_TARGET: float = 0.80
