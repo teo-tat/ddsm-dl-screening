@@ -32,10 +32,15 @@ RESULTS_DIR: Path = OUTPUTS_DIR / "results"
 
 TARGET_SIZE: tuple[int, int] = (224, 224)
 
-#  Dataset split 
-# Val is carved from the training CSV; test CSV is the pre-defined CBIS-DDSM hold-out.
+# Dataset split
+# TRAIN_CSV and TEST_CSV are POOLED in data_loader.build_datasets, then split
+# ONCE into a patient-level, label-stratified ~70/15/15 partition via
+# StratifiedGroupKFold. Lee et al.'s official train/test boundary is
+# discarded post-pool — matches Shen et al. (2019)'s self-constructed
+# 85:15 patient-level split. Fractions below are targets; quote the
+# achieved counts from _log_split_summary's printed output in the report.
 VAL_FRACTION: float = 0.15
-
+TEST_FRACTION: float = 0.15
 BATCH_SIZE: int = 32
 MAX_EPOCHS: int = 100
 INITIAL_LR: float = 1e-3
@@ -44,26 +49,37 @@ FINETUNE_LR: float = 1e-5
 EARLY_STOPPING_PATIENCE: int = 10
 
 # Normalisation
-# Statistics computed from the training CSV. Val images are included (minor
-# limitation — shift is below float32 rounding noise in practice).
+# "scratch" mode: divisor-scale to [0,1], augment (still [0,1]), THEN
+# standardise with global_mean_01/global_std_01 — see
+# data_loader._make_standardize_fn for why standardisation must come after
+# augmentation, not before.
+# "imagenet" mode: divisor-scale to [0,1], replicate to 3 channels,
+# standardise with imagenet_mean/imagenet_std — BEFORE augmentation, since
+# only geometric (not pixel-value) augmentation runs in this mode.
+#
+# global_mean_01/global_std_01 computed on the real pooled train partition
+# (n=1134, post-StratifiedGroupKFold) — EDA notebook, Section 10a.
 NORM_STATS: dict = {
     "method":          "divide_by_max_16bit",
     "divisor":         65_535,
-    "global_mean_01":  0.2108,
-    "global_std_01":   0.2638,
+    "global_mean_01":  0.2128,
+    "global_std_01":   0.2651,
     "imagenet_mean":   (0.485, 0.456, 0.406),
     "imagenet_std":    (0.229, 0.224, 0.225),
 }
 
 # Augmentation
+# Both modes: flip, rotation, zoom-IN only (never out). "scratch" only:
+# brightness jitter — skipped in "imagenet" mode. Report should say
+# "brightness", not "contrast" (not implemented).
 AUG_MAX_ROTATION_DEG: float = 10.0
 AUG_BRIGHTNESS_DELTA: float = 0.2
 AUG_ZOOM_FACTOR: float = 0.10
 
 # BI-RADS baselines from the test set.
-BIRADS_AUC_BASELINE: float = 0.820
-BIRADS_SENSITIVITY_BASELINE: float = 0.931
-BIRADS_AUCPR_BASELINE: float = 0.724
+BIRADS_AUC_BASELINE: float = 0.813
+BIRADS_SENSITIVITY_BASELINE: float = 0.897
+BIRADS_AUCPR_BASELINE: float = 0.745
 CLINICAL_SENSITIVITY_MIN: float = 0.80
 
 # Wang (2024) Table 3 project target:
