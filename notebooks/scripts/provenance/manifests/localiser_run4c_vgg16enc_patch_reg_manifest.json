@@ -1,0 +1,73 @@
+{
+  "run": "localiser_run4c_vgg16enc_patch_reg",
+  "device": "{'compute_capability': (6, 0), 'device_name': 'Tesla P100-PCIE-16GB'}",
+  "encoder": "vgg16",
+  "regime": "patch512",
+  "train_store": "merged (one row per mammogram, union of lesion masks)",
+  "n_train_images": 1146,
+  "n_val_lesions": 243,
+  "patch_size": 512,
+  "patches_per_image": 2,
+  "lesion_centred_frac": 0.3,
+  "lesion_centred_stochastic": true,
+  "patch_jitter_frac": 0.25,
+  "decoder_dropout": 0.3,
+  "decoder_l2": 0.0001,
+  "elastic_photometric_aug": {
+    "alpha": [
+      3.0,
+      6.0
+    ],
+    "sigma": [
+      32.0,
+      64.0
+    ],
+    "gamma": [
+      0.7,
+      1.4
+    ],
+    "brightness": 0.15,
+    "contrast": 0.15,
+    "noise_sd": 0.01
+  },
+  "lr_encoder": 0.0001,
+  "lr_decoder": 0.001,
+  "lr_min": 1e-06,
+  "warmup_epochs": 5,
+  "schedule": "linear warm-up then cosine",
+  "init_weights": null,
+  "batch_size": 8,
+  "epochs_requested": 120,
+  "steps_per_epoch": 287,
+  "seed": 28,
+  "input": [
+    1024,
+    576
+  ],
+  "params": 31410497,
+  "dice_bce_weights": [
+    0.5,
+    0.5
+  ],
+  "output_prior": 0.0049667180867442005,
+  "output_prior_bias": -5.300016908492776,
+  "precision": "float32",
+  "selection_metric": "val_hard_iou",
+  "secondary_checkpoint": "val_loss",
+  "hard_iou_threshold": 0.1,
+  "augmentation": "h-flip + rotation + elastic (joint) + gamma/brightness/contrast/noise (image only)",
+  "smoke": false,
+  "wall_time_s": 28400.5,
+  "epochs_run": 120,
+  "first_nan_epoch": null,
+  "best_epoch": 59,
+  "val_hard_iou_at_best_epoch": 0.3935029804706573,
+  "val_dice_at_best_epoch": 0.4812783300876617,
+  "val_loss_at_best_epoch": 0.2798961102962494,
+  "train_hard_iou_at_best_epoch": 0.4271360039710998,
+  "best_valloss_epoch": 59,
+  "val_hard_iou_at_best_valloss_epoch": 0.3935029804706573,
+  "max_val_hard_iou_any_epoch": 0.3935029804706573,
+  "max_val_dice_any_epoch": 0.4831557869911194,
+  "final_train_loss": 0.1636003255844116
+}

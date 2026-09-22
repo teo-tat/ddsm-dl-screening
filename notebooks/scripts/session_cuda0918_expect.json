@@ -1,0 +1,35 @@
+{
+  "staged": "2026-09-18T18:31:16.207985+00:00",
+  "code_md5": {
+    "notebooks/scripts/export_crop_store.py": "0ff79725ad8361b95621f2b63c238a69",
+    "notebooks/scripts/export_fusion_store.py": "3c7a7f4af436a00c74a624188a4197a5",
+    "src/data_loader.py": "80be213b9bbda63bda94ddbb4d8535ed",
+    "src/boxes.py": "e35eff80f700f97292c2040330988f24",
+    "src/geometry.py": "7c716c6591da361e8dd2a2dcfc107d6e",
+    "src/localise.py": "ae18f18b495484d6328c4f911893b403",
+    "src/config.py": "e0d14360975b190cfc7411b864f69c92",
+    "src/train_crop_store.py": "a4bd3a8f88d9aeb57ed6a3ae46cc9257",
+    "src/train_fusion_store.py": "5988fb79c381bf69adc04f3ed9145317",
+    "src/train.py": "45980f953b53a4b755d50b16519eda2a",
+    "src/models.py": "710c3c34dcf8c81cf7b11e637526085e",
+    "src/test_pass_guard.py": "144034a38b20703b36c32aa84e93c88c"
+  },
+  "store_md5": {
+    "fusion_store_vgg16_fusion_context": {
+      "manifest.json": "1f31e02bc54ac501908bd02893be9355",
+      "train_images_a.npy": "28664d538f686389700cd15e95aa034c",
+      "train_images_b.npy": "679751cce541bf21b10fdb23846e434b",
+      "train_meta.csv": "69ac570b99a8ca9456416b07382106b8",
+      "val_images_a.npy": "95f851fba195a2866b242810362f1ea2",
+      "val_images_b.npy": "91e9c909c81975c199da022e68be2a33",
+      "val_meta.csv": "a27e92842bdb26a96caf728fda2b41d4"
+    },
+    "fusion_store_vgg16_fusion_control_all": {
+      "manifest.json": "fee804d7554f612668b6d667243a921a",
+      "train_images_a.npy": "28664d538f686389700cd15e95aa034c",
+      "train_meta.csv": "829ec36a74726176a3388b640000c5ce",
+      "val_images_a.npy": "95f851fba195a2866b242810362f1ea2",
+      "val_meta.csv": "7dece84518d82a2b13083f59f60a6b9f"
+    }
+  }
+}

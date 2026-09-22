@@ -1,0 +1,24 @@
+[
+ {
+  "family": "fusion",
+  "trainer": "fusion",
+  "store": "fusion_store_vgg16_fusion_context",
+  "model": "vgg16",
+  "tag_base": null,
+  "tag_suffix": "_cuda0918",
+  "seed": 28,
+  "patience": 25,
+  "tag": "vgg16_fusion_context_cuda0918"
+ },
+ {
+  "family": "fusion",
+  "trainer": "fusion",
+  "store": "fusion_store_vgg16_fusion_control_all",
+  "model": "vgg16",
+  "tag_base": null,
+  "tag_suffix": "_cuda0918",
+  "seed": 28,
+  "patience": 25,
+  "tag": "vgg16_fusion_control_all_cuda0918"
+ }
+]

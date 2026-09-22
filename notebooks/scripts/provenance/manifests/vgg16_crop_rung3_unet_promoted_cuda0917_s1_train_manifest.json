@@ -1,0 +1,24 @@
+{
+  "tag": "vgg16_crop_rung3_unet_promoted_cuda0917_s1",
+  "source": "crop",
+  "crop_margin": 0.2,
+  "seed": 1,
+  "box_source": "unet",
+  "boxes_dir": "outputs/results/localiser_bundle/boxes_A24",
+  "boxes_md5": {
+    "train": "482ec1044f645e06f9047a09b2c78e10",
+    "val": "1ef076c21fe2f5c6db9ef5f402b93a8d"
+  },
+  "trained_from_store": "outputs/crop_store_rung3_unet_promoted",
+  "store_files": {
+    "val_images.npy": "bfbf451bbdc25a99",
+    "train_images.npy": "191d9e4b04843e76"
+  },
+  "boxes_md5_unavailable_reason": "boxes_dir outputs/results/localiser_bundle/boxes_A24 was named but no localiser_boxes_(train|val).csv was readable on 85ad48bc2cec; md5 NOT computed. Backfill it on a machine that holds the folder before the test pass reads this manifest.",
+  "boxes_md5_backfilled": {
+    "measured_utc": "2026-09-17T19:53:12+00:00",
+    "measured_from": "outputs/results/localiser_bundle/boxes_A24",
+    "by": "notebooks/scripts/backfill_boxes_md5.py",
+    "note": "the run trained on a machine without the boxes folder; the md5 is measured here from the folder the manifest names, and this stamp says so"
+  }
+}

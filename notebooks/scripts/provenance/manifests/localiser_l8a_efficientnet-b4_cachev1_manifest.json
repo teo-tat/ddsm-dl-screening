@@ -1,0 +1,99 @@
+{
+  "run": "l8a",
+  "framework": "pytorch-2.8.0",
+  "encoder": "efficientnet-b4",
+  "decoder": "segmentation_models_pytorch Unet decoder",
+  "pretrained_weights": "imagenet (SMP encoder weights)",
+  "input_preprocessing": "replicate 1->3 channels, ImageNet mean/std (RGB)",
+  "input_channels": 3,
+  "imagenet_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "imagenet_std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "cache": "/workspace/cache_v1_merged",
+  "val_cache": "/workspace/cache_v1_perlesion",
+  "canvas": [
+    1024,
+    576
+  ],
+  "train_store": "merged (one row per mammogram, union of lesion masks)",
+  "mask_merging": "merged per mammogram (union of lesion masks)",
+  "n_train_images": 1146,
+  "n_val_lesions": 243,
+  "patch_size": 512,
+  "patches_per_image": 2,
+  "lesion_centred_frac": 0.5,
+  "patch_jitter_frac": 0.25,
+  "background_frac": 0.0,
+  "background_frac_requested": 0.0,
+  "augmentation": "h-flip + rotation (run 4 parameters)",
+  "aug_hflip_p": 0.5,
+  "aug_rotation_deg": {
+    "min": -10.0,
+    "max": 10.0
+  },
+  "aug_rotation_fill": {
+    "mode": "constant",
+    "value": 0.0
+  },
+  "aug_interpolation": "bilinear (scipy order=1)",
+  "aug_mask_handling": "image and mask stacked on the channel axis, one transform, mask re-thresholded at > 0.5 after rotation",
+  "loss": "0.5 * BCE + 0.5 * soft-Dice",
+  "dice_bce_weights": [
+    0.5,
+    0.5
+  ],
+  "optimizer": "Adam (two instances: encoder, decoder), no weight decay",
+  "optimizer_params": {
+    "beta_1": 0.9,
+    "beta_2": 0.999,
+    "epsilon": 1e-07,
+    "weight_decay": 0.0
+  },
+  "lr_encoder": 0.0001,
+  "lr_decoder": 0.001,
+  "lr_min": 1e-06,
+  "warmup_epochs": 5,
+  "schedule": "linear warm-up then cosine",
+  "schedule_formula": "warm = peak*(step+1)/max(1,warmup_steps); prog = clip((step-warmup_steps)/max(1,total_steps-warmup_steps),0,1); cos = floor + 0.5*(peak-floor)*(1+cos(pi*prog)); lr = warm if step < warmup_steps else cos",
+  "two_rate": "encoder and decoder on separate Adam instances of the same schedule shape",
+  "precision": "float32",
+  "batch_size": 8,
+  "steps_per_epoch": 287,
+  "epochs_requested": 100,
+  "epochs_run": 100,
+  "early_stopping": "none binding \u2014 patience == epochs",
+  "patience": 100,
+  "output_prior": 0.0049667180867442005,
+  "output_prior_bias": -5.300016908492776,
+  "output_bias_formula": "log(output_prior / (1 - output_prior))",
+  "selection_metric": "val_hard_iou",
+  "hard_iou_threshold": 0.1,
+  "selection_min_px": 64,
+  "secondary_checkpoint": "val_loss",
+  "val_loss_note": "computed from WHOLE-IMAGE probabilities on the validation split; run 4's Keras val_loss came from the training graph on PATCHES. The two are not comparable across families. It drives only the secondary checkpoint and never selection.",
+  "best_epoch": 73,
+  "best_val_hard_iou": 0.4785246018767485,
+  "inference_mode": "whole-image at 1024x576 (no tiling)",
+  "flip_tta_at_gate": false,
+  "box_rule": "largest surviving connected component",
+  "box_threshold": 0.1,
+  "box_min_px": 64,
+  "encoder_bn": "trainable, running stats updating (inherent to the encoder)",
+  "seed": 28,
+  "seed_handling": "torch.manual_seed + np.random.seed; the patch plan is a pure function of (seed + epoch); augmentation RNG is default_rng(seed + 100000 + epoch)",
+  "git_sha": "unknown",
+  "device": "NVIDIA GeForce RTX 5090",
+  "env": {
+    "torch": "2.8.0+cu128",
+    "numpy": "1.26.4",
+    "smp": "0.4.0",
+    "python": "3.12.3"
+  }
+}
