@@ -1,0 +1,195 @@
+{
+  "what": "the seven promoted members' test probability maps, plain and flipped, written before the freeze (\u00a733)",
+  "recorded_utc": "2026-09-18T17:51:36+00:00",
+  "arrays": {
+    "l7v_test_plain.npy": {
+      "sha256": "8f386dc8af01621b4fcad0e669a3efa60d98f2bce128f6e181aea3cd0cba62fc",
+      "md5": "99949c8862c460b06863d1d0f7fd3c58",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "RTX 5090 pod, EU-RO-1 (write_torch_maps.py)",
+      "md5_reported_18_sep": "99949c8862c460b06863d1d0f7fd3c58"
+    },
+    "l7v_test_flip.npy": {
+      "sha256": "6669ca305c6a1a16a192e0dd8993339f9171f427bb6a48b48830ebc20bee2cdd",
+      "md5": "0cc2c7bb98a9aee9d942164561983acd",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "RTX 5090 pod, EU-RO-1 (write_torch_maps.py)",
+      "md5_reported_18_sep": "0cc2c7bb98a9aee9d942164561983acd"
+    },
+    "l7a_test_plain.npy": {
+      "sha256": "f2b5df221bebd85998d895f4b6c96f9bc459d91f06cdc2f9d7228bf346d034c3",
+      "md5": "7afe2d5bbd5b0008754839e9b841b807",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "RTX 5090 pod, EU-RO-1 (write_torch_maps.py)",
+      "md5_reported_18_sep": "7afe2d5bbd5b0008754839e9b841b807"
+    },
+    "l7a_test_flip.npy": {
+      "sha256": "334a88fa9b49ce14e98519836f3feff99a93e20c8e76a87bed3e08c9623032d9",
+      "md5": "9dff2538fa5ef5b9f6a036f7f66c40cc",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "RTX 5090 pod, EU-RO-1 (write_torch_maps.py)",
+      "md5_reported_18_sep": "9dff2538fa5ef5b9f6a036f7f66c40cc"
+    },
+    "l8a_test_plain.npy": {
+      "sha256": "1842ab09e3dbb2f11af41ff1ca8265d809c365ac9233f799506432817aefacbc",
+      "md5": "7b94c2614cab4e2737d25d91a6307ed0",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "RTX 5090 pod, EU-RO-1 (write_torch_maps.py)",
+      "md5_reported_18_sep": "7b94c2614cab4e2737d25d91a6307ed0"
+    },
+    "l8a_test_flip.npy": {
+      "sha256": "8ac6e7653bf0159b91c96cad49ff05c4d7b9d6b10af35bd3414e59a580bec53a",
+      "md5": "a27b6f8d1cc4116554a89217f6610f93",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "RTX 5090 pod, EU-RO-1 (write_torch_maps.py)",
+      "md5_reported_18_sep": "a27b6f8d1cc4116554a89217f6610f93"
+    },
+    "l9_test_plain.npy": {
+      "sha256": "75de44f64370e8c3f15e5bf110a926d776e820e7b00cc05bd864681deb38c4e3",
+      "md5": "0ca5f70334b4e102d6be7c2da644a869",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "RTX 5090 pod, EU-RO-1 (write_torch_maps.py)",
+      "md5_reported_18_sep": "0ca5f70334b4e102d6be7c2da644a869"
+    },
+    "l9_test_flip.npy": {
+      "sha256": "da98058c92633a3a85452ad59848b6487415389226b2b6e72abc7334b2fcefc3",
+      "md5": "3bd253f6c17110552c8a90480927961f",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "RTX 5090 pod, EU-RO-1 (write_torch_maps.py)",
+      "md5_reported_18_sep": "3bd253f6c17110552c8a90480927961f"
+    },
+    "run1_test_plain.npy": {
+      "sha256": "0df5b42bd9e331278767b69e2935e50bd74b556bb8a7e3e0791c252cda1604f1",
+      "md5": "d8b986c22a5d1a4d5efc05af26bd416c",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "laptop, Metal, eager path (localiser_bundle.py cache --images-only)",
+      "md5_reported_18_sep": "d8b986c22a5d1a4d5efc05af26bd416c"
+    },
+    "run1_test_flip.npy": {
+      "sha256": "495862bb13f2dca596a712f7fed1f68801713f3baa13bef08f4f0dd5e38a2667",
+      "md5": "336951ca0f57a467f6d312dc59306e13",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "laptop, Metal, eager path (localiser_bundle.py cache --images-only)",
+      "md5_reported_18_sep": "336951ca0f57a467f6d312dc59306e13"
+    },
+    "run3_test_plain.npy": {
+      "sha256": "62ff105761ea23110a3d4c8f6f5618cbad0db30f26bf484d3a55e3265c173c5d",
+      "md5": "d621a00484511c5e95c0effd1e0e3c31",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "laptop, Metal, eager path (localiser_bundle.py cache --images-only)",
+      "md5_reported_18_sep": "d621a00484511c5e95c0effd1e0e3c31"
+    },
+    "run3_test_flip.npy": {
+      "sha256": "1739bc7cc073b092b52beef7277a68c32ec85f0d291ddaf5321cfc7fb72b8533",
+      "md5": "c71d9ba712e8d63144d87f43bc468496",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "laptop, Metal, eager path (localiser_bundle.py cache --images-only)",
+      "md5_reported_18_sep": "c71d9ba712e8d63144d87f43bc468496"
+    },
+    "run4_test_plain.npy": {
+      "sha256": "4d594521e6816996d96688751a6937a1e6a34a4325c361f4337ad06d099d8661",
+      "md5": "3eb4ff63ee0ec189063ce76d870d7773",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "laptop, Metal, eager path (localiser_bundle.py cache --images-only)",
+      "md5_reported_18_sep": "8bff76249b37e4984017d685e52850d7",
+      "note": "the 07:37 UTC md5 and the first bundle copy were taken while run4's writer was still running; the finished array was regenerated with the identical command and was bit-identical (the partial copy is in outputs/_superseded/run4_test_maps_partial_copy_20260918/)"
+    },
+    "run4_test_flip.npy": {
+      "sha256": "7148f00451dd311a6933a407e255df922190c84e495781aa8dfc90fd989643d1",
+      "md5": "4ed17b0ea8b27c9994e4599f6fbe20cc",
+      "shape": [
+        243,
+        1024,
+        576
+      ],
+      "dtype": "uint8",
+      "produced_on": "laptop, Metal, eager path (localiser_bundle.py cache --images-only)",
+      "md5_reported_18_sep": "99d63e679ef4a699f317321084b07d7a",
+      "note": "the 07:37 UTC md5 and the first bundle copy were taken while run4's writer was still running; the finished array was regenerated with the identical command and was bit-identical (the partial copy is in outputs/_superseded/run4_test_maps_partial_copy_20260918/)"
+    }
+  },
+  "test_meta_csv_sha256": "e9617cb9e4366e12942ea6c86df56155ea0ec3fd1a8f38ed49695af8a55a0503",
+  "row_order": "maps are row-aligned with outputs/localiser_tensors/test_meta.csv; this rests on the controls, in which the same writers reproduced the stored validation maps row for row",
+  "pod": {
+    "card": "RTX 5090",
+    "region": "EU-RO-1",
+    "created_utc": "2026-09-18T07:07:26Z",
+    "lifetime_h": 0.3,
+    "cost_usd": 0.3
+  },
+  "controls": {
+    "l7a (torch, RTX 5090)": "maps max |diff| 0/255, rows differing 0/243 (plain and flip); derived boxes 243, stored 0.493443 = candidate 0.493443, 0 moved; CONTROL PASSED (run twice)",
+    "run4 (Keras, laptop Metal)": "derived boxes 243, stored 0.419032 = candidate 0.419032, 0 moved; maps bit-identical; CONTROL PASSED"
+  },
+  "assurances": [
+    "no test mask on the pod (asserted before inference)",
+    "label column removed from the metadata uploaded to the pod",
+    "no test metric computed by the map writers"
+  ],
+  "source": "session record of 18 Sep 2026 (control verdicts, md5s, pod lifetime); sha256 computed from the arrays on disk"
+}

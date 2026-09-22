@@ -315,7 +315,8 @@ def _refuse_frozen_records() -> None:
 
 
 def _refuse_test_split(splits: list[str]) -> None:
-    """Refuses a run that includes the test partition unless the freeze token is set."""
+    """Refuses a run that includes the test partition unless the test pass has set its
+    token (test_pass_guard.authorised)."""
     from .test_pass_guard import authorised
 
     if "test" in splits and not authorised():

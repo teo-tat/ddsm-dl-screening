@@ -353,7 +353,8 @@ def _plot(
 
 
 def _refuse_test_stage() -> None:
-    """Refuses the test stage unless the freeze token is set."""
+    """Refuses the test stage unless the test pass has set its token
+    (test_pass_guard.authorised)."""
     from .test_pass_guard import authorised
 
     if not authorised():

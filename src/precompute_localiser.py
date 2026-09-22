@@ -33,6 +33,17 @@ def _read_mask(path) -> np.ndarray:
     return (m > (m.max() * 0.5 if m.max() > 0 else 0)).astype(np.float32)
 
 
+def _refuse_test_outside_pass(splits) -> None:
+    """Refuses the test split unless the test pass has set its token
+    (test_pass_guard.authorised)."""
+    from .test_pass_guard import authorised
+
+    if "test" in tuple(splits) and not authorised():
+        raise SystemExit(
+            "REFUSED: --splits includes test; only the test pass may build test tensors"
+        )
+
+
 def main(
     merged: bool = False,
     splits=("train", "val", "test"),
@@ -43,6 +54,7 @@ def main(
     """Letterboxed (image, mask) tensors, one row per lesion; merged=True puts every
     lesion of a mammogram in one mask, so training rows carry no contradictory masks.
     """
+    _refuse_test_outside_pass(splits)
     # out_dir lets a rebuild write beside an existing cache instead of over it.
     out = Path(out_dir) if out_dir else (config.LOC_TENSORS_MERGED_DIR if merged else OUT)
     out.mkdir(parents=True, exist_ok=True)
