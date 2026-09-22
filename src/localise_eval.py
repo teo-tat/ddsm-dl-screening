@@ -530,7 +530,7 @@ def main() -> None:
             tile_overlap=args.tile_overlap,
         )
         df.to_csv(out / f"localiser_boxes_{split}.csv", index=False)
-        # Candidate set for BoxProvider(mode="matched"|"all"): the k3 columns only.
+        # Candidate set for BoxProvider(mode="matched"): the k3 columns only.
         k3_cols = [
             "split",
             "lesion_id",

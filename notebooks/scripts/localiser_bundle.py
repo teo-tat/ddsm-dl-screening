@@ -912,7 +912,7 @@ def _bundle_boxes(
         # box was derived from (breast filter applied when the rule uses it).
         pmap = _apply_breast(m, breasts[i]) if cfg["breast_filter"] else m
         # Top-k candidate components of the SAME map, ranked by summed probability,
-        # in canvas and mammogram coordinates for BoxProvider(mode="matched"|"all").
+        # in canvas and mammogram coordinates for BoxProvider(mode="matched").
         cands = topk_components(
             pmap, config.LOC_TOPK, threshold=cfg["threshold"], min_px=cfg["min_px"]
         )
