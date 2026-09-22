@@ -1,0 +1,67 @@
+{
+  "boxes_dir": "outputs/results/localiser_bundle/boxes_A24",
+  "rung3_suffix": "_promoted_cuda0917",
+  "primary_tag": "vgg16_crop_rung3_unet_promoted_cuda0917",
+  "rung3_ens3_tag": "vgg16_crop_rung3_unet_promoted_cuda0917_ens3",
+  "fusion_tag": "vgg16_fusion_view_unet_promoted_cuda0917",
+  "fusion_ens3_tag": "vgg16_fusion_view_unet_promoted_cuda0917_ens3",
+  "boxes_md5": {
+    "train": "482ec1044f645e06f9047a09b2c78e10",
+    "val": "1ef076c21fe2f5c6db9ef5f402b93a8d"
+  },
+  "bundle_selection": {
+    "ensemble": "run1+run3+run4+l7v+l7a+l8a+l9",
+    "tta": true,
+    "breast_filter": false,
+    "rule": "peak",
+    "threshold": 0.4,
+    "min_px": 16,
+    "weights": "g:keras=0.5,torch=2"
+  },
+  "bundle_selected_cfg_id": 54485,
+  "precomputed_halves": {
+    "rung3": {
+      "skipped": true,
+      "store": "outputs/crop_store_rung3_unet_promoted",
+      "store_boxes_dir": "outputs/results/localiser_bundle/boxes_A24",
+      "tags": [
+        "vgg16_crop_rung3_unet_promoted_cuda0917",
+        "vgg16_crop_rung3_unet_promoted_cuda0917_s1",
+        "vgg16_crop_rung3_unet_promoted_cuda0917_s2"
+      ],
+      "ens3_tag": "vgg16_crop_rung3_unet_promoted_cuda0917_ens3",
+      "prediction_table_md5": {
+        "vgg16_crop_rung3_unet_promoted_cuda0917": "1433b001c39f1cef668f01e84e3a9cfe",
+        "vgg16_crop_rung3_unet_promoted_cuda0917_s1": "102b2e07d4ee221c1b9d46c8e575ae80",
+        "vgg16_crop_rung3_unet_promoted_cuda0917_s2": "b688b1ac2c9c2fdf384281e02171d400",
+        "vgg16_crop_rung3_unet_promoted_cuda0917_ens3": "863491eb1b53ae975e247620a76de65d"
+      },
+      "seeds": [
+        1,
+        2,
+        28
+      ],
+      "reasons": [
+        "step 2 calls model.fit, and this project trains nothing on the laptop GPU",
+        "it would overwrite the runs the 8b floor gate reads",
+        "src.ladder/src.train is a third trainer in a comparison where the 0.814022 reference and these runs both came from train_crop_store"
+      ]
+    },
+    "fusion": {
+      "skipped": true,
+      "store": "outputs/fusion_store_vgg16_fusion_view_unet_promoted",
+      "store_boxes_dir": "outputs/results/localiser_bundle/boxes_A24",
+      "prediction_table_md5": {
+        "vgg16_fusion_view_unet_promoted_cuda0917": "dad24b25f90aa53ac1416cfe5b5f7b97",
+        "vgg16_fusion_view_unet_promoted_cuda0917_s1": "1e88ae8076ccd8175b14fac8f38aff6d",
+        "vgg16_fusion_view_unet_promoted_cuda0917_s2": "168504ad8a6f1ba4082ac584e5d249ab",
+        "vgg16_fusion_view_unet_promoted_cuda0917_ens3": "a9cce60ab64ace622846c9de5489e074"
+      },
+      "reason": "step 5 trains via src.fusion --stage train; the CUDA fusion ledger and these runs came from train_fusion_store. Rebuilding would introduce a third trainer into a like-for-like comparison."
+    }
+  },
+  "written_by": "promotion_cascade.sh",
+  "dry_run": false,
+  "written_at": "2026-09-18T06:15:39Z",
+  "why": "run_test_pass.sh reads boxes_dir and rung3_suffix from here rather than hard-coding them, and asserts bundle_selection still matches the live selection and that the rung-3 weights' train manifest records these boxes"
+}
