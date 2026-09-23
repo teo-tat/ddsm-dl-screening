@@ -1,0 +1,167 @@
+tag,status,pipeline,arch,kind,crop_source,margin,aug,lr,overlay,ablation,seed,variant,frozen_val_auc,val_auc,epoch,epochs,train_auc
+baseline_crop_m020,current,crop,baseline,scratch,oracle,0.20,default,0.001,,,28,,,0.645,13,23,0.5872
+baseline_crop_m020_cuda0917,current,crop,baseline,scratch,oracle,0.20,default,0.001,,,28,cuda0917,,0.6642,45,70,0.6608
+baseline_crop_m020_cuda0917_s1,current,crop,baseline,scratch,oracle,0.20,default,0.001,,,1,cuda0917,,0.6728,100,100,0.7013
+baseline_crop_m020_cuda0917_s2,current,crop,baseline,scratch,oracle,0.20,default,0.001,,,2,cuda0917,,0.6435,14,39,0.6161
+densenet121_crop_m020,current,crop,densenet121,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,,0.8317,0.8478,39,49,0.8252
+densenet121_crop_m020_cuda0917,current,crop,densenet121,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,cuda0917,0.8351,0.847,95,100,0.8416
+densenet121_crop_m020_cuda0917_s1,current,crop,densenet121,transfer,oracle,0.20,default,1e-05 (fine-tune),,,1,cuda0917,0.8358,0.8487,41,66,0.8385
+densenet121_crop_m020_cuda0917_s2,current,crop,densenet121,transfer,oracle,0.20,default,1e-05 (fine-tune),,,2,cuda0917,0.8321,0.8435,79,100,0.8264
+densenet121_crop_rung3_unet_bundle,current,crop,densenet121,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle,0.8113,0.8065,1,11,0.7526
+densenet121_crop_rung3_unet_bundle_cuda,current,crop,densenet121,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle_cuda,0.8154,0.8087,3,28,0.7557
+efficientnet_crop_m020,current,crop,efficientnet,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,,0.8524,0.8503,3,13,0.7729
+efficientnet_crop_m020_cuda0917,current,crop,efficientnet,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,cuda0917,0.8516,0.8579,42,67,0.8457
+efficientnet_crop_m020_cuda0917_s1,current,crop,efficientnet,transfer,oracle,0.20,default,1e-05 (fine-tune),,,1,cuda0917,0.8422,0.8582,37,62,0.8231
+efficientnet_crop_m020_cuda0917_s2,current,crop,efficientnet,transfer,oracle,0.20,default,1e-05 (fine-tune),,,2,cuda0917,0.8475,0.8496,3,28,0.8177
+efficientnet_crop_rung3_unet_bundle,current,crop,efficientnet,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle,0.8225,0.8196,3,13,0.7478
+efficientnet_crop_rung3_unet_bundle_cuda,current,crop,efficientnet,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle_cuda,0.8258,0.8329,18,43,0.7713
+regularised_crop_m020,current,crop,regularised,scratch,oracle,0.20,default,0.0005,,,28,,,0.7976,99,100,0.8648
+regularised_crop_m020_cuda0917,current,crop,regularised,scratch,oracle,0.20,default,0.0005,,,28,cuda0917,,0.8273,97,100,0.8313
+regularised_crop_m020_cuda0917_s1,current,crop,regularised,scratch,oracle,0.20,default,0.0005,,,1,cuda0917,,0.759,92,100,0.8431
+regularised_crop_m020_cuda0917_s2,current,crop,regularised,scratch,oracle,0.20,default,0.0005,,,2,cuda0917,,0.8253,100,100,0.842
+regularised_crop_m020_kg,current,crop,regularised,scratch,oracle,0.20,default,0.0005,,,28,kg,,0.7899,77,92,0.7762
+regularised_crop_m020_lr2e-3_kg,current,crop,regularised,scratch,oracle,0.20,default,2e-3,,,28,kg,,0.6656,19,34,0.6316
+regularised_crop_m020_no_aug_kg,current,crop,regularised,scratch,oracle,0.20,off,0.0005,,aug,28,kg,,0.6785,14,29,0.9432
+regularised_crop_m020_no_dropout_kg,current,crop,regularised,scratch,oracle,0.20,default,0.0005,,dropout,28,kg,,0.7045,27,42,0.7221
+regularised_crop_m020_no_l2_kg,current,crop,regularised,scratch,oracle,0.20,default,0.0005,,l2,28,kg,,0.7974,120,135,0.8572
+regularised_crop_m020_no_se_kg,current,crop,regularised,scratch,oracle,0.20,default,0.0005,,se,28,kg,,0.7877,77,92,0.8054
+regularised_crop_m020_overlay_lrmatched_kg,current,crop,regularised,scratch,oracle,0.20,default,0.0005,yes,,28,lrmatched_kg,,0.67,16,31,0.616
+resnet50_crop_m020,current,crop,resnet50,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,,0.7719,0.8054,26,36,0.7787
+resnet50_crop_m020_cuda0917,current,crop,resnet50,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,cuda0917,0.7717,0.8042,57,82,0.8401
+resnet50_crop_m020_cuda0917_s1,current,crop,resnet50,transfer,oracle,0.20,default,1e-05 (fine-tune),,,1,cuda0917,0.7838,0.7955,29,54,0.7985
+resnet50_crop_m020_cuda0917_s2,current,crop,resnet50,transfer,oracle,0.20,default,1e-05 (fine-tune),,,2,cuda0917,0.7721,0.7907,16,41,0.7818
+resnet50_crop_rung3_unet_bundle,current,crop,resnet50,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle,0.7284,0.7651,8,18,0.6336
+resnet50_crop_rung3_unet_bundle_cuda,current,crop,resnet50,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle_cuda,0.7263,0.7671,38,63,0.7626
+scaled_crop_m020,current,crop,scaled,scratch,oracle,0.20,default,0.001,,,28,,,0.7172,79,100,0.7433
+scaled_crop_m020_cuda0917,current,crop,scaled,scratch,oracle,0.20,default,0.001,,,28,cuda0917,,0.6885,73,100,0.9991
+scaled_crop_m020_cuda0917_s1,current,crop,scaled,scratch,oracle,0.20,default,0.001,,,1,cuda0917,,0.695,97,100,0.9969
+scaled_crop_m020_cuda0917_s2,current,crop,scaled,scratch,oracle,0.20,default,0.001,,,2,cuda0917,,0.6898,37,100,0.7797
+scaled_crop_m020_lr5e-4,current,crop,scaled,scratch,oracle,0.20,default,5e-4,,,28,,,0.6907,94,100,0.9991
+vgg16_crop_m000,current,crop,vgg16,transfer,oracle,0.00,default,1e-05 (fine-tune),,,28,,0.794,0.8446,20,30,0.8341
+vgg16_crop_m010,current,crop,vgg16,transfer,oracle,0.10,default,1e-05 (fine-tune),,,28,,0.8218,0.8523,3,13,0.7833
+vgg16_crop_m020,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,,0.8193,0.8837,58,68,0.9684
+vgg16_crop_m020_448_cuda,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,448_cuda,0.7344,0.8153,32,57,0.9063
+vgg16_crop_m020_cuda,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,cuda,0.8153,0.865,9,19,0.8299
+vgg16_crop_m020_cuda0917,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,cuda0917,0.8251,0.8769,45,70,0.9453
+vgg16_crop_m020_cuda0917_s1,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,1,cuda0917,0.824,0.8784,63,88,0.9561
+vgg16_crop_m020_cuda0917_s2,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,2,cuda0917,0.8266,0.8777,30,55,0.9245
+vgg16_crop_m020_overlay,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),yes,,28,,0.8181,0.8656,25,35,0.8842
+vgg16_crop_m020_p25_cuda,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,p25_cuda,0.8231,0.8753,46,71,0.9446
+vgg16_crop_m020_p25_s1_cuda,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,p25_s1_cuda,0.8243,0.8744,41,66,0.9243
+vgg16_crop_m020_p25_s2_cuda,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,p25_s2_cuda,0.8279,0.8739,36,61,0.9265
+vgg16_crop_m020_s1_cuda,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,s1_cuda,0.8215,0.8614,15,25,0.8628
+vgg16_crop_m020_s2_cuda,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,s2_cuda,0.8293,0.8656,17,27,0.8703
+vgg16_crop_m040,current,crop,vgg16,transfer,oracle,0.40,default,1e-05 (fine-tune),,,28,,0.7885,0.8711,24,34,0.9029
+vgg16_crop_m080,current,crop,vgg16,transfer,oracle,0.80,default,1e-05 (fine-tune),,,28,,0.7958,0.8568,19,29,0.8839
+vgg16_crop_rung1_oracle,current,crop,vgg16,transfer,oracle,0.00,default,1e-05 (fine-tune),,,28,ladder rung 1,0.789,0.845,15,25,0.823
+vgg16_crop_rung1_oracle_cuda,current,crop,vgg16,transfer,oracle,0.00,default,1e-05 (fine-tune),,,28,ladder rung 1; cuda,0.7991,0.8399,18,43,0.85
+vgg16_crop_rung1_oracle_cuda0917,current,crop,vgg16,transfer,oracle,0.00,default,1e-05 (fine-tune),,,28,ladder rung 1; cuda0917,0.7967,0.8441,33,58,0.8795
+vgg16_crop_rung1_oracle_cuda0917_s1,current,crop,vgg16,transfer,oracle,0.00,default,1e-05 (fine-tune),,,1,ladder rung 1; cuda0917,0.7922,0.8405,11,36,0.8157
+vgg16_crop_rung1_oracle_cuda0917_s2,current,crop,vgg16,transfer,oracle,0.00,default,1e-05 (fine-tune),,,2,ladder rung 1; cuda0917,0.8061,0.8402,18,43,0.8294
+vgg16_crop_rung2_oracle,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,ladder rung 2,0.8303,0.8648,21,31,0.8923
+vgg16_crop_rung2_oracle_cuda,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,ladder rung 2; cuda,0.843,0.8861,56,81,0.9513
+vgg16_crop_rung2_oracle_cuda0917,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,ladder rung 2; cuda0917,0.8407,0.8747,57,82,0.947
+vgg16_crop_rung2_oracle_cuda0917_s1,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,1,ladder rung 2; cuda0917,0.831,0.8689,33,58,0.9058
+vgg16_crop_rung2_oracle_cuda0917_s2,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,2,ladder rung 2; cuda0917,0.8328,0.8713,34,59,0.9247
+vgg16_crop_rung2_oracle_cuda0917_s3,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,3,ladder rung 2; cuda0917,0.8315,0.8791,47,72,0.9413
+vgg16_crop_rung2_oracle_cuda0917_s4,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,4,ladder rung 2; cuda0917,0.8315,0.8733,46,71,0.9411
+vgg16_crop_rung2_oracle_s1_cuda,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,ladder rung 2; s1_cuda,0.8319,0.8672,20,45,0.8874
+vgg16_crop_rung2_oracle_s2_cuda,current,crop,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,ladder rung 2; s2_cuda,0.8272,0.8662,63,88,0.9495
+vgg16_crop_rung3_unet_bundle,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle,0.7866,0.8166,21,31,0.8485
+vgg16_crop_rung3_unet_bundle_cuda,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle_cuda,0.7924,0.8144,19,44,0.8643
+vgg16_crop_rung3_unet_bundle_cuda0917,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle_cuda0917,0.7885,0.8119,7,32,0.8074
+vgg16_crop_rung3_unet_bundle_cuda0917_s1,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,1,ladder rung 3; bundle_cuda0917,0.7931,0.8175,9,34,0.823
+vgg16_crop_rung3_unet_bundle_cuda0917_s2,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,2,ladder rung 3; bundle_cuda0917,0.7838,0.8135,8,33,0.8102
+vgg16_crop_rung3_unet_bundle_s1,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,1,ladder rung 3; bundle,0.784,0.8123,7,17,0.7623
+vgg16_crop_rung3_unet_bundle_s1_cuda,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle_s1_cuda,0.7927,0.8178,14,39,0.8459
+vgg16_crop_rung3_unet_bundle_s2,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,2,ladder rung 3; bundle,0.794,0.8196,15,25,0.8087
+vgg16_crop_rung3_unet_bundle_s2_cuda,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; bundle_s2_cuda,0.7853,0.8098,13,38,0.8542
+vgg16_crop_rung3_unet_promoted,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; promoted,0.8368,0.8665,44,69,0.9321
+vgg16_crop_rung3_unet_promoted_cuda0917,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,ladder rung 3; promoted_cuda0917,0.8375,0.865,19,44,0.8892
+vgg16_crop_rung3_unet_promoted_cuda0917_s1,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,1,ladder rung 3; promoted_cuda0917,0.8368,0.8628,28,53,0.9098
+vgg16_crop_rung3_unet_promoted_cuda0917_s2,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,2,ladder rung 3; promoted_cuda0917,0.8341,0.8689,25,50,0.9096
+vgg16_crop_rung3_unet_promoted_s1,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,1,ladder rung 3; promoted,0.8382,0.8592,19,44,0.9042
+vgg16_crop_rung3_unet_promoted_s2,current,crop,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,2,ladder rung 3; promoted,0.8408,0.8572,6,31,0.8524
+vgg16_crop_rung4_cam,current,crop,vgg16,transfer,cam,0.20,default,1e-05 (fine-tune),,,28,ladder rung 4,0.725,0.7225,4,14,0.8464
+vgg16_crop_rung4_cam_cuda,current,crop,vgg16,transfer,cam,0.20,default,1e-05 (fine-tune),,,28,ladder rung 4; cuda,0.7085,0.7252,6,31,0.8558
+vgg16_crop_rung4_cam_cuda0917,current,crop,vgg16,transfer,cam,0.20,default,1e-05 (fine-tune),,,28,ladder rung 4; cuda0917,0.7164,0.7246,38,63,0.9226
+vgg16_crop_rung4_cam_cuda0917_s1,current,crop,vgg16,transfer,cam,0.20,default,1e-05 (fine-tune),,,1,ladder rung 4; cuda0917,0.7043,0.7237,25,50,0.9087
+vgg16_crop_rung4_cam_cuda0917_s2,current,crop,vgg16,transfer,cam,0.20,default,1e-05 (fine-tune),,,2,ladder rung 4; cuda0917,0.7158,0.7249,10,35,0.8773
+vgg16_crop_rung5_jitter_bundle,current,crop,vgg16,transfer,jitter,0.20,default,1e-05 (fine-tune),,,28,ladder rung 5; bundle,0.6879,0.7553,10,20,0.7685
+vgg16_crop_rung5_jitter_bundle_cuda,current,crop,vgg16,transfer,jitter,0.20,default,1e-05 (fine-tune),,,28,ladder rung 5; bundle_cuda,0.7094,0.7358,34,59,0.8909
+vgg16_crop_rung5_jitter_bundle_s1,current,crop,vgg16,transfer,jitter,0.20,default,1e-05 (fine-tune),,,1,ladder rung 5; bundle,0.7004,0.7522,13,23,0.8056
+vgg16_crop_rung5_jitter_bundle_s2,current,crop,vgg16,transfer,jitter,0.20,default,1e-05 (fine-tune),,,2,ladder rung 5; bundle,0.7056,0.7619,15,25,0.8017
+vgg16_crop_rung5_jitter_promoted_cuda0917,current,crop,vgg16,transfer,jitter,0.20,default,1e-05 (fine-tune),,,28,ladder rung 5; promoted_cuda0917,0.7084,0.7619,15,40,0.8388
+vgg16_crop_rung5_jitter_promoted_cuda0917_s1,current,crop,vgg16,transfer,jitter,0.20,default,1e-05 (fine-tune),,,1,ladder rung 5; promoted_cuda0917,0.7098,0.7657,37,62,0.8927
+vgg16_crop_rung5_jitter_promoted_cuda0917_s2,current,crop,vgg16,transfer,jitter,0.20,default,1e-05 (fine-tune),,,2,ladder rung 5; promoted_cuda0917,0.7068,0.7686,43,68,0.9079
+vgg16_crop_rung6_shuffled,current,crop,vgg16,transfer,shuffled,0.20,default,1e-05 (fine-tune),,,28,ladder rung 6,0.5654,0.5368,14,24,0.6169
+vgg16_crop_rung6_shuffled_cuda,current,crop,vgg16,transfer,shuffled,0.20,default,1e-05 (fine-tune),,,28,ladder rung 6; cuda,0.5366,0.5604,32,57,0.7066
+vgg16_crop_rung6_shuffled_cuda0917,current,crop,vgg16,transfer,shuffled,0.20,default,1e-05 (fine-tune),,,28,ladder rung 6; cuda0917,0.5432,0.5454,1,26,0.5692
+vgg16_crop_rung6_shuffled_cuda0917_s1,current,crop,vgg16,transfer,shuffled,0.20,default,1e-05 (fine-tune),,,1,ladder rung 6; cuda0917,0.5452,0.588,44,69,0.7986
+vgg16_crop_rung6_shuffled_cuda0917_s2,current,crop,vgg16,transfer,shuffled,0.20,default,1e-05 (fine-tune),,,2,ladder rung 6; cuda0917,0.5651,0.5581,10,35,0.5561
+vgg16_crop_rung7_whole,current,crop,vgg16,transfer,whole,0.20,default,1e-05 (fine-tune),,,28,ladder rung 7,0.5674,0.714,20,30,0.7714
+vgg16_crop_rung7_whole_cuda,current,crop,vgg16,transfer,whole,0.20,default,1e-05 (fine-tune),,,28,ladder rung 7; cuda,0.6064,0.7053,25,50,0.8054
+vgg16_crop_rung7_whole_cuda0917,current,crop,vgg16,transfer,whole,0.20,default,1e-05 (fine-tune),,,28,ladder rung 7; cuda0917,0.631,0.7211,23,48,0.8122
+vgg16_crop_rung7_whole_cuda0917_s1,current,crop,vgg16,transfer,whole,0.20,default,1e-05 (fine-tune),,,1,ladder rung 7; cuda0917,0.5915,0.7075,34,59,0.868
+vgg16_crop_rung7_whole_cuda0917_s2,current,crop,vgg16,transfer,whole,0.20,default,1e-05 (fine-tune),,,2,ladder rung 7; cuda0917,0.6228,0.735,24,49,0.83
+vgg16_fusion_context,current,fusion,vgg16,transfer,oracle,0.20 + 1.00,default,1e-05 (fine-tune),,,28,fusion mode = context,0.858,0.8793,6,16,0.867
+vgg16_fusion_context_cuda,current,fusion,vgg16,transfer,oracle,0.20 + 1.00,default,1e-05 (fine-tune),,,28,fusion mode = context,0.8566,0.8763,11,36,0.9143
+vgg16_fusion_control,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = control,0.8198,0.8605,13,23,0.8442
+vgg16_fusion_control_all,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = control,0.8226,0.8719,42,52,0.9437
+vgg16_fusion_control_all_cuda,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = control,0.8279,0.8766,32,57,0.9253
+vgg16_fusion_control_cuda,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = control,0.8358,0.8944,40,65,0.9423
+vgg16_fusion_control_cuda0917,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = control,0.8418,0.8888,51,76,0.9618
+vgg16_fusion_control_cuda0917_s1,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = control,0.8575,0.8908,14,39,0.8551
+vgg16_fusion_control_cuda0917_s2,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = control,0.84,0.8631,6,31,0.8365
+vgg16_fusion_control_s1_cuda,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = control,0.8617,0.8842,25,50,0.8791
+vgg16_fusion_control_s2_cuda,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = control,0.8434,0.8818,58,83,0.9696
+vgg16_fusion_view,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8768,0.899,13,23,0.9264
+vgg16_fusion_view_cuda,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8752,0.8964,8,33,0.9242
+vgg16_fusion_view_cuda0917,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8735,0.9117,5,30,0.8844
+vgg16_fusion_view_cuda0917_s1,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8798,0.9151,4,29,0.8471
+vgg16_fusion_view_cuda0917_s2,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8784,0.9089,9,34,0.892
+vgg16_fusion_view_s1_cuda,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.877,0.9079,9,34,0.919
+vgg16_fusion_view_s2_cuda,current,fusion,vgg16,transfer,oracle,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8687,0.9041,7,32,0.9128
+vgg16_fusion_view_unet_bundle,current,fusion,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8553,0.8928,27,37,0.9469
+vgg16_fusion_view_unet_cuda,current,fusion,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8737,0.8994,11,36,0.8774
+vgg16_fusion_view_unet_promoted,current,fusion,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8986,0.9169,34,59,0.9762
+vgg16_fusion_view_unet_promoted_cuda0917,current,fusion,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.9061,0.9247,39,64,0.9849
+vgg16_fusion_view_unet_promoted_cuda0917_s1,current,fusion,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8866,0.9177,23,48,0.9413
+vgg16_fusion_view_unet_promoted_cuda0917_s2,current,fusion,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8802,0.9077,24,49,0.9719
+vgg16_fusion_view_unet_promoted_s1,current,fusion,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8984,0.9336,49,74,0.9949
+vgg16_fusion_view_unet_promoted_s2,current,fusion,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.9055,0.9249,30,55,0.9593
+vgg16_fusion_view_unet_s1_cuda,current,fusion,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8623,0.892,6,31,0.8565
+vgg16_fusion_view_unet_s2_cuda,current,fusion,vgg16,transfer,unet,0.20,default,1e-05 (fine-tune),,,28,fusion mode = view,0.8667,0.8792,3,28,0.8281
+vgg16_full,current,full,vgg16,transfer,none,,default,1e-05 (fine-tune),,,28,,0.6597,0.7275,11,21,0.8378
+vgg16_full_cuda0917,current,full,vgg16,transfer,none,,default,1e-05 (fine-tune),,,28,cuda0917,0.5917,0.6911,22,47,0.8009
+vgg16_full_cuda0917_s1,current,full,vgg16,transfer,none,,default,1e-05 (fine-tune),,,1,cuda0917,0.5797,0.6961,20,45,0.8127
+vgg16_full_cuda0917_s2,current,full,vgg16,transfer,none,,default,1e-05 (fine-tune),,,2,cuda0917,0.6382,0.7102,19,44,0.7501
+vgg16_crop_m100,current (no weights),crop,vgg16,transfer,oracle,1.00,default,1e-05 (fine-tune),,,28,full history only (best over both stages),,0.8278,34,44,0.8255
+baseline_crop,superseded,crop,baseline,scratch,oracle,legacy,default,0.001,,,28,,,0.6891,59,69,0.6327
+baseline_crop_mm_pct_sgd,superseded,crop,baseline,scratch,oracle,legacy,default,0.001,,,28,mm_pct_sgd,,0.6764,13,23,0.598
+densenet121_crop,superseded,crop,densenet121,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,,0.8165,0.8208,5,15,0.8352
+densenet121_crop_hires320,superseded,crop,densenet121,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,hires320,0.7814,0.7738,1,11,0.7834
+densenet121_crop_maskm,superseded,crop,densenet121,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,maskm,0.8181,0.8266,28,38,0.8862
+densenet121_crop_maskm_clinical,superseded,crop,densenet121,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,maskm_clinical,0.8142,0.8244,20,30,0.8726
+densenet121_crop_mm_pct_d5_mo_sgd_oa6,superseded,crop,densenet121,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,mm_pct_d5_mo_sgd_oa6,0.8204,0.8417,93,100,0.8132
+densenet121_crop_pct,superseded,crop,densenet121,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,pct,0.8314,0.8363,6,16,0.7944
+densenet121_crop_pct_maskm,superseded,crop,densenet121,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,pct_maskm,0.8417,0.8535,40,50,0.93
+efficientnet_crop,superseded,crop,efficientnet,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,,0.5996,0.5945,1,11,0.5095
+regularised_crop,superseded,crop,regularised,scratch,oracle,legacy,default,0.0005,,,28,,,0.7013,22,37,0.6778
+regularised_crop_mm_pct_mo_sgd,superseded,crop,regularised,scratch,oracle,legacy,default,0.0005,,,28,mm_pct_mo_sgd,,0.6605,7,22,0.53
+regularised_crop_mm_pct_sgd_lr5e3,superseded,crop,regularised,scratch,oracle,legacy,default,5e3,,,28,mm_pct_sgd,,0.6917,49,64,0.6787
+resnet50_crop,superseded,crop,resnet50,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,,0.6072,0.6759,16,26,0.678
+resnet50_crop_mm_pct_d5_mo_sgd_oa6,superseded,crop,resnet50,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,mm_pct_d5_mo_sgd_oa6,0.6992,0.7345,53,63,0.7112
+scaled_crop,superseded,crop,scaled,scratch,oracle,legacy,default,0.001,,,28,,,0.6393,30,40,0.6202
+scaled_crop_mm_pct_sgd,superseded,crop,scaled,scratch,oracle,legacy,default,0.001,,,28,mm_pct_sgd,,0.6735,17,27,0.6533
+vgg16_crop,superseded,crop,vgg16,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,,0.7742,0.837,13,23,0.9543
+vgg16_crop_final,superseded,crop,vgg16,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,final,0.7711,0.84,17,27,0.9723
+vgg16_crop_m100,superseded,crop,vgg16,transfer,oracle,1.00,default,1e-05 (fine-tune),,,28,,0.7804,0.8278,6,16,0.8255
+vgg16_crop_mm_pct_d5,superseded,crop,vgg16,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,mm_pct_d5,0.793,0.8668,25,35,0.9985
+vgg16_crop_mm_pct_d5_mo_sgd_oa6,superseded,crop,vgg16,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,mm_pct_d5_mo_sgd_oa6,0.8129,0.8569,59,69,0.8479
+vgg16_crop_pct_nosq,superseded,crop,vgg16,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,pct_nosq,0.7983,0.8614,23,33,0.9972
+vgg16_crop_tight_pct,superseded,crop,vgg16,transfer,oracle,legacy,default,1e-05 (fine-tune),,,28,tight_pct,0.7941,0.8487,12,22,0.8978
+baseline,superseded,full,baseline,scratch,none,,default,0.001,,,28,,,0.7356,27,37,0.7421
+densenet121,superseded,full,densenet121,transfer,none,,default,1e-05 (fine-tune),,,28,,0.6793,0.6855,12,22,0.6855
+regularised,superseded,full,regularised,scratch,none,,default,0.0005,,,28,,,0.7227,12,27,0.9354
+scaled,superseded,full,scaled,scratch,none,,default,0.001,,,28,,,0.7383,32,100,0.8715

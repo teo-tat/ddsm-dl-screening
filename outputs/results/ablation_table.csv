@@ -1,0 +1,9 @@
+task,tag,change,val_auc,delta_vs_replica,best_epoch,epochs_run,epochs_cap,hit_cap,train_auc_at_best,verdict
+A4.0,regularised_crop_m020_kg,replica baseline (reference),0.7899,,77,92,200,False,0.7762,
+A4.1,regularised_crop_m020_no_dropout_kg,head dropout 0.3 -> 0,0.7045,-0.0854,27,42,200,False,0.7221,worse than replica
+A4.2,regularised_crop_m020_no_l2_kg,L2 3e-5 -> 0,0.7974,0.0075,120,135,200,False,0.8572,within noise
+A4.3,regularised_crop_m020_no_se_kg,SE blocks removed,0.7877,-0.0022,77,92,200,False,0.8054,within noise
+A4.4,regularised_crop_m020_no_aug_kg,augmentation off,0.6785,-0.1114,14,29,200,False,0.9432,worse than replica
+A4.5,regularised_crop_m020_lr2e-3_kg,LR 5e-4 -> 2e-3,0.6656,-0.1244,19,34,200,False,0.6316,worse than replica
+A4.6,regularised_crop_m020_overlay_lrmatched_kg,dilated-mask overlay on the crop,0.67,-0.1199,16,31,200,False,0.616,worse than replica
+stage 7,regularised_crop_m020,local baseline (stage table row; not the ablation reference),0.7976,,99,100,100,True,0.8648,reference only

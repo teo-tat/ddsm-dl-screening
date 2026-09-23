@@ -1,0 +1,11 @@
+config,tags,exact_val_auc,n_seeds,delta_vs_mean,clears_bar,descriptive
+a. margin 0.10,"['vgg16_crop_rung2_oracle_m010', 'vgg16_crop_rung2_oracle_m010_s1', 'vgg16_crop_rung2_oracle_m010_s2']",0.8575063613231553,3.0,-0.014971828426026845,False,False
+a. margin 0.20 (incumbent),"['vgg16_crop_rung2_oracle_cuda', 'vgg16_crop_rung2_oracle_s1_cuda', 'vgg16_crop_rung2_oracle_s2_cuda']",0.8731143220647039,3.0,0.0006361323155217313,False,False
+a. margin 0.30,"['vgg16_crop_rung2_oracle_m030', 'vgg16_crop_rung2_oracle_m030_s1', 'vgg16_crop_rung2_oracle_m030_s2']",0.8620501635768812,3.0,-0.010428026172300875,False,False
+a. margin 0.40,"['vgg16_crop_rung2_oracle_m040', 'vgg16_crop_rung2_oracle_m040_s1', 'vgg16_crop_rung2_oracle_m040_s2']",0.8662986186841147,3.0,-0.006179571065067391,False,False
+c. patience 50,['vgg16_crop_rung2_oracle_p50'],0.8665485278080698,1.0,-0.00592966194111233,False,True
+d. resnet50,['resnet50_crop_rung2_oracle'],0.7828516902944382,1.0,-0.08962649945474388,False,True
+d. densenet121,['densenet121_crop_rung2_oracle'],0.8446701199563794,1.0,-0.027808069792802703,False,True
+d. efficientnet,['efficientnet_crop_rung2_oracle'],0.8694111232279171,1.0,-0.003067066521264983,False,True
+b. ens5 (five seeds),['vgg16_crop_rung2_oracle_ens5'],0.8815430752453655,,0.00906488549618334,False,False
+d. four-backbone,['crop_rung2_oracle_ens4backbone'],0.8879498364231188,,0.015471646673936634,False,True

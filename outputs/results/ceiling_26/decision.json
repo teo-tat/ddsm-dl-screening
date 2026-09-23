@@ -1,0 +1,155 @@
+{
+  "baseline_tags": [
+    "vgg16_crop_rung2_oracle_cuda",
+    "vgg16_crop_rung2_oracle_s1_cuda",
+    "vgg16_crop_rung2_oracle_s2_cuda",
+    "vgg16_crop_rung2_oracle_s3",
+    "vgg16_crop_rung2_oracle_s4"
+  ],
+  "baseline_aucs": [
+    0.8861095965103599,
+    0.8668893129770993,
+    0.8663440567066522,
+    0.8751363140676117,
+    0.8679116684841875
+  ],
+  "n_seeds": 5,
+  "mean": 0.8724781897491821,
+  "sd": 0.008405312656313618,
+  "floor": 0.01,
+  "delta": 0.025215937968940852,
+  "bar": 0.897694127718123,
+  "seed28": 0.8861095965103599,
+  "seed28_z": 1.6217608218224484,
+  "route_mask_margin": [
+    null,
+    null,
+    null
+  ],
+  "route_box_provider": [
+    0.8861095965103599,
+    0.8668893129770993,
+    0.8663440567066522
+  ],
+  "configs": [
+    {
+      "config": "a. margin 0.10",
+      "tags": [
+        "vgg16_crop_rung2_oracle_m010",
+        "vgg16_crop_rung2_oracle_m010_s1",
+        "vgg16_crop_rung2_oracle_m010_s2"
+      ],
+      "exact_val_auc": 0.8575063613231553,
+      "n_seeds": 3,
+      "delta_vs_mean": -0.014971828426026845,
+      "clears_bar": false,
+      "descriptive": false
+    },
+    {
+      "config": "a. margin 0.20 (incumbent)",
+      "tags": [
+        "vgg16_crop_rung2_oracle_cuda",
+        "vgg16_crop_rung2_oracle_s1_cuda",
+        "vgg16_crop_rung2_oracle_s2_cuda"
+      ],
+      "exact_val_auc": 0.8731143220647039,
+      "n_seeds": 3,
+      "delta_vs_mean": 0.0006361323155217313,
+      "clears_bar": false,
+      "descriptive": false
+    },
+    {
+      "config": "a. margin 0.30",
+      "tags": [
+        "vgg16_crop_rung2_oracle_m030",
+        "vgg16_crop_rung2_oracle_m030_s1",
+        "vgg16_crop_rung2_oracle_m030_s2"
+      ],
+      "exact_val_auc": 0.8620501635768812,
+      "n_seeds": 3,
+      "delta_vs_mean": -0.010428026172300875,
+      "clears_bar": false,
+      "descriptive": false
+    },
+    {
+      "config": "a. margin 0.40",
+      "tags": [
+        "vgg16_crop_rung2_oracle_m040",
+        "vgg16_crop_rung2_oracle_m040_s1",
+        "vgg16_crop_rung2_oracle_m040_s2"
+      ],
+      "exact_val_auc": 0.8662986186841147,
+      "n_seeds": 3,
+      "delta_vs_mean": -0.006179571065067391,
+      "clears_bar": false,
+      "descriptive": false
+    },
+    {
+      "config": "c. patience 50",
+      "tags": [
+        "vgg16_crop_rung2_oracle_p50"
+      ],
+      "exact_val_auc": 0.8665485278080698,
+      "n_seeds": 1,
+      "delta_vs_mean": -0.00592966194111233,
+      "clears_bar": false,
+      "descriptive": true
+    },
+    {
+      "config": "d. resnet50",
+      "tags": [
+        "resnet50_crop_rung2_oracle"
+      ],
+      "exact_val_auc": 0.7828516902944382,
+      "n_seeds": 1,
+      "delta_vs_mean": -0.08962649945474388,
+      "clears_bar": false,
+      "descriptive": true
+    },
+    {
+      "config": "d. densenet121",
+      "tags": [
+        "densenet121_crop_rung2_oracle"
+      ],
+      "exact_val_auc": 0.8446701199563794,
+      "n_seeds": 1,
+      "delta_vs_mean": -0.027808069792802703,
+      "clears_bar": false,
+      "descriptive": true
+    },
+    {
+      "config": "d. efficientnet",
+      "tags": [
+        "efficientnet_crop_rung2_oracle"
+      ],
+      "exact_val_auc": 0.8694111232279171,
+      "n_seeds": 1,
+      "delta_vs_mean": -0.003067066521264983,
+      "clears_bar": false,
+      "descriptive": true
+    },
+    {
+      "config": "b. ens5 (five seeds)",
+      "tags": [
+        "vgg16_crop_rung2_oracle_ens5"
+      ],
+      "exact_val_auc": 0.8815430752453655,
+      "delta_vs_mean": 0.00906488549618334,
+      "clears_bar": false,
+      "descriptive": false
+    },
+    {
+      "config": "d. four-backbone",
+      "tags": [
+        "crop_rung2_oracle_ens4backbone"
+      ],
+      "exact_val_auc": 0.8879498364231188,
+      "delta_vs_mean": 0.015471646673936634,
+      "clears_bar": false,
+      "descriptive": true
+    }
+  ],
+  "provisional": false,
+  "winner": null,
+  "rule": "replace the incumbent only if a configuration beats the m=0.20 five-seed mean by more than max(0.01, 3 x pooled five-seed SD), fixed before any run"
+}

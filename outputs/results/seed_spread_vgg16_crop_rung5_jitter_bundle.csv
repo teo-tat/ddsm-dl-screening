@@ -1,0 +1,4 @@
+tag,seed,status,val_auc_best,epoch_best,epochs,train_auc_at_best,val_auc_at_min_loss
+vgg16_crop_rung5_jitter_bundle,28,ok,0.7553,10,20,0.7685,0.7381
+vgg16_crop_rung5_jitter_bundle_s1,1,ok,0.7522,13,23,0.8056,0.7522
+vgg16_crop_rung5_jitter_bundle_s2,2,ok,0.7619,15,25,0.8017,0.7619

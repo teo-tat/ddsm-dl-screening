@@ -1,0 +1,29 @@
+{
+  "tag": "regularised_crop_m020_overlay_lrmatched_kg",
+  "model": "regularised",
+  "ablate": null,
+  "lr": 0.0005,
+  "seed": null,
+  "augment": true,
+  "epochs_run": 31,
+  "epochs_cap": 200,
+  "best_epoch": 16,
+  "val_auc_best": 0.6699836254119873,
+  "train_auc_at_best": 0.6159822940826416,
+  "store": "/kaggle/input/datasets/tataruteodor/crop-store-m020-overlay",
+  "store_files": {
+    "val_images.npy": "33eef41770c2b48c",
+    "train_images.npy": "62036d29bd7758a0"
+  },
+  "store_manifest": {
+    "margin": 0.2,
+    "mask_overlay": true,
+    "intensity_norm": "percentile"
+  },
+  "tf_version": "2.20.0",
+  "gpus": [
+    "/physical_device:GPU:0"
+  ],
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "wall_time_s": 147.1
+}

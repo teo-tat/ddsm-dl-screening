@@ -1,0 +1,53 @@
+{
+  "model": "baseline",
+  "n_test_samples": 243,
+  "n_positive": 113,
+  "n_negative": 130,
+  "optimal_threshold": 0.1843,
+  "metrics": {
+    "auc_roc": {
+      "value": 0.6359,
+      "ci_95_lower": 0.5683,
+      "ci_95_upper": 0.705
+    },
+    "auc_pr": {
+      "value": 0.5918,
+      "ci_95_lower": 0.5287,
+      "ci_95_upper": 0.6699
+    },
+    "sensitivity": {
+      "value": 0.9115,
+      "ci_95_lower": 0.8584,
+      "ci_95_upper": 0.9646
+    },
+    "specificity": {
+      "value": 0.1846,
+      "ci_95_lower": 0.1154,
+      "ci_95_upper": 0.2538
+    },
+    "accuracy": {
+      "value": 0.5226,
+      "ci_95_lower": 0.4815,
+      "ci_95_upper": 0.5639
+    }
+  },
+  "confusion_matrix": {
+    "tn": 24,
+    "fp": 106,
+    "fn": 10,
+    "tp": 103
+  },
+  "baselines": {
+    "birads_auc_roc": 0.813,
+    "birads_sensitivity": 0.897,
+    "birads_auc_pr": 0.745,
+    "exceeds_birads_auc_roc": false,
+    "exceeds_birads_sensitivity": true,
+    "exceeds_birads_auc_pr": false
+  },
+  "literature_context": {
+    "wang_2024_auc_reference": 0.9,
+    "wang_2024_sensitivity_reference": 0.85,
+    "wang_2024_specificity_reference": 0.8
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "tag": "regularised_crop_m020_no_dropout_kg",
+  "model": "regularised",
+  "ablate": "dropout",
+  "lr": 0.0005,
+  "seed": null,
+  "augment": true,
+  "epochs_run": 42,
+  "epochs_cap": 200,
+  "best_epoch": 27,
+  "val_auc_best": 0.7044711709022522,
+  "train_auc_at_best": 0.7221338748931885,
+  "store": "/kaggle/input/datasets/tataruteodor/crop-store-m020",
+  "store_files": {
+    "val_images.npy": "b4358e2b12e250ec",
+    "train_images.npy": "475e30f8b1060e11"
+  },
+  "store_manifest": {
+    "margin": 0.2,
+    "mask_overlay": false,
+    "intensity_norm": "percentile"
+  },
+  "tf_version": "2.20.0",
+  "gpus": [
+    "/physical_device:GPU:0"
+  ],
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "wall_time_s": 190.1
+}

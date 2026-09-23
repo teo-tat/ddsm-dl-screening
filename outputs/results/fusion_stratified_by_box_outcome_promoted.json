@@ -1,0 +1,32 @@
+{
+  "n_pairs": 100,
+  "boxes": "outputs/results/localiser_bundle/boxes_A24/localiser_boxes_val.csv",
+  "fusion": "outputs/results/vgg16_fusion_view_unet_promoted_ens3_predictions_val.csv",
+  "controls": "outputs/results/rung3_on_pairs_promoted_predictions_val.csv",
+  "strata": {
+    "both_ok": {
+      "n": 63,
+      "n_malig": 37,
+      "n_patients": 62,
+      "auc_fusion": 0.9604989604989606,
+      "auc_avg": 0.9573804573804574,
+      "diff": 0.0031185031185031464,
+      "ci95": [
+        -0.024149613899614,
+        0.032224532224532254
+      ]
+    },
+    "any_failed": {
+      "n": 37,
+      "n_malig": 10,
+      "n_patients": 32,
+      "auc_fusion": 0.8148148148148148,
+      "auc_avg": 0.8518518518518519,
+      "diff": -0.03703703703703709,
+      "ci95": [
+        -0.13048036465638158,
+        0.03384057971014494
+      ]
+    }
+  }
+}

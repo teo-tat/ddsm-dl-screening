@@ -1,0 +1,25 @@
+{
+  "pairs": "outputs/fusion_store_vgg16_fusion_view_unet_promoted/val_meta.csv",
+  "rung3_table": "outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_ens3_predictions_val.csv",
+  "n_pairs": 100,
+  "n_malignant": 47,
+  "n_patients": 91,
+  "n_pairs_with_discordant_view_labels": 0,
+  "controls": {
+    "view_a_only": {
+      "auc": 0.907668,
+      "ci95": [
+        0.8394,
+        0.9591
+      ]
+    },
+    "mean_a_b": {
+      "auc": 0.926536,
+      "ci95": [
+        0.8699,
+        0.9685
+      ]
+    }
+  },
+  "rung3_all_lesions_for_context": 0.869547
+}

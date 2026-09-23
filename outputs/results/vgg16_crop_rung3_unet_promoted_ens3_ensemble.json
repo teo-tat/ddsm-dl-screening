@@ -1,0 +1,28 @@
+{
+  "out_tag": "vgg16_crop_rung3_unet_promoted_ens3",
+  "members": [
+    "vgg16_crop_rung3_unet_promoted",
+    "vgg16_crop_rung3_unet_promoted_s1",
+    "vgg16_crop_rung3_unet_promoted_s2"
+  ],
+  "method": "mean",
+  "splits": [
+    {
+      "split": "val",
+      "n": 243,
+      "method": "mean",
+      "member_auc": {
+        "vgg16_crop_rung3_unet_promoted": 0.866412213740458,
+        "vgg16_crop_rung3_unet_promoted_s1": 0.8590512540894221,
+        "vgg16_crop_rung3_unet_promoted_s2": 0.8575517993456925
+      },
+      "member_auc_mean": 0.8610050890585242,
+      "ensemble_auc": 0.8680479825517994,
+      "ensemble_auc_ci": [
+        0.8082322618638234,
+        0.9167455718490486
+      ],
+      "threshold": 0.2766109158595403
+    }
+  ]
+}

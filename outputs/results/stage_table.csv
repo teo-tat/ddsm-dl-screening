@@ -1,0 +1,10 @@
+stage,model,tag,val_auc_best,epoch_best,train_auc_at_best,val_auc_at_min_loss,epochs,note
+5,Baseline CNN (scratch),baseline_crop_m020,0.645,13,0.5872,0.6427,23,Chollet 5: beat a baseline
+6,"Scaled CNN (scratch, no regularisation, no augmentation)",scaled_crop_m020,0.7172,79,0.7433,0.688,100,Chollet 6: overfit probe at INITIAL_LR 1e-3
+6,"Scaled CNN, LR matched to stage 7 (5e-4)",scaled_crop_m020_lr5e-4,0.6907,94,0.9991,0.6531,100,"Chollet 6: same model at REGULARISED_LR, removes the LR confound"
+7,"Regularised CNN (scratch, SE + L2 + dropout)",regularised_crop_m020,0.7976,99,0.8648,0.7939,100,Chollet 7
+8,VGG16 (ImageNet transfer),vgg16_crop_m020,0.8837,58,0.9684,0.879,68,C2 winner; ladder architecture
+8,EfficientNetB0 (ImageNet transfer),efficientnet_crop_m020,0.8503,3,0.7729,0.8464,13,corrected input scale
+8,DenseNet121 (ImageNet transfer),densenet121_crop_m020,0.8478,39,0.8252,0.8478,49,
+8,ResNet50 (ImageNet transfer),resnet50_crop_m020,0.8054,26,0.7787,0.785,36,
+A,VGG16 whole image (Pipeline A),vgg16_full,0.7275,11,0.8378,0.7275,21,no localisation; image-level rows

@@ -1,0 +1,28 @@
+{
+  "both_ok": {
+    "n": 59,
+    "n_malig": 33,
+    "n_patients": 59,
+    "auc_fusion": 0.9126,
+    "auc_avg": 0.9068,
+    "diff": 0.0058,
+    "ci95": [
+      -0.0399,
+      0.0528
+    ],
+    "frac_positive": 0.601
+  },
+  "any_failed": {
+    "n": 41,
+    "n_malig": 14,
+    "n_patients": 35,
+    "auc_fusion": 0.8439,
+    "auc_avg": 0.7804,
+    "diff": 0.0635,
+    "ci95": [
+      -0.0349,
+      0.1708
+    ],
+    "frac_positive": 0.89
+  }
+}
