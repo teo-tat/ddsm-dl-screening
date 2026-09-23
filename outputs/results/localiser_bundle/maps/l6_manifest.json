@@ -1,0 +1,44 @@
+{
+  "run": "l6",
+  "weights": "/workspace/runs/localiser_l6_vgg16enc_cachev3_bg40/best.weights.h5",
+  "encoder": "vgg16",
+  "base_filters": 32,
+  "depth": 4,
+  "tensors_dir": "/workspace/cache_v3_perlesion",
+  "tiled_inference": true,
+  "tile_overlap": 64,
+  "map_canvas": [
+    1024,
+    576
+  ],
+  "dtype": "uint8 = round(255 * p)",
+  "flip": "horizontal, stored un-flipped",
+  "splits": {
+    "val": {
+      "n": 243,
+      "single_box_mean_iou_8bit": 0.2189337252633153,
+      "lesion_ids_head": [
+        "Mass-Training_P_00023_RIGHT_CC_1",
+        "Mass-Training_P_00023_RIGHT_MLO_1",
+        "Mass-Training_P_00027_RIGHT_CC_1"
+      ],
+      "single_box_mean_iou_8bit_superseded": 0.0004861404590791663,
+      "superseded_reason": "scored against the predicted-from store's masks, whose canvas differs from the stored map canvas; see _gt_store_for_canvas",
+      "single_box_check_gt_store": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/localiser_tensors",
+      "single_box_check_note": "ok"
+    },
+    "train": {
+      "n": 1210,
+      "single_box_mean_iou_8bit": 0.21733906262823732,
+      "lesion_ids_head": [
+        "Mass-Training_P_00001_LEFT_CC_1",
+        "Mass-Training_P_00001_LEFT_MLO_1",
+        "Mass-Training_P_00004_LEFT_CC_1"
+      ],
+      "single_box_mean_iou_8bit_superseded": 0.0006328380048823836,
+      "superseded_reason": "scored against the predicted-from store's masks, whose canvas differs from the stored map canvas; see _gt_store_for_canvas",
+      "single_box_check_gt_store": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/localiser_tensors",
+      "single_box_check_note": "ok"
+    }
+  }
+}

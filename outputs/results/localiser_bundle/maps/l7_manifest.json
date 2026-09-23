@@ -1,0 +1,21 @@
+{
+  "run": "l7",
+  "framework": "pytorch",
+  "tensors_dir": "/workspace/cache_v2_perlesion",
+  "map_canvas": [
+    1024,
+    576
+  ],
+  "tiled_inference": true,
+  "tile_overlap": 64,
+  "dtype": "uint8 = round(255 * p)",
+  "flip": "horizontal, stored un-flipped",
+  "splits": {
+    "val": {
+      "n": 243
+    },
+    "train": {
+      "n": 1210
+    }
+  }
+}

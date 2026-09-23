@@ -1,0 +1,31 @@
+{
+  "run": "l9",
+  "framework": "pytorch",
+  "tensors_dir": "/workspace/cache_v1_perlesion",
+  "map_canvas": [
+    1024,
+    576
+  ],
+  "tiled_inference": false,
+  "tile_overlap": null,
+  "dtype": "uint8 = round(255 * p)",
+  "flip": "horizontal, stored un-flipped",
+  "splits": {
+    "val": {
+      "n": 243,
+      "single_box_mean_iou_8bit": 0.4801812786175943,
+      "single_box_check_gt_store": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/localiser_tensors_v1_notest",
+      "single_box_check_note": "ok",
+      "single_box_mean_iou_8bit_superseded": 0.4801812786175943,
+      "superseded_reason": "scored against the predicted-from store's masks, whose canvas differs from the stored map canvas; see _gt_store_for_canvas"
+    },
+    "train": {
+      "n": 1210,
+      "single_box_mean_iou_8bit": 0.8354825782371439,
+      "single_box_check_gt_store": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/localiser_tensors_v1_notest",
+      "single_box_check_note": "ok",
+      "single_box_mean_iou_8bit_superseded": 0.8354825782371439,
+      "superseded_reason": "scored against the predicted-from store's masks, whose canvas differs from the stored map canvas; see _gt_store_for_canvas"
+    }
+  }
+}

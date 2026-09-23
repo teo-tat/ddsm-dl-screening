@@ -1,0 +1,73 @@
+{
+  "selected_cfg_id": 6175,
+  "selected": {
+    "ensemble": "run1+run3+run4+l7v",
+    "tta": true,
+    "breast_filter": false,
+    "rule": "peak",
+    "threshold": 0.2,
+    "min_px": 16
+  },
+  "selection_rule": "ensemble set fixed a priori to all swept runs; threshold, min-px, rule and TTA selected on train",
+  "runs": [
+    "run1",
+    "run3",
+    "run4",
+    "l7v"
+  ],
+  "train": {
+    "mean_iou": 0.6256327033042908,
+    "detection": 0.9942148760330578
+  },
+  "val": {
+    "mean_iou": 0.4931742250919342,
+    "detection": 0.9753086419753086
+  },
+  "superseded_selection": {
+    "selected_cfg_id": 1535,
+    "selected": {
+      "ensemble": "l7v",
+      "tta": true,
+      "breast_filter": false,
+      "rule": "sum",
+      "threshold": 0.5,
+      "min_px": 16
+    },
+    "val": {
+      "mean_iou": 0.44020870327949524,
+      "detection": 0.9012345679012346,
+      "detect_at_iou50": 0.551440329218107,
+      "n": 243
+    },
+    "gate_bundle_vs_run1": {
+      "candidate": "bundle",
+      "reference": "run1",
+      "n_lesions": 243,
+      "n_patients": 129,
+      "n_iterations": 1000,
+      "mean_iou_candidate": 0.4402087359486675,
+      "mean_iou_reference": 0.3852794141574629,
+      "mean_diff": 0.0549293217912046,
+      "ci_lower": 0.009429966292112799,
+      "ci_upper": 0.09885456513955117,
+      "n_lesions_improved": 115,
+      "n_lesions_worse": 70,
+      "passes": true
+    }
+  },
+  "gate_bundle_vs_run1": {
+    "candidate": "bundle",
+    "reference": "run1",
+    "n_lesions": 243,
+    "n_patients": 129,
+    "n_iterations": 1000,
+    "mean_iou_candidate": 0.49317424517665986,
+    "mean_iou_reference": 0.3852794141574629,
+    "mean_diff": 0.10789483101919689,
+    "ci_lower": 0.07094214985016088,
+    "ci_upper": 0.14152395884274377,
+    "n_lesions_improved": 130,
+    "n_lesions_worse": 57,
+    "passes": true
+  }
+}

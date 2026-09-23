@@ -1,0 +1,38 @@
+{
+  "selected_cfg_id": 54485,
+  "selected": {
+    "ensemble": "run1+run3+run4+l7v+l7a+l8a+l9",
+    "tta": true,
+    "breast_filter": false,
+    "rule": "peak",
+    "threshold": 0.4,
+    "min_px": 16,
+    "weights": "g:keras=0.5,torch=2"
+  },
+  "selection_rule": "ensemble set fixed a priori to all swept runs; weights, threshold, min-px, rule and TTA selected on train",
+  "runs": [
+    "run1",
+    "run3",
+    "run4",
+    "l7v",
+    "l7a",
+    "l8a",
+    "l9"
+  ],
+  "weight_vector": [
+    0.3684210526315789,
+    0.3684210526315789,
+    0.3684210526315789,
+    1.4736842105263157,
+    1.4736842105263157,
+    1.4736842105263157,
+    1.4736842105263157
+  ],
+  "train": {
+    "mean_iou": 0.8050512075424194
+  },
+  "val": {
+    "mean_iou": 0.529951810836792
+  },
+  "reexport_note": "exported through the fixed _bundle_boxes path that receives the weight vector; supersedes the equal-weight export of 11 September"
+}

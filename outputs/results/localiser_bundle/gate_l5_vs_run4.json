@@ -1,0 +1,17 @@
+{
+  "candidate": "l5_vs_run4",
+  "reference": "localiser_run4_eval",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.4095218854649212,
+  "mean_iou_reference": 0.4190320956080881,
+  "mean_diff": -0.009510210143166794,
+  "ci_lower": -0.04689984287087675,
+  "ci_upper": 0.028745525937591065,
+  "n_lesions_improved": 77,
+  "n_lesions_worse": 95,
+  "passes": false,
+  "candidate_table": "outputs/results/localiser_l5_eval/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_run4_eval/localiser_boxes_val.csv"
+}

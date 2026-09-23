@@ -1,0 +1,45 @@
+{
+  "weights": "outputs/_cuda/localiser_l6_vgg16enc_cachev3_bg40/best.weights.h5",
+  "threshold": 0.1,
+  "n": 243,
+  "n_silent": 37,
+  "silent_rate": 0.1523,
+  "silent": {
+    "n": 37,
+    "median_side_px": 55.6,
+    "malignant_rate": 0.2973
+  },
+  "rest": {
+    "n": 206,
+    "median_side_px": 84.4,
+    "malignant_rate": 0.4903
+  },
+  "size_quartile_mix": {
+    "False": {
+      "Q1": 0.2039,
+      "Q2": 0.2621,
+      "Q3": 0.2573,
+      "Q4": 0.2767
+    },
+    "True": {
+      "Q1": 0.5135,
+      "Q2": 0.1892,
+      "Q3": 0.1892,
+      "Q4": 0.1081
+    }
+  },
+  "density_mix": {
+    "False": {
+      "1": 0.2427,
+      "2": 0.432,
+      "3": 0.2427,
+      "4": 0.0825
+    },
+    "True": {
+      "1": 0.3243,
+      "2": 0.3784,
+      "3": 0.2162,
+      "4": 0.0811
+    }
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "split": "val",
+    "n": 243,
+    "n_scored": 243,
+    "n_no_gt": 0,
+    "detection_rate": 0.9547325102880658,
+    "fallback_rate": 0.04526748971193416,
+    "mask_iou_mean": 0.36146905787717704,
+    "dice_mean": 0.48032615039795845,
+    "box_iou_inclusive_mean": 0.4700471498726283,
+    "box_iou_inclusive_median": 0.5874840357598978,
+    "box_iou_mean_given_detected": 0.49233386818555464,
+    "box_iou_mammogram_mean": 0.48920561832004106,
+    "detect_at_iou50": 0.6213991769547325,
+    "detect_at_iou30": 0.6790123456790124,
+    "centroid_hit_rate": 0.7037037037037037,
+    "box_iou_any_inclusive_mean": 0.5051176683958418,
+    "pct_rows_on_multilesion_images": 0.12345679012345678,
+    "n_images": 225,
+    "dice_image_mean_inclusive": 0.5089894994173271,
+    "dice_image_mean_detected": 0.5230558874687586,
+    "bundle": {
+      "ensemble": "run1+run3+run4",
+      "tta": true,
+      "breast_filter": false,
+      "rule": "peak",
+      "threshold": 0.15,
+      "min_px": 256
+    }
+  },
+  {
+    "split": "train",
+    "n": 1210,
+    "n_scored": 1210,
+    "n_no_gt": 0,
+    "detection_rate": 0.9892561983471074,
+    "fallback_rate": 0.010743801652892562,
+    "mask_iou_mean": 0.4383780805262964,
+    "dice_mean": 0.5680637624304887,
+    "box_iou_inclusive_mean": 0.545573847487698,
+    "box_iou_inclusive_median": 0.6664542928605848,
+    "box_iou_mean_given_detected": 0.551499043826328,
+    "box_iou_mammogram_mean": 0.5486937110692244,
+    "detect_at_iou50": 0.6933884297520662,
+    "detect_at_iou30": 0.768595041322314,
+    "centroid_hit_rate": 0.7735537190082644,
+    "box_iou_any_inclusive_mean": 0.5747885743529826,
+    "pct_rows_on_multilesion_images": 0.09090909090909091,
+    "n_images": 1146,
+    "dice_image_mean_inclusive": 0.5920106361795621,
+    "dice_image_mean_detected": 0.5980011910193742,
+    "bundle": {
+      "ensemble": "run1+run3+run4",
+      "tta": true,
+      "breast_filter": false,
+      "rule": "peak",
+      "threshold": 0.15,
+      "min_px": 256
+    }
+  }
+]

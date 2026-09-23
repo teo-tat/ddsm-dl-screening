@@ -1,0 +1,17 @@
+{
+  "candidate": "l10_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.5070708628402966,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": 0.03702371296766823,
+  "ci_lower": 0.004923932717095006,
+  "ci_upper": 0.06747677173315692,
+  "n_lesions_improved": 101,
+  "n_lesions_worse": 93,
+  "passes": true,
+  "candidate_table": "outputs/_cuda/localiser_l10_fasterrcnn_cachev2/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv"
+}

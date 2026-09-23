@@ -1,0 +1,106 @@
+{
+  "seed_member": "run4_s2",
+  "passes": [
+    "l7v",
+    "l7a",
+    "l8a",
+    "l9"
+  ],
+  "seed_own_c_passed": false,
+  "per_pass": {
+    "l7v": {
+      "candidate": "ens4+run4_s2",
+      "reference": "ens4+l7v",
+      "n_lesions": 243,
+      "n_patients": 129,
+      "n_iterations": 1000,
+      "mean_iou_candidate": 0.4692516171807306,
+      "mean_iou_reference": 0.49317424517665986,
+      "mean_diff": -0.02392262799592923,
+      "ci_lower": -0.04384343640257157,
+      "ci_upper": -0.005539630622272953,
+      "n_lesions_improved": 79,
+      "n_lesions_worse": 79,
+      "passes": false,
+      "seed_c_passed": false,
+      "reading": "1: the seed's own (c) FAILED and it is clearly below the pass \u2014 the gain requires a differently-implemented member. The difference is the implementation-diversity effect size."
+    },
+    "l7a": {
+      "candidate": "ens4+run4_s2",
+      "reference": "ens4+l7a",
+      "n_lesions": 243,
+      "n_patients": 129,
+      "n_iterations": 1000,
+      "mean_iou_candidate": 0.4692516171807306,
+      "mean_iou_reference": 0.4988053195313254,
+      "mean_diff": -0.029553702350594825,
+      "ci_lower": -0.058774148877685756,
+      "ci_upper": -0.005169337519839003,
+      "n_lesions_improved": 67,
+      "n_lesions_worse": 86,
+      "passes": false,
+      "seed_c_passed": false,
+      "reading": "1: the seed's own (c) FAILED and it is clearly below the pass \u2014 the gain requires a differently-implemented member. The difference is the implementation-diversity effect size."
+    },
+    "l8a": {
+      "candidate": "ens4+run4_s2",
+      "reference": "ens4+l8a",
+      "n_lesions": 243,
+      "n_patients": 129,
+      "n_iterations": 1000,
+      "mean_iou_candidate": 0.4692516171807306,
+      "mean_iou_reference": 0.4976636019571804,
+      "mean_diff": -0.028411984776449822,
+      "ci_lower": -0.05526664787389719,
+      "ci_upper": -0.005167267639057378,
+      "n_lesions_improved": 72,
+      "n_lesions_worse": 88,
+      "passes": false,
+      "seed_c_passed": false,
+      "reading": "1: the seed's own (c) FAILED and it is clearly below the pass \u2014 the gain requires a differently-implemented member. The difference is the implementation-diversity effect size."
+    },
+    "l9": {
+      "candidate": "ens4+run4_s2",
+      "reference": "ens4+l9",
+      "n_lesions": 243,
+      "n_patients": 129,
+      "n_iterations": 1000,
+      "mean_iou_candidate": 0.4692516171807306,
+      "mean_iou_reference": 0.5003143321626319,
+      "mean_diff": -0.031062714981901315,
+      "ci_lower": -0.0590880369040529,
+      "ci_upper": -0.004092373110306968,
+      "n_lesions_improved": 64,
+      "n_lesions_worse": 95,
+      "passes": false,
+      "seed_c_passed": false,
+      "reading": "1: the seed's own (c) FAILED and it is clearly below the pass \u2014 the gain requires a differently-implemented member. The difference is the implementation-diversity effect size."
+    }
+  },
+  "vs_mean": {
+    "candidate": "ens4+run4_s2",
+    "reference": "ens4+mean of l7v+l7a+l8a+l9",
+    "n_lesions": 243,
+    "n_patients": 129,
+    "n_iterations": 1000,
+    "mean_iou_candidate": 0.4692516171807306,
+    "mean_iou_reference": 0.4974893747069494,
+    "mean_diff": -0.028237757526218793,
+    "ci_lower": -0.05227883497728351,
+    "ci_upper": -0.0059910292654351965,
+    "n_lesions_improved": 82,
+    "n_lesions_worse": 107,
+    "passes": false,
+    "seed_c_passed": false,
+    "reading": "1: the seed's own (c) FAILED and it is clearly below the pass \u2014 the gain requires a differently-implemented member. The difference is the implementation-diversity effect size."
+  },
+  "secondary_descriptive": {
+    "seed_c_effect": -0.0007955326918977474,
+    "seed_ci": [
+      -0.020619482472463237,
+      0.01680447030933912
+    ],
+    "passes_mean_effect": 0.027442224834321044,
+    "ci_contains_passes_mean": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "candidate": "hybrid_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.47328034694199733,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": 0.0032331970693690077,
+  "ci_lower": 0.0,
+  "ci_upper": 0.008997047442431646,
+  "n_lesions_improved": 1,
+  "n_lesions_worse": 0,
+  "passes": false,
+  "candidate_table": "outputs/results/hybrid_ens3_fusionA/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv"
+}

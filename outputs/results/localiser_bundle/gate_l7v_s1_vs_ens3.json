@@ -1,0 +1,17 @@
+{
+  "candidate": "l7v_s1_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.4359801569150976,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": -0.034066992957530746,
+  "ci_lower": -0.07806589689116808,
+  "ci_upper": 0.006127237935603052,
+  "n_lesions_improved": 98,
+  "n_lesions_worse": 94,
+  "passes": false,
+  "candidate_table": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/localiser_l7v_vgg16_cachev1_s1/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv"
+}

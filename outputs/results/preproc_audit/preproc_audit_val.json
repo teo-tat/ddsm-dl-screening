@@ -1,0 +1,173 @@
+{
+  "split": "val",
+  "n_measured": 231,
+  "n_skipped": 12,
+  "skip_reasons": [
+    {
+      "lesion_id": "Mass-Training_P_00384_RIGHT_CC_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Training_P_00384_RIGHT_MLO_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Training_P_00453_LEFT_CC_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Training_P_00453_LEFT_MLO_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Training_P_00703_LEFT_CC_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Training_P_00703_LEFT_MLO_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Training_P_01983_LEFT_MLO_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Test_P_00699_RIGHT_CC_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Test_P_00699_RIGHT_MLO_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Test_P_00922_RIGHT_CC_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Test_P_00922_RIGHT_MLO_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    },
+    {
+      "lesion_id": "Mass-Test_P_01551_LEFT_CC_1",
+      "reason": "shape_mismatch_or_empty_mask"
+    }
+  ],
+  "frame_source": "crop (per-lesion rows)",
+  "canvas": [
+    1024,
+    576
+  ],
+  "percentiles": [
+    1.0,
+    99.0
+  ],
+  "breast_occupancy": {
+    "median_breast_width_frac": 1.0,
+    "median_breast_height_frac": 1.0,
+    "q1_breast_width_frac": 0.7551,
+    "median_resolution_gain": 1.0,
+    "rule": "median breast width < 0.7",
+    "triggers_rebuild": false
+  },
+  "lesion_size": {
+    "current_film_letterbox": {
+      "median_px": 53.5,
+      "q1_px": 40.45,
+      "min_px": 12.41
+    },
+    "breast_crop_letterbox": {
+      "median_px": 56.27,
+      "q1_px": 41.56,
+      "min_px": 12.41
+    },
+    "median_gain_factor": 1.052
+  },
+  "percentile_clipping": {
+    "overall_mean_frac_at_ceiling": 0.1081,
+    "overall_mean_frac_at_ceiling_breast_percentiles": 0.0922,
+    "strata": {
+      "size_quartile": {
+        "Q1": {
+          "n": 59,
+          "mean_frac_at_ceiling": 0.0296,
+          "mean_frac_at_ceiling_breast_percentiles": 0.0276,
+          "exceeds_rule": false
+        },
+        "Q2": {
+          "n": 57,
+          "mean_frac_at_ceiling": 0.1117,
+          "mean_frac_at_ceiling_breast_percentiles": 0.0958,
+          "exceeds_rule": true
+        },
+        "Q3": {
+          "n": 57,
+          "mean_frac_at_ceiling": 0.106,
+          "mean_frac_at_ceiling_breast_percentiles": 0.0965,
+          "exceeds_rule": true
+        },
+        "Q4": {
+          "n": 58,
+          "mean_frac_at_ceiling": 0.1866,
+          "mean_frac_at_ceiling_breast_percentiles": 0.1503,
+          "exceeds_rule": true
+        }
+      },
+      "breast_density": {
+        "1": {
+          "n": 60,
+          "mean_frac_at_ceiling": 0.1462,
+          "mean_frac_at_ceiling_breast_percentiles": 0.1326,
+          "exceeds_rule": true
+        },
+        "2": {
+          "n": 97,
+          "mean_frac_at_ceiling": 0.0948,
+          "mean_frac_at_ceiling_breast_percentiles": 0.0853,
+          "exceeds_rule": true
+        },
+        "3": {
+          "n": 54,
+          "mean_frac_at_ceiling": 0.0998,
+          "mean_frac_at_ceiling_breast_percentiles": 0.0695,
+          "exceeds_rule": true
+        },
+        "4": {
+          "n": 20,
+          "mean_frac_at_ceiling": 0.0813,
+          "mean_frac_at_ceiling_breast_percentiles": 0.0659,
+          "exceeds_rule": true
+        }
+      }
+    },
+    "rule": "any stratum mean > 0.05",
+    "worst_stratum_frac": 0.1866,
+    "triggers_in_breast_percentiles": true
+  },
+  "mask_survival": {
+    "median_mask_px_on_canvas": 1623.4,
+    "min_mask_px_on_canvas": 83.69,
+    "n_below_16_px": 0,
+    "n_below_64_px": 0,
+    "rule": "any lesion < 16 px on the canvas",
+    "triggers_area_resize": false
+  },
+  "resize_antialiasing": {
+    "letterbox_source_uses": "tf.image.resize",
+    "antialias_requested": true,
+    "rule": "no antialias -> enable it in cache v2",
+    "triggers_antialias": false,
+    "note": "Read from the source of localise.letterbox; confirm the mask branch separately, masks must not be antialiased but area-resized then thresholded."
+  },
+  "orientation": {
+    "n": 231,
+    "frac_right_breast_metadata": 0.5801,
+    "frac_breast_on_left_of_film": 0.7749,
+    "agreement_mirrored": 0.4329,
+    "agreement_direct": 0.5671,
+    "rule": "canonicalise to one side in cache v2 (cost 0)",
+    "triggers_canonicalise": true,
+    "side_measure_informative": false,
+    "note": "side_of_film compares the breast box centroid with the film centre, which only discriminates when the breast does not fill the film. At the measured occupancy it does not, so the measured column is uninformative and the metadata column is the one to use; canonicalising needs the chest-wall side, detected from which vertical edge carries tissue."
+  },
+  "cache_v2_triggered": true
+}

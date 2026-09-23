@@ -1,0 +1,18 @@
+{
+  "candidate": "ens4l7v_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.49317424517665986,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": 0.023127095304031488,
+  "ci_lower": 0.006165595985485662,
+  "ci_upper": 0.03905802322019562,
+  "n_lesions_improved": 104,
+  "n_lesions_worse": 69,
+  "passes": true,
+  "candidate_table": "outputs/results/localiser_bundle/selected_runs134l7v/bundle_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv",
+  "candidate_table_note": "repointed 10 Sep. The original pointer, outputs/results/localiser_bundle/bundle_boxes_val.csv, was correct when the gate ran and was then overwritten by the restore step, which puts the promoted E3 selection back under that name \u2014 the file now reads mean box IoU 0.4700, not the candidate's 0.4932. No number in this record changed; only the path naming the table they were computed from."
+}

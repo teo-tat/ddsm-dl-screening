@@ -1,0 +1,17 @@
+{
+  "candidate": "l7a_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.4934433212762974,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": 0.02339617140366909,
+  "ci_lower": -0.015638863558611715,
+  "ci_upper": 0.06018441696906848,
+  "n_lesions_improved": 111,
+  "n_lesions_worse": 83,
+  "passes": false,
+  "candidate_table": "outputs/_cuda/localiser_l7a_resnet34_cachev1/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv"
+}

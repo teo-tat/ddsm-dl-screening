@@ -1,0 +1,29 @@
+{
+  "run": "run1",
+  "weights": "outputs/weights/localiser_run1_base32/best",
+  "encoder": "none",
+  "base_filters": 32,
+  "depth": 4,
+  "dtype": "uint8 = round(255 * p)",
+  "flip": "horizontal, stored un-flipped",
+  "splits": {
+    "val": {
+      "n": 243,
+      "single_box_mean_iou_8bit": 0.3852794141574629,
+      "lesion_ids_head": [
+        "Mass-Training_P_00023_RIGHT_CC_1",
+        "Mass-Training_P_00023_RIGHT_MLO_1",
+        "Mass-Training_P_00027_RIGHT_CC_1"
+      ]
+    },
+    "train": {
+      "n": 1210,
+      "single_box_mean_iou_8bit": 0.42343126867309144,
+      "lesion_ids_head": [
+        "Mass-Training_P_00001_LEFT_CC_1",
+        "Mass-Training_P_00001_LEFT_MLO_1",
+        "Mass-Training_P_00004_LEFT_CC_1"
+      ]
+    }
+  }
+}

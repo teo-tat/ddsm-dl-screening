@@ -1,0 +1,40 @@
+[
+  {
+    "split": "val",
+    "n": 243,
+    "n_scored": 243,
+    "n_no_gt": 0,
+    "detection_rate": 0.897119341563786,
+    "fallback_rate": 0.102880658436214,
+    "mask_iou_mean": 0.3585475687567383,
+    "dice_mean": 0.4604510463802888,
+    "box_iou_inclusive_mean": 0.3874338689675381,
+    "box_iou_inclusive_median": 0.4980451127819549,
+    "box_iou_mean_given_detected": 0.4318643585280356,
+    "box_iou_mammogram_mean": 0.4291825265265162,
+    "detect_at_iou50": 0.49794238683127573,
+    "detect_at_iou30": 0.551440329218107,
+    "centroid_hit_rate": 0.5967078189300411,
+    "box_iou_any_inclusive_mean": 0.4215941016179625,
+    "pct_rows_on_multilesion_images": 0.12345679012345678
+  },
+  {
+    "split": "train",
+    "n": 1210,
+    "n_scored": 1210,
+    "n_no_gt": 0,
+    "detection_rate": 0.9338842975206612,
+    "fallback_rate": 0.06611570247933884,
+    "mask_iou_mean": 0.38826503336431867,
+    "dice_mean": 0.4953598191854073,
+    "box_iou_inclusive_mean": 0.41085565797154744,
+    "box_iou_inclusive_median": 0.5087986246809965,
+    "box_iou_mean_given_detected": 0.4399427841996216,
+    "box_iou_mammogram_mean": 0.43717599285031733,
+    "detect_at_iou50": 0.5049586776859504,
+    "detect_at_iou30": 0.6107438016528925,
+    "centroid_hit_rate": 0.6371900826446281,
+    "box_iou_any_inclusive_mean": 0.43547218926896697,
+    "pct_rows_on_multilesion_images": 0.09090909090909091
+  }
+]

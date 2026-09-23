@@ -1,0 +1,17 @@
+{
+  "candidate": "l9_vs_run4",
+  "reference": "localiser_run4_eval",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.4801812786175943,
+  "mean_iou_reference": 0.4190320956080881,
+  "mean_diff": 0.061149183009506246,
+  "ci_lower": 0.024487882279772638,
+  "ci_upper": 0.09785662260975372,
+  "n_lesions_improved": 102,
+  "n_lesions_worse": 91,
+  "passes": true,
+  "candidate_table": "outputs/_cuda/localiser_l9_convnext_tiny_cachev1/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_run4_eval/localiser_boxes_val.csv"
+}

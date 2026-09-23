@@ -1,0 +1,17 @@
+{
+  "candidate": "l6_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.21900192796111487,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": -0.25104522191151346,
+  "ci_lower": -0.30338590953374445,
+  "ci_upper": -0.20290835130459192,
+  "n_lesions_improved": 37,
+  "n_lesions_worse": 147,
+  "passes": false,
+  "candidate_table": "outputs/_cuda/localiser_l6_vgg16enc_cachev3_bg40_eval/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv"
+}

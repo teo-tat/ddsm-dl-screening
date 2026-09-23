@@ -1,0 +1,20 @@
+{
+  "members": [
+    "run1",
+    "run3",
+    "run4"
+  ],
+  "selected_variant": "box",
+  "selected_sigma_frac": 0.0,
+  "train_mean_box_iou": 0.4419846637056638,
+  "val_mean_box_iou": 0.40040908356980226,
+  "train_grid": {
+    "train_box_0.0": 0.4419846637056638,
+    "train_gauss_0.25": 0.15460648833514234,
+    "train_gauss_0.35": 0.2827046343096764,
+    "train_gauss_0.5": 0.4306031364622037,
+    "train_gauss_0.7": 0.35841783684373485,
+    "train_gauss_1.0": 0.21234973162335719
+  },
+  "note": "variant and sigma selected on TRAIN only; validation computed once"
+}

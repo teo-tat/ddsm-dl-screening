@@ -1,0 +1,115 @@
+{
+  "candidate": "outputs/results/localiser_bundle/selected_runs134l7a/bundle_boxes_val.csv",
+  "name": "ens4l7a",
+  "reference": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv",
+  "n_lesions": 243,
+  "overall_mean_delta": 0.028758169658697066,
+  "n_improved": 107,
+  "n_worse": 62,
+  "n_unchanged": 74,
+  "n_missing_geometry": 0,
+  "victim_threshold": 0.3,
+  "miss_threshold": 0.5,
+  "by_victim_class": [
+    {
+      "stratum": "E3 handles it",
+      "n": 165,
+      "improved": 90,
+      "worse": 61,
+      "unchanged": 14,
+      "mean_delta_in_stratum": 0.00619465944793943,
+      "contribution_to_overall_mean": 0.004206250242428008,
+      "share_of_overall": 0.14626279392422845,
+      "mean_iou_ref": 0.6809933690865345,
+      "mean_iou_cand": 0.687188028534474
+    },
+    {
+      "stratum": "E3 victim (no box or IoU<0.3)",
+      "n": 78,
+      "improved": 17,
+      "worse": 1,
+      "unchanged": 60,
+      "mean_delta_in_stratum": 0.07648867202760745,
+      "contribution_to_overall_mean": 0.02455191941626906,
+      "share_of_overall": 0.8537372060757716,
+      "mean_iou_ref": 0.023814763073980418,
+      "mean_iou_cand": 0.10030343510158789
+    }
+  ],
+  "by_size_quartile": [
+    {
+      "stratum": "Q1 smallest",
+      "n": 61,
+      "improved": 20,
+      "worse": 10,
+      "unchanged": 31,
+      "mean_delta_in_stratum": 0.029728757908077066,
+      "contribution_to_overall_mean": 0.007462774618900004,
+      "share_of_overall": 0.259501029010833,
+      "mean_iou_ref": 0.3275709684970522,
+      "mean_iou_cand": 0.35729972640512914
+    },
+    {
+      "stratum": "Q2",
+      "n": 61,
+      "improved": 23,
+      "worse": 20,
+      "unchanged": 18,
+      "mean_delta_in_stratum": -0.0014212393253160021,
+      "contribution_to_overall_mean": -0.00035677201170484005,
+      "share_of_overall": -0.012405935980593424,
+      "mean_iou_ref": 0.5099591693389411,
+      "mean_iou_cand": 0.5085379300136251
+    },
+    {
+      "stratum": "Q3",
+      "n": 60,
+      "improved": 26,
+      "worse": 21,
+      "unchanged": 13,
+      "mean_delta_in_stratum": 0.02970374250744174,
+      "contribution_to_overall_mean": 0.007334257409244874,
+      "share_of_overall": 0.2550321350867628,
+      "mean_iou_ref": 0.5519144323220931,
+      "mean_iou_cand": 0.5816181748295348
+    },
+    {
+      "stratum": "Q4 largest",
+      "n": 61,
+      "improved": 38,
+      "worse": 11,
+      "unchanged": 12,
+      "mean_delta_in_stratum": 0.0570369187388272,
+      "contribution_to_overall_mean": 0.014317909642257034,
+      "share_of_overall": 0.49787277188299783,
+      "mean_iou_ref": 0.4920861159299591,
+      "mean_iou_cand": 0.5491230346687862
+    }
+  ],
+  "by_prior_miss": [
+    {
+      "stratum": "E3 hit",
+      "n": 151,
+      "improved": 82,
+      "worse": 55,
+      "unchanged": 14,
+      "mean_delta_in_stratum": 0.006288987789985625,
+      "contribution_to_overall_mean": 0.003907971836575429,
+      "share_of_overall": 0.1358908401666508,
+      "mean_iou_ref": 0.7046555686970567,
+      "mean_iou_cand": 0.7109445564870425
+    },
+    {
+      "stratum": "E3 miss (IoU<0.5)",
+      "n": 92,
+      "improved": 25,
+      "worse": 7,
+      "unchanged": 60,
+      "mean_delta_in_stratum": 0.06563693555190823,
+      "contribution_to_overall_mean": 0.02485019782212164,
+      "share_of_overall": 0.8641091598333493,
+      "mean_iou_ref": 0.08498333201949032,
+      "mean_iou_cand": 0.15062026757139857
+    }
+  ]
+}

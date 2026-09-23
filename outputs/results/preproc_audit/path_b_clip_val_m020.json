@@ -1,0 +1,54 @@
+{
+  "n": 231,
+  "margin": 0.2,
+  "candidates": [
+    99.0,
+    99.5,
+    99.8,
+    99.9,
+    99.95,
+    100.0
+  ],
+  "percentile_scope": "crop (data_loader._finalise runs on the cropped array)",
+  "median_lesion_frac_of_crop": 0.3263,
+  "rule": "mean fraction at ceiling <= 0.05 in every size quartile",
+  "crop_scope": {
+    "99.0": 0.0262,
+    "99.5": 0.0136,
+    "99.8": 0.0062,
+    "99.9": 0.0037,
+    "99.95": 0.0025,
+    "100.0": 0.0013
+  },
+  "film_scope": {
+    "99.0": 0.1081,
+    "99.5": 0.0561,
+    "99.8": 0.0193,
+    "99.9": 0.0082,
+    "99.95": 0.0041,
+    "100.0": 0.0013
+  },
+  "worst_quartile_crop": {
+    "99.0": 0.0324,
+    "99.5": 0.0188,
+    "99.8": 0.0106,
+    "99.9": 0.0079,
+    "99.95": 0.0066,
+    "100.0": 0.0053
+  },
+  "passes_crop": {
+    "99.0": true,
+    "99.5": true,
+    "99.8": true,
+    "99.9": true,
+    "99.95": true,
+    "100.0": true
+  },
+  "lowest_passing_ceiling_crop": 99.0,
+  "by_quartile_at_current": {
+    "Q1": 0.0324,
+    "Q2": 0.0239,
+    "Q3": 0.0236,
+    "Q4": 0.0249
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "tag": "rerank_features",
+  "model": "features",
+  "features": [
+    "peak_prob",
+    "mean_prob",
+    "sum_prob",
+    "area_px",
+    "dist_to_breast_edge_norm",
+    "member_support_mean",
+    "n_members_supporting",
+    "cand_rank",
+    "is_rule_pick"
+  ],
+  "n_train": 2583,
+  "n_val": 501,
+  "candidate_auroc_train": 0.916225,
+  "candidate_auroc_val": 0.904532,
+  "candidate_auroc_note": "diagnostic only; promotion is decided downstream (\u00a715)",
+  "tau": 0.7,
+  "tau_selected_on": "train, by mean box IoU",
+  "tau_trace": [
+    {
+      "tau": 0.0,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.05,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.1,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.15,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.2,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.25,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.3,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.35,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.4,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.45,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.5,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.55,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.6,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.65,
+      "mean_box_iou": 0.5458787257779475
+    },
+    {
+      "tau": 0.7,
+      "mean_box_iou": 0.5466415992680937
+    },
+    {
+      "tau": 0.75,
+      "mean_box_iou": 0.546096909774781
+    },
+    {
+      "tau": 0.8,
+      "mean_box_iou": 0.546205524637151
+    },
+    {
+      "tau": 0.85,
+      "mean_box_iou": 0.546205524637151
+    },
+    {
+      "tau": 0.9,
+      "mean_box_iou": 0.546205524637151
+    },
+    {
+      "tau": 0.95,
+      "mean_box_iou": 0.546205524637151
+    }
+  ],
+  "ceiling_val_images": 0.093,
+  "ceiling_train_images": 0.117,
+  "wall_time_s": 8.3,
+  "mean_box_iou_train": 0.546642,
+  "n_reranker_picks_train": 989,
+  "n_rule_fallback_train": 208,
+  "mean_box_iou_val": 0.470047,
+  "n_reranker_picks_val": 189,
+  "n_rule_fallback_val": 43
+}

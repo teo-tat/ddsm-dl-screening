@@ -1,0 +1,75 @@
+{
+  "members": {
+    "run1": "artifacts/localiser_boxes_val.csv",
+    "run3": "outputs/results/localiser_run3_eval/localiser_boxes_val.csv",
+    "run4": "outputs/results/localiser_run4_eval/localiser_boxes_val.csv",
+    "l7v": "outputs/_cuda/localiser_l7v_vgg16_cachev1/localiser_boxes_val.csv",
+    "l7a": "outputs/_cuda/localiser_l7a_resnet34_cachev1/localiser_boxes_val.csv",
+    "l8a": "outputs/_cuda/localiser_l8a_efficientnet-b4_cachev1/localiser_boxes_val.csv",
+    "l9": "outputs/_cuda/localiser_l9_convnext_tiny_cachev1/localiser_boxes_val.csv"
+  },
+  "member_set": {
+    "source": "declared via --tag",
+    "n_members": 7,
+    "labels": [
+      "l7a",
+      "l7v",
+      "l8a",
+      "l9",
+      "run1",
+      "run3",
+      "run4"
+    ],
+    "tables": {
+      "run1": {
+        "path": "artifacts/localiser_boxes_val.csv",
+        "sha256_16": "25d507c773a51574",
+        "n_rows": 243
+      },
+      "run3": {
+        "path": "outputs/results/localiser_run3_eval/localiser_boxes_val.csv",
+        "sha256_16": "431c917eb8199345",
+        "n_rows": 243
+      },
+      "run4": {
+        "path": "outputs/results/localiser_run4_eval/localiser_boxes_val.csv",
+        "sha256_16": "be8ab332422b7b8f",
+        "n_rows": 243
+      },
+      "l7v": {
+        "path": "outputs/_cuda/localiser_l7v_vgg16_cachev1/localiser_boxes_val.csv",
+        "sha256_16": "e59130e56da9b8b7",
+        "n_rows": 243
+      },
+      "l7a": {
+        "path": "outputs/_cuda/localiser_l7a_resnet34_cachev1/localiser_boxes_val.csv",
+        "sha256_16": "5b9263f704bef29e",
+        "n_rows": 243
+      },
+      "l8a": {
+        "path": "outputs/_cuda/localiser_l8a_efficientnet-b4_cachev1/localiser_boxes_val.csv",
+        "sha256_16": "1f4f70adbf82720f",
+        "n_rows": 243
+      },
+      "l9": {
+        "path": "outputs/_cuda/localiser_l9_convnext_tiny_cachev1/localiser_boxes_val.csv",
+        "sha256_16": "dbcbb2eb1776d83f",
+        "n_rows": 243
+      }
+    }
+  },
+  "n_lesions": 243,
+  "miss_threshold": 0.5,
+  "mean_box_iou": {
+    "run1": 0.3852794141574629,
+    "run3": 0.3874338689675382,
+    "run4": 0.4190320956080881,
+    "l7v": 0.43486161609842616,
+    "l7a": 0.4934433212762974,
+    "l8a": 0.4807754242588589,
+    "l9": 0.4801812786175943
+  },
+  "mean_pearson_keras_pairwise": 0.6460631905583232,
+  "mean_pearson_torch_vs_keras": 0.5383060603886762,
+  "reading": "\u00a723.1: lower torch-vs-Keras correlation than Keras-pairwise is consistent with the framework-diversity arm of \u00a720a and is evidence about mechanism, not a test of it. Comparable correlations mean the gate (c) pass is not obviously explained by decorrelation and the report says the mechanism is unexplained."
+}

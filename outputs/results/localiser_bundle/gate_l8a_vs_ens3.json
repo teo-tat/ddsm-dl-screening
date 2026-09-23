@@ -1,0 +1,17 @@
+{
+  "candidate": "l8a_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.4807754242588589,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": 0.010728274386230493,
+  "ci_lower": -0.024667492411476956,
+  "ci_upper": 0.04413629292614511,
+  "n_lesions_improved": 104,
+  "n_lesions_worse": 90,
+  "passes": false,
+  "candidate_table": "outputs/_cuda/localiser_l8a_efficientnet-b4_cachev1/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv"
+}

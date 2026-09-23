@@ -1,0 +1,35 @@
+{
+  "split": "val",
+  "n": 243,
+  "n_failures": 54,
+  "failure_rate": 0.2222,
+  "n_patients": 129,
+  "configuration": {
+    "ensemble": "run1+run3+run4+l7v+l7a+l8a+l9",
+    "tta": true,
+    "breast_filter": false,
+    "rule": "peak",
+    "threshold": 0.4,
+    "min_px": 16,
+    "weights": "g:keras=0.5,torch=2"
+  },
+  "draws": 1000,
+  "scores": {
+    "box_disagreement": {
+      "auroc": 0.7363,
+      "ci95": [
+        0.6391,
+        0.8155
+      ],
+      "n_scored": 243
+    },
+    "map_disagreement": {
+      "auroc": 0.607,
+      "ci95": [
+        0.5014,
+        0.7052
+      ],
+      "n_scored": 243
+    }
+  }
+}

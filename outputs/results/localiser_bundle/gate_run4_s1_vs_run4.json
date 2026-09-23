@@ -1,0 +1,17 @@
+{
+  "candidate": "run4_s1_vs_run4",
+  "reference": "localiser_run4_eval",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.40554909966210356,
+  "mean_iou_reference": 0.4190320956080881,
+  "mean_diff": -0.013482995945984448,
+  "ci_lower": -0.04642468428623321,
+  "ci_upper": 0.017355043578920527,
+  "n_lesions_improved": 86,
+  "n_lesions_worse": 86,
+  "passes": false,
+  "candidate_table": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/localiser_run4_s1_cuda/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_run4_eval/localiser_boxes_val.csv"
+}

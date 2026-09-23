@@ -1,0 +1,17 @@
+{
+  "candidate": "run4b",
+  "reference": "run1",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.4009704635490783,
+  "mean_iou_reference": 0.3852794141574629,
+  "mean_diff": 0.015691049391615388,
+  "ci_lower": -0.030087701224939405,
+  "ci_upper": 0.05533605732984169,
+  "n_lesions_improved": 99,
+  "n_lesions_worse": 80,
+  "passes": false,
+  "candidate_table": "outputs/results/localiser_run4b_eval/localiser_boxes_val.csv",
+  "reference_table": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/artifacts/localiser_boxes_val.csv"
+}

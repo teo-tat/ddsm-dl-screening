@@ -1,0 +1,18 @@
+{
+  "members": {
+    "run1": "artifacts/localiser_boxes_{split}.csv",
+    "run3": "outputs/results/localiser_run3_eval/localiser_boxes_{split}.csv",
+    "run4": "outputs/results/localiser_run4_eval/localiser_boxes_{split}.csv",
+    "l10": "outputs/_cuda/localiser_l10_fasterrcnn_cachev2/localiser_boxes_{split}.csv"
+  },
+  "weights": {
+    "run1": 0.5,
+    "run3": 0.5,
+    "run4": 2.0,
+    "l10": 1.0
+  },
+  "iou_threshold": 0.3,
+  "weights_selected_on": "train, by mean per-lesion box IoU (misses 0)",
+  "train_mean_box_iou": 0.578549,
+  "val_mean_box_iou": 0.455059
+}

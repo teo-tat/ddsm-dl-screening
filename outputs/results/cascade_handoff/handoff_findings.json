@@ -1,0 +1,114 @@
+{
+  "produced": {
+    "tags": [
+      "--method",
+      "--out-tag",
+      "--splits",
+      "_promoted_cuda0917",
+      "_rung3_unet_promoted_cuda0917",
+      "mean",
+      "rung3_on_pairs_promoted_cuda0917",
+      "rung3_unet_promoted",
+      "val",
+      "vgg16_crop_rung3_unet_promoted_cuda0917",
+      "vgg16_crop_rung3_unet_promoted_cuda0917_ens3",
+      "vgg16_crop_rung3_unet_promoted_cuda0917_s1",
+      "vgg16_crop_rung3_unet_promoted_cuda0917_s2",
+      "vgg16_fusion_view_unet_promoted",
+      "vgg16_fusion_view_unet_promoted_cuda0917",
+      "vgg16_fusion_view_unet_promoted_cuda0917_ens3",
+      "vgg16_fusion_view_unet_promoted_cuda0917_s1",
+      "vgg16_fusion_view_unet_promoted_cuda0917_s2"
+    ],
+    "boxes": [
+      "outputs/results/localiser_bundle/boxes_A24"
+    ],
+    "rung3_suffix": [
+      "_promoted_cuda0917"
+    ]
+  },
+  "consumed": {
+    "tags": [
+      "vgg16"
+    ],
+    "boxes": [],
+    "rung3_suffix": []
+  },
+  "findings": [
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'rung3_on_pairs_promoted_cuda0917'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'rung3_unet_promoted'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'vgg16_crop_rung3_unet_promoted_cuda0917'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'vgg16_crop_rung3_unet_promoted_cuda0917_ens3'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'vgg16_crop_rung3_unet_promoted_cuda0917_s1'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'vgg16_crop_rung3_unet_promoted_cuda0917_s2'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'vgg16_fusion_view_unet_promoted'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'vgg16_fusion_view_unet_promoted_cuda0917'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'vgg16_fusion_view_unet_promoted_cuda0917_ens3'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'vgg16_fusion_view_unet_promoted_cuda0917_s1'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "INFO",
+      "what": "no weights yet for tag 'vgg16_fusion_view_unet_promoted_cuda0917_s2'",
+      "detail": "expected before the cascade runs; listed so the set is visible"
+    },
+    {
+      "severity": "MISMATCH",
+      "what": "cascade tag 'rung3_on_pairs_promoted_cuda0917' is not in the pre-registration tag table",
+      "detail": "the test pass evaluates the tags that table names; a tag it does not name cannot enter the test pass without amending the pre-registration"
+    },
+    {
+      "severity": "MISMATCH",
+      "what": "cascade tag 'vgg16_fusion_view_unet_promoted_cuda0917_ens3' is not in the pre-registration tag table",
+      "detail": "the test pass evaluates the tags that table names; a tag it does not name cannot enter the test pass without amending the pre-registration"
+    },
+    {
+      "severity": "MISMATCH",
+      "what": "cascade tag 'vgg16_fusion_view_unet_promoted_cuda0917_s1' is not in the pre-registration tag table",
+      "detail": "the test pass evaluates the tags that table names; a tag it does not name cannot enter the test pass without amending the pre-registration"
+    },
+    {
+      "severity": "MISMATCH",
+      "what": "cascade tag 'vgg16_fusion_view_unet_promoted_cuda0917_s2' is not in the pre-registration tag table",
+      "detail": "the test pass evaluates the tags that table names; a tag it does not name cannot enter the test pass without amending the pre-registration"
+    }
+  ]
+}

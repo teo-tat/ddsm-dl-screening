@@ -1,0 +1,27 @@
+{
+  "run": "l7v_s1",
+  "framework": "pytorch",
+  "tensors_dir": "/workspace/cache_v1_perlesion",
+  "map_canvas": [
+    1024,
+    576
+  ],
+  "tiled_inference": false,
+  "tile_overlap": null,
+  "dtype": "uint8 = round(255 * p)",
+  "flip": "horizontal, stored un-flipped",
+  "splits": {
+    "val": {
+      "n": 243,
+      "single_box_mean_iou_8bit": 0.4359801569150976,
+      "single_box_check_gt_store": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/localiser_tensors_v1_notest",
+      "single_box_check_note": "ok"
+    },
+    "train": {
+      "n": 1210,
+      "single_box_mean_iou_8bit": 0.5694077400042064,
+      "single_box_check_gt_store": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/localiser_tensors_v1_notest",
+      "single_box_check_note": "ok"
+    }
+  }
+}

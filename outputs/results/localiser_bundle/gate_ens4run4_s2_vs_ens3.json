@@ -1,0 +1,18 @@
+{
+  "candidate": "ens4run4_s2_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.4692516171807306,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": -0.0007955326918977474,
+  "ci_lower": -0.020619482472463237,
+  "ci_upper": 0.01680447030933912,
+  "n_lesions_improved": 95,
+  "n_lesions_worse": 68,
+  "passes": false,
+  "candidate_table": "outputs/results/localiser_bundle/selected_runs134run4_s2/bundle_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv",
+  "candidate_table_note": "repointed after the restore: the live bundle_boxes_val.csv is the promoted E3 selection again, and this durable copy is the gated candidate"
+}

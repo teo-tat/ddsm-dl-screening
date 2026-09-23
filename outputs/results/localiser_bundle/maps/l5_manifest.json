@@ -1,0 +1,30 @@
+{
+  "run": "l5",
+  "weights": "outputs/_cuda/localiser_l5_vgg16enc_cachev2_bg40/best.weights.h5",
+  "encoder": "vgg16",
+  "base_filters": 32,
+  "depth": 4,
+  "tensors_dir": "outputs/localiser_tensors_v2",
+  "dtype": "uint8 = round(255 * p)",
+  "flip": "horizontal, stored un-flipped",
+  "splits": {
+    "val": {
+      "n": 243,
+      "single_box_mean_iou_8bit": 0.4095218854649212,
+      "lesion_ids_head": [
+        "Mass-Training_P_00023_RIGHT_CC_1",
+        "Mass-Training_P_00023_RIGHT_MLO_1",
+        "Mass-Training_P_00027_RIGHT_CC_1"
+      ]
+    },
+    "train": {
+      "n": 1210,
+      "single_box_mean_iou_8bit": 0.46943466655043925,
+      "lesion_ids_head": [
+        "Mass-Training_P_00001_LEFT_CC_1",
+        "Mass-Training_P_00001_LEFT_MLO_1",
+        "Mass-Training_P_00004_LEFT_CC_1"
+      ]
+    }
+  }
+}

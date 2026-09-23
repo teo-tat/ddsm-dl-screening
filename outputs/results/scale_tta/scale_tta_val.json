@@ -1,0 +1,16 @@
+{
+  "runs": [
+    "run1",
+    "run3",
+    "run4"
+  ],
+  "scales": [
+    1.0
+  ],
+  "passes_per_member": 2,
+  "split": "val",
+  "n": 243,
+  "baseline_mean_box_iou": 0.41098830170271367,
+  "tta_mean_box_iou": 0.39864889638571405,
+  "delta": -0.012339405316999619
+}

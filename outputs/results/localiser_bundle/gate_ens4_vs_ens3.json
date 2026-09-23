@@ -1,0 +1,17 @@
+{
+  "candidate": "ens4_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.4619471559357963,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": -0.008099993936832051,
+  "ci_lower": -0.02342781498679568,
+  "ci_upper": 0.004721251977876992,
+  "n_lesions_improved": 86,
+  "n_lesions_worse": 73,
+  "passes": false,
+  "candidate_table": "outputs/results/localiser_bundle/bundle_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv"
+}

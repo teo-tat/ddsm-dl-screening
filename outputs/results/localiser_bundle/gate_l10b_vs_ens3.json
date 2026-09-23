@@ -1,0 +1,17 @@
+{
+  "candidate": "l10b_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.49249440217462387,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": 0.022447252301995523,
+  "ci_lower": -0.010847434514925163,
+  "ci_upper": 0.054097585031353604,
+  "n_lesions_improved": 108,
+  "n_lesions_worse": 87,
+  "passes": false,
+  "candidate_table": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/localiser_l10b_fasterrcnn_cachev1/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv"
+}

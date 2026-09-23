@@ -1,0 +1,17 @@
+{
+  "candidate": "relthresh_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.4308703736973545,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": -0.03917677617527379,
+  "ci_lower": -0.07426771478905372,
+  "ci_upper": -0.007411862227515144,
+  "n_lesions_improved": 88,
+  "n_lesions_worse": 75,
+  "passes": false,
+  "candidate_table": "outputs/results/relthresh/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv"
+}

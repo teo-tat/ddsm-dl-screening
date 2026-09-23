@@ -1,0 +1,17 @@
+{
+  "candidate": "scale_tta_vs_ens3",
+  "reference": "boxes",
+  "n_lesions": 243,
+  "n_patients": 129,
+  "n_iterations": 1000,
+  "mean_iou_candidate": 0.3063583954612205,
+  "mean_iou_reference": 0.4700471498726283,
+  "mean_diff": -0.16368875441140784,
+  "ci_lower": -0.2031641283210511,
+  "ci_upper": -0.13017753053425563,
+  "n_lesions_improved": 31,
+  "n_lesions_worse": 152,
+  "passes": false,
+  "candidate_table": "outputs/results/scale_tta/localiser_boxes_val.csv",
+  "reference_table": "outputs/results/localiser_bundle/boxes/localiser_boxes_val.csv"
+}
