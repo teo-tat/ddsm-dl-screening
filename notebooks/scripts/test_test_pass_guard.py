@@ -469,5 +469,98 @@ chk(
     f"{out[:60]}; files {left}",
 )
 
+print("\n=== 10. localiser_bundle and analyse_ladder refuse test outside the pass ===")
+lb, al = script("localiser_bundle"), script("analyse_ladder")
+refuses(
+    "localiser_bundle --split",
+    lambda: lb._refuse_test_outside_pass(["test"]),
+    lambda: lb._refuse_test_outside_pass(["val", "train"]),
+)
+refuses(
+    "analyse_ladder errors --split",
+    lambda: al._refuse_test_outside_pass("test"),
+    lambda: al._refuse_test_outside_pass("val"),
+)
+token_file = G.FREEZE_TOKEN_FILE
+try:
+    G.FREEZE_TOKEN_FILE = Path(tempfile.mkdtemp()) / ".freeze_token"
+    G.FREEZE_TOKEN_FILE.write_text("the-real-token\n")
+    os.environ[G.ENV_VAR] = "the-real-token"
+    for name, call in (
+        ("localiser_bundle", lambda: lb._refuse_test_outside_pass(["test"])),
+        ("analyse_ladder errors", lambda: al._refuse_test_outside_pass("test")),
+    ):
+        msg = exit_message(call)
+        chk(f"{name}: the authorised pass is admitted to test", msg is None, (msg or "")[:70])
+finally:
+    G.FREEZE_TOKEN_FILE = token_file
+    os.environ.pop(G.ENV_VAR, None)
+
+
+class StopPath:
+    """Stands in for the bundle and maps folders: the first use after the refusal stops."""
+
+    def __truediv__(self, other):
+        raise Sentinel()
+
+    def __getattr__(self, name: str):
+        raise Sentinel()
+
+
+# main() points the bundle folders at --bundle-dir; that step is replaced so they stay StopPath.
+lb_patches = [(lb, "_set_bundle_dir", lambda path: None)]
+lb_patches += [(lb, "BUNDLE", StopPath()), (lb, "MAPS", StopPath()), (lb, "_require_torch", stop)]
+bundle_wiring = (
+    (
+        "localiser_bundle cache --split test --allow-test",
+        lb.main,
+        lb_patches,
+        ["localiser_bundle", "cache", "--tag", "t", "--weights", "w.weights.h5"]
+        + ["--split", "test", "--allow-test"],
+    ),
+    (
+        "localiser_bundle apply --split test --allow-test",
+        lb.main,
+        lb_patches,
+        ["localiser_bundle", "apply", "--split", "test", "--allow-test", "--boxes-dir", "boxes"],
+    ),
+    (
+        "localiser_bundle write-torch-maps --split test --allow-test",
+        lb.main,
+        lb_patches,
+        ["localiser_bundle", "write-torch-maps", "--weights", "w.pt", "--tag", "t"]
+        + ["--split", "test", "--allow-test", "--tensors-dir", "tensors"],
+    ),
+    (
+        "localiser_bundle recheck --split test",
+        lb.main,
+        lb_patches,
+        ["localiser_bundle", "recheck", "--tag", "t", "--split", "test"],
+    ),
+    (
+        "localiser_bundle torch-member-boxes --split test",
+        lb.main,
+        lb_patches,
+        ["localiser_bundle", "torch-member-boxes", "--weights", "w.pt", "--encoder", "e"]
+        + ["--tensors-dir", "tensors", "--split", "test"],
+    ),
+    (
+        "analyse_ladder errors --split test --allow-test",
+        lambda: al.main(
+            ["errors", "--boxes-dir", "boxes", "--split", "test", "--allow-test"]
+            + ["--out", "out", "--out-figure", "fig"]
+        ),
+        [(al, "build_frame", stop)],
+        None,
+    ),
+)
+for name, call, patches, argv in bundle_wiring:
+    out, left = run_entry(call, patches, argv)
+    chk(
+        f"{name}: the command line reaches the refusal",
+        out.startswith("REFUSED") and not left,
+        f"runtime; {out[:60]}; files {left}",
+    )
+
 print(f"\n{len(PASS)} passed, {len(FAIL)} failed")
 sys.exit(1 if FAIL else 0)

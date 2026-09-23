@@ -289,6 +289,18 @@ def figure(df: pd.DataFrame, res: dict, path: Path, split: str) -> None:
     print(f"-> {path}")
 
 
+def _refuse_test_outside_pass(split: str) -> None:
+    """Refuses the test split unless the test pass has set its token
+    (test_pass_guard.authorised)."""
+    from src.test_pass_guard import authorised
+
+    if split == "test" and not authorised():
+        raise SystemExit(
+            "REFUSED: --split test reads the stored test prediction and box tables; only "
+            "notebooks/scripts/run_test_pass.sh may run it"
+        )
+
+
 def cmd_errors(args) -> None:
     from src.compare import auc_diff_ci
 
@@ -296,6 +308,7 @@ def cmd_errors(args) -> None:
         raise SystemExit(
             "REFUSED: the test partition is frozen: --allow-test is for run_test_pass.sh only"
         )
+    _refuse_test_outside_pass(args.split)
     config.set_seeds()
     tags = _tags(args.tag, args.model, args.tag_suffix)
     df = build_frame(Path(args.boxes_dir), args.split, tags)

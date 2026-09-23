@@ -32,6 +32,9 @@ outputs/**/*.pt
 outputs/**/*.pth
 outputs/**/*.keras
 
+# Figures written by the evaluation and analysis scripts.
+outputs/figures/
+
 # Per-epoch logs, console captures and launcher scratch.
 *.log
 outputs/results/**/*_training.csv

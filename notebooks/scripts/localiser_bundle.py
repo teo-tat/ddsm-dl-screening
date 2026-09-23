@@ -1,7 +1,7 @@
 """Localiser post-processing bundle: cache maps, sweep configurations, gate a candidate.
 
-Run from the repo root with ``PYTHONPATH=.``. The test partition is read only under
---allow-test, and nothing under ``artifacts/`` is written.
+Run from the repo root with ``PYTHONPATH=.``. The test partition is read only inside the
+test pass, and nothing under ``artifacts/`` is written.
 
   cache Predict and store each row's 8-bit map, plain and flipped (GPU).
   recheck Recompute the cache-time single-box check from maps already on disk.
@@ -137,6 +137,18 @@ def _check_splits(splits, allow_test: bool = False) -> None:
         )
 
 
+def _refuse_test_outside_pass(splits) -> None:
+    """Refuses the test split unless the test pass has set its token
+    (test_pass_guard.authorised)."""
+    from src.test_pass_guard import authorised
+
+    if "test" in tuple(splits) and not authorised():
+        raise SystemExit(
+            "REFUSED: --split test reads the test partition; only "
+            "notebooks/scripts/run_test_pass.sh may run it"
+        )
+
+
 def _iou(a: Box, b: Box) -> float:
     """Inclusive-box IoU; the same arithmetic as localise.box_iou, kept local
     so the sweep workers do not import TensorFlow."""
@@ -233,6 +245,7 @@ def _single_box_check(plain, split: str, tensors_dir, *, limit: int | None = Non
 def recheck(args: argparse.Namespace) -> None:
     """Recompute the cache-time correctness check from maps already on disk; no
     inference, the maps are the input."""
+    _refuse_test_outside_pass(args.split)
     mpath = MAPS / f"{args.tag}_manifest.json"
     if not mpath.exists():
         raise SystemExit(f"no manifest for {args.tag}: {mpath}")
@@ -272,6 +285,7 @@ def cache(args: argparse.Namespace) -> None:
     from src.localise_eval import _load_model, _load
 
     _check_splits(args.split, getattr(args, "allow_test", False))
+    _refuse_test_outside_pass(args.split)
     MAPS.mkdir(parents=True, exist_ok=True)
     # tf.config.set_visible_devices cannot be called after import; the repo's
     # convention for a CPU run is a device scope around the whole job.
@@ -1561,6 +1575,7 @@ def apply(args: argparse.Namespace) -> None:
     from src.localise_eval import report, _CAND_FIELDS
 
     _check_splits([args.split], args.allow_test)
+    _refuse_test_outside_pass([args.split])
     sel = json.loads((BUNDLE / "bundle_selection.json").read_text())
     cfg = sel["selected"]
     # A boxes folder is one selection: a folder that already holds boxes may only
@@ -1847,10 +1862,8 @@ def write_torch_maps(args: argparse.Namespace) -> None:
     _refuse_training_args(sys.argv[1:])
     # The same rule _check_splits applies, for the same reason.
     if args.split == "test" and not args.allow_test:
-        raise SystemExit(
-            "write-torch-maps REFUSED: --split test needs --allow-test, which "
-            "only the test-map job and run_test_pass.sh pass."
-        )
+        raise SystemExit("write-torch-maps REFUSED: --split test needs --allow-test.")
+    _refuse_test_outside_pass([args.split])
 
     _require_torch("write-torch-maps")
     import torch
@@ -1966,6 +1979,7 @@ def torch_member_boxes(args: argparse.Namespace) -> None:
     largest-component rule every Keras member's table uses. No training."""
     import shutil
 
+    _refuse_test_outside_pass(args.split)
     _require_torch("torch-member-boxes")
     import torch
     import segmentation_models_pytorch as smp
@@ -2165,12 +2179,12 @@ def main() -> None:
         "asserts it.",
     )
     c.add_argument("--split", nargs="+", default=list(ALLOWED_SPLITS), help="one or more splits")
-    # cache refuses the test split like every other reader; only the test-map job and
-    # run_test_pass.sh pass the flag that permits it.
+    # cache refuses the test split like every other reader: it needs this flag and the
+    # token the test pass sets.
     c.add_argument(
         "--allow-test",
         action="store_true",
-        help="permit --split test (the test-map job and run_test_pass.sh only)",
+        help="permit --split test; refused unless the test pass has set its token",
     )
     c.add_argument("--batch-size", type=int, default=8)
     c.add_argument("--limit", type=int, default=None, help="smoke: first N rows only")
@@ -2306,7 +2320,7 @@ def main() -> None:
     w.add_argument(
         "--allow-test",
         action="store_true",
-        help="permit --split test (the test-map job and run_test_pass.sh only)",
+        help="permit --split test; refused unless the test pass has set its token",
     )
     w.add_argument(
         "--tensors-dir", required=True, help="per-lesion tensor store holding {split}_images.npy"

@@ -3112,7 +3112,9 @@ def scan(text: str, extra: str = "") -> dict[str, set[str]]:
 
 def cascade_main(argv=None) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=None, help="scratch copy dir (default: a temp dir)")
+    ap.add_argument(
+        "--out", default=None, help="scratch copy dir (default: .handoff_copy in the repository)"
+    )
     a = ap.parse_args(argv)
     work = Path(a.out) if a.out else ROOT / ".handoff_copy"
 
