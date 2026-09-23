@@ -60,15 +60,18 @@ def collect_predictions(
 def optimal_threshold(
     y_true: np.ndarray, y_prob: np.ndarray, target_sensitivity: float = config.TARGET_SENSITIVITY
 ) -> float:
-    """Return the highest threshold still reaching the target sensitivity. Fit it on
-    validation only: choosing it on the scored rows would inflate specificity."""
+    """Return the threshold at the first roc_curve point whose sensitivity reaches the target.
+    roc_curve drops some collinear points by default, so this can be lower than the highest
+    threshold reaching the target; on the rows it is fitted on, specificity is the same unless a
+    positive and a negative share a score. Fit it on validation only: choosing it on the scored
+    rows would inflate specificity."""
     fpr, tpr, thresholds = roc_curve(y_true, y_prob)
 
     valid_indices = np.where(tpr >= target_sensitivity)[0]
 
     if len(valid_indices) > 0:
         # roc_curve returns thresholds in descending order, so the first valid index
-        # is the highest one meeting the target and keeps the most specificity.
+        # is the highest kept threshold meeting the target.
         best_idx = int(valid_indices[0])
     else:
         # Reached only when y_true has no positive: otherwise the last ROC point has tpr = 1.

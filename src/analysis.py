@@ -278,8 +278,9 @@ def prevalence_table(test: pd.DataFrame) -> dict:
 
 
 def birads_matched_operating_point(val: pd.DataFrame, test: pd.DataFrame) -> dict:
-    """Specificity at the BI-RADS baseline's own sensitivity, from the highest validation
-    threshold reaching it, so the two are compared at one sensitivity."""
+    """Specificity at the BI-RADS baseline's own sensitivity, from the threshold at the first
+    validation roc_curve point reaching it, so the two are compared at one sensitivity. As in
+    evaluate.optimal_threshold, that can be lower than the highest threshold reaching it."""
     from sklearn.metrics import roc_curve
 
     target = float(config.BIRADS["sens"])

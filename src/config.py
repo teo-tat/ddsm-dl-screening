@@ -278,8 +278,9 @@ LITERATURE_SPECIFICITY_REFERENCE: float = 0.80
 BOOTSTRAP_ITERATIONS: int = 1_000
 BOOTSTRAP_CI_LEVEL: float = 0.95
 
-# The operating point is the highest validation threshold that still reaches this
-# sensitivity. It is carried to test unchanged.
+# The operating point is the validation threshold at the first roc_curve point that reaches
+# this sensitivity; roc_curve drops some collinear points, so it can be lower than the highest
+# threshold that does. It is carried to test unchanged.
 TARGET_SENSITIVITY: float = 0.90
 
 # The grouping unit for the split and for the cluster bootstrap.
