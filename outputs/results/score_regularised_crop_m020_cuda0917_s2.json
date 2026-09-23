@@ -1,0 +1,19 @@
+{
+  "store": "outputs/crop_store_m020",
+  "store_tag": null,
+  "model": "regularised",
+  "weights": "outputs/_cuda/s0917/weights/regularised_crop_m020_cuda0917_s2_best.weights.h5",
+  "n": 243,
+  "n_malignant": 112,
+  "exact_val_auc": 0.825245,
+  "path": "eager model(x, training=False)",
+  "device": "/CPU:0",
+  "gpus": [
+    "/physical_device:GPU:0"
+  ],
+  "tensorflow": "2.17.0",
+  "keras": "3.14.0",
+  "numpy": "1.26.4",
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "tensorflow-metal": "1.2.0"
+}

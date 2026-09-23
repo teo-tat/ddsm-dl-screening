@@ -1,0 +1,84 @@
+{
+  "model_name": "vgg16",
+  "weights_file": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung3_unet_promoted_cuda0917_s2_best.weights.h5",
+  "total_params": 14847297,
+  "trainable_params": 132097,
+  "framework": {
+    "tensorflow": "2.17.0",
+    "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+  },
+  "training_config": {
+    "seed": 28,
+    "target_size": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "initial_lr": 0.001,
+    "early_stopping_patience": 10,
+    "val_fraction": 0.15,
+    "test_fraction": 0.15,
+    "class_weight_strategy": "balanced"
+  },
+  "eval_pipeline": {
+    "tag": "vgg16_crop_rung3_unet_promoted_cuda0917_s2",
+    "source": "crop",
+    "clahe": false,
+    "target_size": [
+      224,
+      224
+    ],
+    "pad_square": null,
+    "batch_size": 32,
+    "intensity_norm": null,
+    "crop_sizing": "box_provider",
+    "crop_margin": 0.2,
+    "mask_overlay": false,
+    "tag_suffix": "_rung3_unet_promoted_cuda0917_s2",
+    "normalisation": "imagenet",
+    "box_source": "unet",
+    "tta": "none"
+  },
+  "analysis_plan": {
+    "target_sensitivity": 0.9,
+    "threshold_fitted_on": "validation",
+    "bootstrap_unit": "patient_id",
+    "birads_baseline": {
+      "variant": "drop_zero",
+      "threshold": 4.0,
+      "auc_roc": 0.809,
+      "auc_roc_ci": [
+        0.747,
+        0.872
+      ],
+      "auc_pr": 0.77,
+      "sens": 0.94,
+      "spec": 0.427,
+      "n_test_comparison": 203,
+      "n_test_full": 221,
+      "comparison_set": "artifacts/birads_comparison_set.csv",
+      "partition_source": "lesion-level patient partition (data_loader.patient_partition)"
+    }
+  },
+  "normalisation": {
+    "method": "divide_by_max_16bit",
+    "divisor": 65535,
+    "global_mean_01": 0.2128,
+    "global_std_01": 0.2651,
+    "imagenet_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "imagenet_std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "split": {
+    "train_csv": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/data/raw/mass_case_description_train_set.csv",
+    "test_csv": "/Users/teodort/Desktop/Final Project/ddsm-dl-screening/data/raw/mass_case_description_test_set.csv",
+    "strategy": "patient-level StratifiedGroupKFold, pooled CSVs"
+  }
+}

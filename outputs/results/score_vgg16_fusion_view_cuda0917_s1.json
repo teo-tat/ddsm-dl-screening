@@ -1,0 +1,22 @@
+{
+  "store": "outputs/fusion_store_vgg16_fusion_view",
+  "fusion_tag": "vgg16_fusion_view",
+  "pair": "view",
+  "paired": true,
+  "symmetric": true,
+  "arch": "vgg16",
+  "weights": "outputs/_cuda/s0917/weights/vgg16_fusion_view_cuda0917_s1_best.weights.h5",
+  "n": 100,
+  "n_malignant": 47,
+  "exact_val_auc": 0.910076,
+  "path": "eager model(x, training=False), swap-averaged",
+  "device": "/CPU:0",
+  "gpus": [
+    "/physical_device:GPU:0"
+  ],
+  "tensorflow": "2.17.0",
+  "keras": "3.14.0",
+  "numpy": "1.26.4",
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "tensorflow-metal": "1.2.0"
+}

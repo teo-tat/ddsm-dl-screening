@@ -1,0 +1,222 @@
+{
+  "primary": {
+    "model": "vgg16_crop_rung3_unet_promoted_cuda0917",
+    "unit": "image",
+    "aggregation": "max",
+    "n": 203,
+    "n_expected": 203,
+    "n_malignant": 100,
+    "auc_model": 0.7873786407766992,
+    "auc_birads": 0.8089805825242717,
+    "auc_diff": -0.021601941747572573,
+    "auc_diff_ci_patient_bootstrap": [
+      -0.09879100943404333,
+      0.05250030148422994
+    ],
+    "z": -0.5980126152051087,
+    "p_value": 0.5498315156415863,
+    "birads_anchor_from_config": 0.809,
+    "correction": "none (single pre-registered comparison)",
+    "birads_anchor_recomputed_on_scored_rows": true,
+    "row_set": "images of the test BI-RADS comparison set that this model emits a prediction for, after dropping BI-RADS 0"
+  },
+  "secondary": {
+    "unit": "lesion",
+    "n": 243,
+    "family_size": 10,
+    "comparisons": [
+      {
+        "model_a": "vgg16_crop_rung2_oracle_cuda0917",
+        "model_b": "vgg16_crop_rung3_unet_promoted_cuda0917",
+        "auc_a": 0.8229407760381211,
+        "auc_b": 0.7794417971409123,
+        "auc_diff": 0.04349897889720877,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.02863062816733989,
+          0.10651202083987736
+        ],
+        "z": 1.442003915796596,
+        "p_delong": 0.14930126894637805,
+        "mcnemar_chi2": 2.086206896551724,
+        "p_mcnemar": 0.1486347107477688,
+        "b_a_wrong_b_right": 23,
+        "c_a_right_b_wrong": 35,
+        "p_delong_holm": 0.15965309118398688,
+        "significant_holm_005": false
+      },
+      {
+        "model_a": "vgg16_crop_rung2_oracle_cuda0917",
+        "model_b": "vgg16_crop_rung4_cam_cuda0917",
+        "auc_a": 0.8229407760381211,
+        "auc_b": 0.6488087134104833,
+        "auc_diff": 0.1741320626276378,
+        "auc_diff_ci_patient_bootstrap": [
+          0.0707300079495432,
+          0.2623809748258277
+        ],
+        "z": 4.14624438773575,
+        "p_delong": 3.379730910267243e-05,
+        "mcnemar_chi2": 7.8125,
+        "p_mcnemar": 0.005188607552315538,
+        "b_a_wrong_b_right": 27,
+        "c_a_right_b_wrong": 53,
+        "p_delong_holm": 0.000236581163718707,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung2_oracle_cuda0917",
+        "model_b": "vgg16_crop_rung6_shuffled_cuda0917",
+        "auc_a": 0.8229407760381211,
+        "auc_b": 0.4870660313138189,
+        "auc_diff": 0.3358747447243022,
+        "auc_diff_ci_patient_bootstrap": [
+          0.21396181134074074,
+          0.4459983429313754
+        ],
+        "z": 6.904048438913448,
+        "p_delong": 5.0541053472576405e-12,
+        "mcnemar_chi2": 31.582089552238806,
+        "p_mcnemar": 1.9118479244184527e-08,
+        "b_a_wrong_b_right": 10,
+        "c_a_right_b_wrong": 57,
+        "p_delong_holm": 5.054105347257641e-11,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung2_oracle_cuda0917",
+        "model_b": "vgg16_crop_rung7_whole_cuda0917",
+        "auc_a": 0.8229407760381211,
+        "auc_b": 0.7074200136147037,
+        "auc_diff": 0.11552076242341736,
+        "auc_diff_ci_patient_bootstrap": [
+          0.00815466102057358,
+          0.2060419030439938
+        ],
+        "z": 2.8645852372917697,
+        "p_delong": 0.0041755576011971015,
+        "mcnemar_chi2": 1.6805555555555556,
+        "p_mcnemar": 0.19485064860886947,
+        "b_a_wrong_b_right": 30,
+        "c_a_right_b_wrong": 42,
+        "p_delong_holm": 0.016702230404788406,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung3_unet_promoted_cuda0917",
+        "model_b": "vgg16_crop_rung4_cam_cuda0917",
+        "auc_a": 0.7794417971409123,
+        "auc_b": 0.6488087134104833,
+        "auc_diff": 0.13063308373042903,
+        "auc_diff_ci_patient_bootstrap": [
+          0.035166796440489444,
+          0.22189261484957504
+        ],
+        "z": 2.9983423028007063,
+        "p_delong": 0.0027145259781728506,
+        "mcnemar_chi2": 1.9651162790697674,
+        "p_mcnemar": 0.1609671969711517,
+        "b_a_wrong_b_right": 36,
+        "c_a_right_b_wrong": 50,
+        "p_delong_holm": 0.013572629890864253,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung3_unet_promoted_cuda0917",
+        "model_b": "vgg16_crop_rung6_shuffled_cuda0917",
+        "auc_a": 0.7794417971409123,
+        "auc_b": 0.4870660313138189,
+        "auc_diff": 0.2923757658270934,
+        "auc_diff_ci_patient_bootstrap": [
+          0.17210381636931513,
+          0.3988417868913102
+        ],
+        "z": 5.937003681786234,
+        "p_delong": 2.9027815106062044e-09,
+        "mcnemar_chi2": 13.927710843373495,
+        "p_mcnemar": 0.00018997693759037482,
+        "b_a_wrong_b_right": 24,
+        "c_a_right_b_wrong": 59,
+        "p_delong_holm": 2.612503359545584e-08,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung3_unet_promoted_cuda0917",
+        "model_b": "vgg16_crop_rung7_whole_cuda0917",
+        "auc_a": 0.7794417971409123,
+        "auc_b": 0.7074200136147037,
+        "auc_diff": 0.07202178352620858,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.019529189748634955,
+          0.1564678801499053
+        ],
+        "z": 1.8764069995941375,
+        "p_delong": 0.06059941416917527,
+        "mcnemar_chi2": 0.01282051282051282,
+        "p_mcnemar": 0.9098500327472845,
+        "b_a_wrong_b_right": 39,
+        "c_a_right_b_wrong": 39,
+        "p_delong_holm": 0.15965309118398688,
+        "significant_holm_005": false
+      },
+      {
+        "model_a": "vgg16_crop_rung4_cam_cuda0917",
+        "model_b": "vgg16_crop_rung6_shuffled_cuda0917",
+        "auc_a": 0.6488087134104833,
+        "auc_b": 0.4870660313138189,
+        "auc_diff": 0.16174268209666437,
+        "auc_diff_ci_patient_bootstrap": [
+          0.0559774706833531,
+          0.2698759298633316
+        ],
+        "z": 3.3836946110374604,
+        "p_delong": 0.0007151750291226695,
+        "mcnemar_chi2": 6.349206349206349,
+        "p_mcnemar": 0.011743382301172556,
+        "b_a_wrong_b_right": 21,
+        "c_a_right_b_wrong": 42,
+        "p_delong_holm": 0.004291050174736017,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung4_cam_cuda0917",
+        "model_b": "vgg16_crop_rung7_whole_cuda0917",
+        "auc_a": 0.6488087134104833,
+        "auc_b": 0.7074200136147037,
+        "auc_diff": -0.05861130020422045,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.11763739329106304,
+          0.002957924489239993
+        ],
+        "z": -1.9331502036064248,
+        "p_delong": 0.05321769706132896,
+        "mcnemar_chi2": 3.017857142857143,
+        "p_mcnemar": 0.08235221505280665,
+        "b_a_wrong_b_right": 35,
+        "c_a_right_b_wrong": 21,
+        "p_delong_holm": 0.15965309118398688,
+        "significant_holm_005": false
+      },
+      {
+        "model_a": "vgg16_crop_rung6_shuffled_cuda0917",
+        "model_b": "vgg16_crop_rung7_whole_cuda0917",
+        "auc_a": 0.4870660313138189,
+        "auc_b": 0.7074200136147037,
+        "auc_diff": -0.22035398230088482,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.32910301713511575,
+          -0.11108205434695563
+        ],
+        "z": -4.5950901001435085,
+        "p_delong": 4.325623195288048e-06,
+        "mcnemar_chi2": 15.835616438356164,
+        "p_mcnemar": 6.908970237062828e-05,
+        "b_a_wrong_b_right": 54,
+        "c_a_right_b_wrong": 19,
+        "p_delong_holm": 3.4604985562304384e-05,
+        "significant_holm_005": true
+      }
+    ],
+    "note": "DeLong p-values Holm-corrected within the family; McNemar descriptive"
+  },
+  "split": "test"
+}

@@ -1,0 +1,1584 @@
+=== test pass Sat Sep 19 20:23:06 EEST 2026 ===
+=== SPLIT=test  (dry run: 0)  — every stage below is run with --split test ===
+snapshot: 143 tables -> outputs/results/ledger_hashes.json
+
+--- [test] apply bundle boxes ---
+  [discovered] 14 test map arrays in refs/test_maps_manifest.json
+  test maps and the metadata they are aligned with match their recorded sha256
+2026-09-19 20:23:11.786082: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:23:11.786129: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:23:11.786136: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:23:11.786148: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:23:11.786158: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+[breast] test: 0/243 (0 s)
+[breast] test: 200/243 (5 s)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/localiser_bundle/breast_boxes_test.csv
+[apply] weights: g:keras=0.5,torch=2 -> (0.368421, 0.368421, 0.368421, 1.473684, 1.473684, 1.473684, 1.473684)
+  [self-check] test: no recorded value to compare against (the selection records train and val only); not treated as passed
+-> outputs/results/localiser_bundle/boxes_A24/localiser_boxes_test.csv
+-> outputs/results/localiser_bundle/boxes_A24/localiser_boxes_k3_test.csv
+
+=== test (n=243, scored=243, no GT=0) ===
+  detection_rate                 0.9794
+  fallback_rate                  0.0206
+  mask_iou_mean                  0.4827
+  dice_mean                      0.5834
+  box_iou_inclusive_mean         0.4860
+  box_iou_inclusive_median       0.6089
+  box_iou_mean_given_detected    0.4963
+  box_iou_mammogram_mean         0.4933
+  detect_at_iou50                0.6049
+  detect_at_iou30                0.6914
+  centroid_hit_rate              0.7243
+  box_iou_any_inclusive_mean     0.5250
+  pct_rows_on_multilesion_images 0.1440
+  box_iou_matched_k3_inclusive_mean 0.5356
+  detect_at_iou50_matched_k3     0.6667
+  detection_rate_matched_k3      0.8189
+  n_rows_matched_box_differs_from_single 60.0000
+  n_images                       221.0000
+  dice_image_mean_inclusive      0.6243
+  dice_image_mean_detected       0.6387
+-> outputs/results/localiser_bundle/boxes_A24/bundle_manifest.json
+
+--- [test] box coverage ---
+2026-09-19 20:23:28.032794: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:23:28.032816: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:23:28.032819: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:23:28.032829: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:23:28.032838: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+  box coverage: all 243 test lesions have a U-Net box and a jitter draw
+-> refs/test_pass_started.json
+
+--- [test] scoring: ladder rungs, seeds, whole image, scratch and Family A ---
+2026-09-19 20:23:31.820592: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:23:31.820609: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:23:31.820612: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:23:31.820622: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:23:31.820630: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:23:37.950923: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:23:40.572517: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung1_oracle_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.2366 → sens=0.9107, spec=0.5344 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung1_oracle_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung1_oracle_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.2366  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9115       [0.8522, 0.9626]      0.940    -0.028
+  Specificity        0.3692       [0.2824, 0.4638]      0.427    -0.058
+  AUC-ROC            0.7821       [0.7115, 0.8465]      0.809    -0.027
+  AUC-PR             0.7563       [0.6607, 0.8405]      0.770    -0.014
+  Accuracy           0.6214       [0.5675, 0.6842]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.2366):
+                Pred −   Pred +
+    Actual −       48       82
+    Actual +       10      103
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung1_oracle_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung1_oracle_cuda0917_model_card.json
+2026-09-19 20:23:45.716142: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:23:45.716166: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:23:45.716169: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:23:45.716180: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:23:45.716189: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:23:52.316650: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:23:54.983078: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung2_oracle_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.2852 → sens=0.9018, spec=0.5878 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung2_oracle_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung2_oracle_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.2852  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9469       [0.9018, 0.9825]      0.940    +0.007
+  Specificity        0.4385       [0.3241, 0.5475]      0.427    +0.012
+  AUC-ROC            0.8229       [0.7592, 0.8797]      0.809    +0.014
+  AUC-PR             0.7847       [0.6942, 0.8600]      0.770    +0.015
+  Accuracy           0.6749       [0.6143, 0.7362]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.2852):
+                Pred −   Pred +
+    Actual −       57       73
+    Actual +        6      107
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung2_oracle_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung2_oracle_cuda0917_model_card.json
+2026-09-19 20:23:59.570714: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:23:59.570731: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:23:59.570735: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:23:59.570745: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:23:59.570754: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:24:05.706009: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:24:08.566312: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung3_unet_promoted_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.3163 → sens=0.9018, spec=0.6031 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 11/486 (2.26%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.3163  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.8230       [0.7315, 0.9020]      0.940    -0.117
+  Specificity        0.4538       [0.3571, 0.5455]      0.427    +0.027
+  AUC-ROC            0.7794       [0.7124, 0.8386]      0.809    -0.030
+  AUC-PR             0.7538       [0.6617, 0.8511]      0.770    -0.016
+  Accuracy           0.6255       [0.5669, 0.6878]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.3163):
+                Pred −   Pred +
+    Actual −       59       71
+    Actual +       20       93
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_model_card.json
+2026-09-19 20:24:13.698834: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:24:13.698851: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:24:13.698855: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:24:13.698867: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:24:13.698875: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:24:22.078801: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:24:29.275369: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung4_cam_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.2081 → sens=0.9018, spec=0.4122 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 104/486 (21.40%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung4_cam_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung4_cam_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.2081  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.8496       [0.7706, 0.9182]      0.940    -0.090
+  Specificity        0.3231       [0.2327, 0.4259]      0.427    -0.104
+  AUC-ROC            0.6488       [0.5748, 0.7241]      0.809    -0.160
+  AUC-PR             0.6302       [0.5408, 0.7191]      0.770    -0.140
+  Accuracy           0.5679       [0.4938, 0.6432]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.2081):
+                Pred −   Pred +
+    Actual −       42       88
+    Actual +       17       96
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung4_cam_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung4_cam_cuda0917_model_card.json
+2026-09-19 20:24:34.533149: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:24:34.533169: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:24:34.533172: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:24:34.533183: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:24:34.533191: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:24:40.806457: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:24:43.773040: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung5_jitter_promoted_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.3285 → sens=0.9107, spec=0.2824 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 13/486 (2.67%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.3285  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.8938       [0.8333, 0.9464]      0.940    -0.046
+  Specificity        0.2923       [0.2154, 0.3729]      0.427    -0.135
+  AUC-ROC            0.7189       [0.6463, 0.7864]      0.809    -0.090
+  AUC-PR             0.7349       [0.6507, 0.8098]      0.770    -0.035
+  Accuracy           0.5720       [0.5206, 0.6314]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.3285):
+                Pred −   Pred +
+    Actual −       38       92
+    Actual +       12      101
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_model_card.json
+2026-09-19 20:24:48.953240: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:24:48.953257: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:24:48.953260: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:24:48.953271: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:24:48.953279: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:24:55.743707: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:24:58.348317: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung6_shuffled_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.3742 → sens=0.9107, spec=0.1450 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung6_shuffled_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung6_shuffled_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.3742  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9823       [0.9550, 1.0000]      0.940    +0.042
+  Specificity        0.0462       [0.0131, 0.0918]      0.427    -0.381
+  AUC-ROC            0.4871       [0.3994, 0.5754]      0.809    -0.322
+  AUC-PR             0.4836       [0.3961, 0.5958]      0.770    -0.286
+  Accuracy           0.4815       [0.4194, 0.5378]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.3742):
+                Pred −   Pred +
+    Actual −        6      124
+    Actual +        2      111
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung6_shuffled_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung6_shuffled_cuda0917_model_card.json
+2026-09-19 20:25:03.000999: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:25:03.001016: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:25:03.001020: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:25:03.001030: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:25:03.001039: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:25:15.582257: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:25:28.099858: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung7_whole_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.2733 → sens=0.9018, spec=0.4275 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 486/486 (100.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung7_whole_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung7_whole_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.2733  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.8673       [0.7949, 0.9397]      0.940    -0.073
+  Specificity        0.4154       [0.3071, 0.5113]      0.427    -0.012
+  AUC-ROC            0.7074       [0.6266, 0.7824]      0.809    -0.102
+  AUC-PR             0.6686       [0.5751, 0.7689]      0.770    -0.101
+  Accuracy           0.6255       [0.5564, 0.6932]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.2733):
+                Pred −   Pred +
+    Actual −       54       76
+    Actual +       15       98
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung7_whole_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung7_whole_cuda0917_model_card.json
+2026-09-19 20:25:33.545542: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:25:33.545567: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:25:33.545571: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:25:33.545581: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:25:33.545589: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:25:39.784122: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:25:42.533860: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung3_unet_promoted_cuda0917_s1_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.3483 → sens=0.9018, spec=0.6565 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 11/486 (2.26%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_s1_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_s1_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.3483  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.8230       [0.7307, 0.9009]      0.940    -0.117
+  Specificity        0.4846       [0.3939, 0.5767]      0.427    +0.058
+  AUC-ROC            0.7848       [0.7135, 0.8487]      0.809    -0.024
+  AUC-PR             0.7632       [0.6726, 0.8598]      0.770    -0.007
+  Accuracy           0.6420       [0.5823, 0.7013]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.3483):
+                Pred −   Pred +
+    Actual −       63       67
+    Actual +       20       93
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_s1_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_s1_model_card.json
+2026-09-19 20:25:47.686982: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:25:47.687003: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:25:47.687006: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:25:47.687017: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:25:47.687026: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:25:53.880180: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:25:56.803791: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung5_jitter_promoted_cuda0917_s1_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.2337 → sens=0.9018, spec=0.3435 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 13/486 (2.67%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_s1_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_s1_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.2337  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.8938       [0.8261, 0.9550]      0.940    -0.046
+  Specificity        0.3385       [0.2500, 0.4245]      0.427    -0.088
+  AUC-ROC            0.7536       [0.6854, 0.8188]      0.809    -0.055
+  AUC-PR             0.7526       [0.6691, 0.8320]      0.770    -0.017
+  Accuracy           0.5967       [0.5435, 0.6546]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.2337):
+                Pred −   Pred +
+    Actual −       44       86
+    Actual +       12      101
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_s1_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_s1_model_card.json
+2026-09-19 20:26:01.894467: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:26:01.894484: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:26:01.894488: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:26:01.894498: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:26:01.894506: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:26:08.043324: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:26:10.753462: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung3_unet_promoted_cuda0917_s2_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.4611 → sens=0.9018, spec=0.5878 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 11/486 (2.26%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_s2_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_s2_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.4611  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.8673       [0.7944, 0.9279]      0.940    -0.073
+  Specificity        0.4692       [0.3817, 0.5574]      0.427    +0.042
+  AUC-ROC            0.7757       [0.7051, 0.8335]      0.809    -0.033
+  AUC-PR             0.7592       [0.6713, 0.8439]      0.770    -0.011
+  Accuracy           0.6543       [0.5951, 0.7137]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.4611):
+                Pred −   Pred +
+    Actual −       61       69
+    Actual +       15       98
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_s2_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_s2_model_card.json
+2026-09-19 20:26:15.844970: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:26:15.844987: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:26:15.844991: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:26:15.845001: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:26:15.845009: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:26:21.946099: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:26:24.875110: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_rung5_jitter_promoted_cuda0917_s2_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.2968 → sens=0.9018, spec=0.2901 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 13/486 (2.67%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_s2_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_s2_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.2968  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9115       [0.8571, 0.9576]      0.940    -0.028
+  Specificity        0.2538       [0.1759, 0.3283]      0.427    -0.173
+  AUC-ROC            0.7291       [0.6590, 0.7968]      0.809    -0.080
+  AUC-PR             0.7278       [0.6456, 0.8131]      0.770    -0.042
+  Accuracy           0.5597       [0.5058, 0.6167]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.2968):
+                Pred −   Pred +
+    Actual −       33       97
+    Actual +       10      103
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_s2_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung5_jitter_promoted_cuda0917_s2_model_card.json
+2026-09-19 20:26:30.016972: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:26:30.016989: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:26:30.016993: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:26:30.017003: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:26:30.017013: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:26:36.313150: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:26:40.804723: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[data_loader] mass_case_description_train_set.csv: merged 87 duplicate rows (1318 -> 1231 unique on 'image file path'), 6 of which disagreed on label
+[data_loader] mass_case_description_test_set.csv: merged 17 duplicate rows (378 -> 361 unique on 'image file path'), 2 of which disagreed on label
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1146 (72.0%) | val: 225 (14.1%) | test: 221 (13.9%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_full_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.3723 → sens=0.9167, spec=0.2821 (n=225)
+[data_loader] mass_case_description_train_set.csv: merged 87 duplicate rows (1318 -> 1231 unique on 'image file path'), 6 of which disagreed on label
+[data_loader] mass_case_description_test_set.csv: merged 17 duplicate rows (378 -> 361 unique on 'image file path'), 2 of which disagreed on label
+[data_loader] decode health: 0/446 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/446 (0.00%)
+[evaluate] val prediction table (225 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_full_cuda0917_predictions_val.csv
+[evaluate] test prediction table (221 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_full_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 221  (+106 / −115)  across 119 patients
+  Threshold    : 0.3723  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9245       [0.8666, 0.9722]      0.940    -0.015
+  Specificity        0.3130       [0.2118, 0.4078]      0.427    -0.114
+  AUC-ROC            0.7042       [0.6217, 0.7794]      0.809    -0.105
+  AUC-PR             0.6738       [0.5846, 0.7677]      0.770    -0.096
+  Accuracy           0.6063       [0.5420, 0.6696]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.3723):
+                Pred −   Pred +
+    Actual −       36       79
+    Actual +        8       98
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_full_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_full_cuda0917_model_card.json
+2026-09-19 20:26:46.239070: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:26:46.239092: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:26:46.239096: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:26:46.239107: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:26:46.239115: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 62 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:26:52.415502: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:26:55.549282: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/baseline_crop_m020_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.1410 → sens=0.9018, spec=0.2137 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/baseline_crop_m020_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/baseline_crop_m020_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: baseline
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.1410  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9204       [0.8534, 0.9817]      0.940    -0.020
+  Specificity        0.2846       [0.1579, 0.4014]      0.427    -0.142
+  AUC-ROC            0.6568       [0.5667, 0.7388]      0.809    -0.152
+  AUC-PR             0.6132       [0.5201, 0.7112]      0.770    -0.157
+  Accuracy           0.5802       [0.5187, 0.6443]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.1410):
+                Pred −   Pred +
+    Actual −       37       93
+    Actual +        9      104
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/baseline_crop_m020_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/baseline_crop_m020_cuda0917_model_card.json
+2026-09-19 20:27:00.054032: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:27:00.054050: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:27:00.054053: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:27:00.054064: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:27:00.054072: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 78 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:27:06.182433: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:27:09.378039: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/scaled_crop_m020_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.0968 → sens=0.9018, spec=0.2595 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/scaled_crop_m020_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/scaled_crop_m020_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: scaled
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.0968  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9823       [0.9554, 1.0000]      0.940    +0.042
+  Specificity        0.1538       [0.1008, 0.2190]      0.427    -0.273
+  AUC-ROC            0.6897       [0.6069, 0.7610]      0.809    -0.119
+  AUC-PR             0.6358       [0.5191, 0.7573]      0.770    -0.134
+  Accuracy           0.5391       [0.4833, 0.5957]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.0968):
+                Pred −   Pred +
+    Actual −       20      110
+    Actual +        2      111
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/scaled_crop_m020_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/scaled_crop_m020_cuda0917_model_card.json
+2026-09-19 20:27:13.931396: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:27:13.931417: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:27:13.931421: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:27:13.931432: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:27:13.931439: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 94 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:27:20.601319: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:27:23.780749: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/regularised_crop_m020_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.2807 → sens=0.9018, spec=0.5191 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/regularised_crop_m020_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/regularised_crop_m020_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: regularised
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.2807  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.8850       [0.8131, 0.9397]      0.940    -0.055
+  Specificity        0.4308       [0.3158, 0.5323]      0.427    +0.004
+  AUC-ROC            0.7946       [0.7290, 0.8512]      0.809    -0.014
+  AUC-PR             0.7640       [0.6755, 0.8445]      0.770    -0.006
+  Accuracy           0.6420       [0.5811, 0.6938]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.2807):
+                Pred −   Pred +
+    Actual −       56       74
+    Actual +       13      100
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/regularised_crop_m020_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/regularised_crop_m020_cuda0917_model_card.json
+2026-09-19 20:27:28.352437: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:27:28.352457: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:27:28.352460: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:27:28.352471: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:27:28.352479: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:27:34.747893: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:27:38.063861: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_crop_m020_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.1482 → sens=0.9018, spec=0.5649 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_m020_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_m020_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: vgg16
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.1482  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9115       [0.8461, 0.9636]      0.940    -0.028
+  Specificity        0.5692       [0.4586, 0.6746]      0.427    +0.142
+  AUC-ROC            0.8304       [0.7593, 0.8851]      0.809    +0.021
+  AUC-PR             0.7941       [0.7013, 0.8673]      0.770    +0.024
+  Accuracy           0.7284       [0.6626, 0.7866]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.1482):
+                Pred −   Pred +
+    Actual −       74       56
+    Actual +       10      103
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_m020_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_m020_cuda0917_model_card.json
+2026-09-19 20:27:42.642264: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:27:42.642287: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:27:42.642291: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:27:42.642302: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:27:42.642310: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 54 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:27:50.800071: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:27:54.505997: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/resnet50_crop_m020_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.1829 → sens=0.9018, spec=0.4122 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/resnet50_crop_m020_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/resnet50_crop_m020_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: resnet50
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.1829  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9646       [0.9259, 0.9915]      0.940    +0.025
+  Specificity        0.3923       [0.2909, 0.4818]      0.427    -0.035
+  AUC-ROC            0.8379       [0.7856, 0.8837]      0.809    +0.029
+  AUC-PR             0.8289       [0.7690, 0.8846]      0.770    +0.059
+  Accuracy           0.6584       [0.6089, 0.7093]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.1829):
+                Pred −   Pred +
+    Actual −       51       79
+    Actual +        4      109
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/resnet50_crop_m020_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/resnet50_crop_m020_cuda0917_model_card.json
+2026-09-19 20:27:59.642030: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:27:59.642048: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:27:59.642051: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:27:59.642062: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:27:59.642070: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 50 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:28:10.368800: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:28:16.431986: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/densenet121_crop_m020_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.2522 → sens=0.9018, spec=0.4885 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/densenet121_crop_m020_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/densenet121_crop_m020_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: densenet121
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.2522  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9292       [0.8783, 0.9683]      0.940    -0.011
+  Specificity        0.4692       [0.3628, 0.5769]      0.427    +0.042
+  AUC-ROC            0.8511       [0.7900, 0.8992]      0.809    +0.042
+  AUC-PR             0.8191       [0.7313, 0.8951]      0.770    +0.049
+  Accuracy           0.6831       [0.6272, 0.7395]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.2522):
+                Pred −   Pred +
+    Actual −       61       69
+    Actual +        8      105
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/densenet121_crop_m020_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/densenet121_crop_m020_cuda0917_model_card.json
+2026-09-19 20:28:21.623303: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:28:21.623320: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:28:21.623323: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:28:21.623333: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:28:21.623342: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 86 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:28:30.253893: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:28:33.892239: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+[evaluate] Loading weights from /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/efficientnet_crop_m020_cuda0917_best.weights.h5
+[evaluate] Operating point fitted on validation: threshold=0.2869 → sens=0.9018, spec=0.5344 (n=243)
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[evaluate] val prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/efficientnet_crop_m020_cuda0917_predictions_val.csv
+[evaluate] test prediction table (243 rows) → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/efficientnet_crop_m020_cuda0917_predictions_test.csv
+
+============================================================
+  Evaluation results: efficientnet
+============================================================
+  Test samples : 243  (+113 / −130)  across 119 patients
+  Threshold    : 0.2869  (fitted on validation at sensitivity ≥ 0.90)
+  CIs          : 1000 resamples, unit = patient
+
+  Metric              Value                95 % CI    BI-RADS         Δ
+  ---------------------------------------------------------------------
+  Sensitivity        0.9027       [0.8407, 0.9537]      0.940    -0.037
+  Specificity        0.5154       [0.4180, 0.6120]      0.427    +0.088
+  AUC-ROC            0.8357       [0.7718, 0.8869]      0.809    +0.027
+  AUC-PR             0.8207       [0.7493, 0.8864]      0.770    +0.051
+  Accuracy           0.6955       [0.6341, 0.7559]          —         —
+
+  Δ is descriptive only — the BI-RADS verdict requires the paired DeLong test
+  on the shared comparison set (n = 203, variant = drop_zero).
+
+  Confusion matrix (threshold = 0.2869):
+                Pred −   Pred +
+    Actual −       67       63
+    Actual +       11      102
+
+[evaluate] Results saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/efficientnet_crop_m020_cuda0917_results.json
+[evaluate] Model card saved → /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/efficientnet_crop_m020_cuda0917_model_card.json
+
+--- [test] scoring: fusion ---
+2026-09-19 20:28:39.309883: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:28:39.309902: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:28:39.309906: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:28:39.309917: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:28:39.309926: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:28:45.120570: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:28:46.641556: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:28:51.008410: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[fusion] tag vgg16_fusion_view_unet_promoted_cuda0917  pair=view  rows=paired  box=unet  margins 0.2/0.2  crop_sizing=box_provider  both orderings in training, averaged at eval
+[fusion] train lesions 1210 | pairs  491 | view pair-rate 0.812 | single-mass 447 | id-match 44 | label-disagree 1 | no counterpart view 204 | multi-mass unmatched 22
+[fusion] val   lesions  243 | pairs  100 | view pair-rate 0.823 | single-mass 87 | id-match 13 | label-disagree 0 | no counterpart view 39 | multi-mass unmatched 4
+[fusion] test  lesions  243 | pairs  101 | view pair-rate 0.831 | single-mass 86 | id-match 15 | label-disagree 2 | no counterpart view 35 | multi-mass unmatched 2
+[fusion] fusion_pairs_view_train.csv exists and matches (491 pairs) - kept
+[fusion] fusion_pairs_view_val.csv exists and matches (100 pairs) - kept
+[fusion] fusion_pairs_view_test.csv exists and matches (101 pairs) - kept
+============================================================
+  TEST PASS: scoring the frozen test partition for vgg16_fusion_view_unet_promoted_cuda0917
+============================================================
+[fusion] Loaded /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_fusion_view_unet_promoted_cuda0917_best.weights.h5
+[data_loader] decode health: 0/200 failed (0.000%)
+[data_loader] whole-image fallbacks: 6/200 (3.00%)
+[fusion] vgg16_fusion_view_unet_promoted_cuda0917 val: n=100 AUC 0.9257  threshold 0.4971 -> sens 0.9362 spec 0.7170
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_predictions_val.csv
+[data_loader] decode health: 0/202 failed (0.000%)
+[data_loader] whole-image fallbacks: 3/202 (1.49%)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_results.json
+2026-09-19 20:28:55.782045: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:28:55.782062: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:28:55.782065: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:28:55.782075: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:28:55.782084: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:29:00.663306: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:29:02.142264: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[fusion] tag vgg16_fusion_control_cuda0917  pair=control  rows=paired  box=oracle  margins 0.2/0.2  crop_sizing=mask_margin
+[fusion] train lesions 1210 | pairs  491 | view pair-rate 0.812 | single-mass 447 | id-match 44 | label-disagree 1 | no counterpart view 204 | multi-mass unmatched 22
+[fusion] val   lesions  243 | pairs  100 | view pair-rate 0.823 | single-mass 87 | id-match 13 | label-disagree 0 | no counterpart view 39 | multi-mass unmatched 4
+[fusion] test  lesions  243 | pairs  101 | view pair-rate 0.831 | single-mass 86 | id-match 15 | label-disagree 2 | no counterpart view 35 | multi-mass unmatched 2
+============================================================
+  TEST PASS: scoring the frozen test partition for vgg16_fusion_control_cuda0917
+============================================================
+[fusion] Loaded /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_fusion_control_cuda0917_best.weights.h5
+[data_loader] decode health: 0/100 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/100 (0.00%)
+[fusion] vgg16_fusion_control_cuda0917 val: n=100 AUC 0.8884  threshold 0.1579 -> sens 0.9574 spec 0.4717
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_control_cuda0917_predictions_val.csv
+[data_loader] decode health: 0/101 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/101 (0.00%)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_control_cuda0917_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_control_cuda0917_results.json
+2026-09-19 20:29:06.735150: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:29:06.735167: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:29:06.735170: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:29:06.735180: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:29:06.735188: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:29:12.186005: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:29:13.711387: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:29:17.939736: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[fusion] tag vgg16_fusion_view_unet_promoted_cuda0917_s1  pair=view  rows=paired  box=unet  margins 0.2/0.2  crop_sizing=box_provider  both orderings in training, averaged at eval
+[fusion] Replicate seed 1 applied to initialisation, augmentation and shuffle (partition and pairs unchanged, seed 28)
+[fusion] train lesions 1210 | pairs  491 | view pair-rate 0.812 | single-mass 447 | id-match 44 | label-disagree 1 | no counterpart view 204 | multi-mass unmatched 22
+[fusion] val   lesions  243 | pairs  100 | view pair-rate 0.823 | single-mass 87 | id-match 13 | label-disagree 0 | no counterpart view 39 | multi-mass unmatched 4
+[fusion] test  lesions  243 | pairs  101 | view pair-rate 0.831 | single-mass 86 | id-match 15 | label-disagree 2 | no counterpart view 35 | multi-mass unmatched 2
+[fusion] fusion_pairs_view_train.csv exists and matches (491 pairs) - kept
+[fusion] fusion_pairs_view_val.csv exists and matches (100 pairs) - kept
+[fusion] fusion_pairs_view_test.csv exists and matches (101 pairs) - kept
+============================================================
+  TEST PASS: scoring the frozen test partition for vgg16_fusion_view_unet_promoted_cuda0917_s1
+============================================================
+[fusion] Loaded /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_fusion_view_unet_promoted_cuda0917_s1_best.weights.h5
+[data_loader] decode health: 0/200 failed (0.000%)
+[data_loader] whole-image fallbacks: 6/200 (3.00%)
+[fusion] vgg16_fusion_view_unet_promoted_cuda0917_s1 val: n=100 AUC 0.9121  threshold 0.3444 -> sens 0.9574 spec 0.6792
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_s1_predictions_val.csv
+[data_loader] decode health: 0/202 failed (0.000%)
+[data_loader] whole-image fallbacks: 3/202 (1.49%)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_s1_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_s1_results.json
+2026-09-19 20:29:22.669354: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:29:22.669371: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:29:22.669374: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:29:22.669384: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:29:22.669392: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:29:28.439247: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:29:29.956875: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:29:34.236136: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[fusion] tag vgg16_fusion_view_unet_promoted_cuda0917_s2  pair=view  rows=paired  box=unet  margins 0.2/0.2  crop_sizing=box_provider  both orderings in training, averaged at eval
+[fusion] Replicate seed 2 applied to initialisation, augmentation and shuffle (partition and pairs unchanged, seed 28)
+[fusion] train lesions 1210 | pairs  491 | view pair-rate 0.812 | single-mass 447 | id-match 44 | label-disagree 1 | no counterpart view 204 | multi-mass unmatched 22
+[fusion] val   lesions  243 | pairs  100 | view pair-rate 0.823 | single-mass 87 | id-match 13 | label-disagree 0 | no counterpart view 39 | multi-mass unmatched 4
+[fusion] test  lesions  243 | pairs  101 | view pair-rate 0.831 | single-mass 86 | id-match 15 | label-disagree 2 | no counterpart view 35 | multi-mass unmatched 2
+[fusion] fusion_pairs_view_train.csv exists and matches (491 pairs) - kept
+[fusion] fusion_pairs_view_val.csv exists and matches (100 pairs) - kept
+[fusion] fusion_pairs_view_test.csv exists and matches (101 pairs) - kept
+============================================================
+  TEST PASS: scoring the frozen test partition for vgg16_fusion_view_unet_promoted_cuda0917_s2
+============================================================
+[fusion] Loaded /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_fusion_view_unet_promoted_cuda0917_s2_best.weights.h5
+[data_loader] decode health: 0/200 failed (0.000%)
+[data_loader] whole-image fallbacks: 6/200 (3.00%)
+[fusion] vgg16_fusion_view_unet_promoted_cuda0917_s2 val: n=100 AUC 0.9121  threshold 0.6635 -> sens 0.9149 spec 0.7170
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_s2_predictions_val.csv
+[data_loader] decode health: 0/202 failed (0.000%)
+[data_loader] whole-image fallbacks: 3/202 (1.49%)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_s2_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_s2_results.json
+2026-09-19 20:29:38.923567: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:29:38.923582: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:29:38.923585: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:29:38.923595: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:29:38.923603: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:29:45.620967: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:29:47.133060: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:29:51.872843: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[fusion] tag vgg16_fusion_view_cuda0917  pair=view  rows=paired  box=oracle  margins 0.2/0.2  crop_sizing=mask_margin  both orderings in training, averaged at eval
+[fusion] train lesions 1210 | pairs  491 | view pair-rate 0.812 | single-mass 447 | id-match 44 | label-disagree 1 | no counterpart view 204 | multi-mass unmatched 22
+[fusion] val   lesions  243 | pairs  100 | view pair-rate 0.823 | single-mass 87 | id-match 13 | label-disagree 0 | no counterpart view 39 | multi-mass unmatched 4
+[fusion] test  lesions  243 | pairs  101 | view pair-rate 0.831 | single-mass 86 | id-match 15 | label-disagree 2 | no counterpart view 35 | multi-mass unmatched 2
+[fusion] fusion_pairs_view_train.csv exists and matches (491 pairs) - kept
+[fusion] fusion_pairs_view_val.csv exists and matches (100 pairs) - kept
+[fusion] fusion_pairs_view_test.csv exists and matches (101 pairs) - kept
+============================================================
+  TEST PASS: scoring the frozen test partition for vgg16_fusion_view_cuda0917
+============================================================
+[fusion] Loaded /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_fusion_view_cuda0917_best.weights.h5
+[data_loader] decode health: 0/200 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/200 (0.00%)
+[fusion] vgg16_fusion_view_cuda0917 val: n=100 AUC 0.9049  threshold 0.6187 -> sens 0.9149 spec 0.7736
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_predictions_val.csv
+[data_loader] decode health: 0/202 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/202 (0.00%)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_results.json
+2026-09-19 20:29:56.480409: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:29:56.480431: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:29:56.480435: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:29:56.480446: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:29:56.480453: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:30:03.290075: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:30:04.805802: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:30:09.521714: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[fusion] tag vgg16_fusion_view_cuda0917_s1  pair=view  rows=paired  box=oracle  margins 0.2/0.2  crop_sizing=mask_margin  both orderings in training, averaged at eval
+[fusion] Replicate seed 1 applied to initialisation, augmentation and shuffle (partition and pairs unchanged, seed 28)
+[fusion] train lesions 1210 | pairs  491 | view pair-rate 0.812 | single-mass 447 | id-match 44 | label-disagree 1 | no counterpart view 204 | multi-mass unmatched 22
+[fusion] val   lesions  243 | pairs  100 | view pair-rate 0.823 | single-mass 87 | id-match 13 | label-disagree 0 | no counterpart view 39 | multi-mass unmatched 4
+[fusion] test  lesions  243 | pairs  101 | view pair-rate 0.831 | single-mass 86 | id-match 15 | label-disagree 2 | no counterpart view 35 | multi-mass unmatched 2
+[fusion] fusion_pairs_view_train.csv exists and matches (491 pairs) - kept
+[fusion] fusion_pairs_view_val.csv exists and matches (100 pairs) - kept
+[fusion] fusion_pairs_view_test.csv exists and matches (101 pairs) - kept
+============================================================
+  TEST PASS: scoring the frozen test partition for vgg16_fusion_view_cuda0917_s1
+============================================================
+[fusion] Loaded /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_fusion_view_cuda0917_s1_best.weights.h5
+[data_loader] decode health: 0/200 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/200 (0.00%)
+[fusion] vgg16_fusion_view_cuda0917_s1 val: n=100 AUC 0.9101  threshold 0.4506 -> sens 0.9149 spec 0.7170
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_s1_predictions_val.csv
+[data_loader] decode health: 0/202 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/202 (0.00%)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_s1_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_s1_results.json
+2026-09-19 20:30:14.170793: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:30:14.170817: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:30:14.170821: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:30:14.170831: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:30:14.170839: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:30:20.863029: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:30:22.377368: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:30:27.043159: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[fusion] tag vgg16_fusion_view_cuda0917_s2  pair=view  rows=paired  box=oracle  margins 0.2/0.2  crop_sizing=mask_margin  both orderings in training, averaged at eval
+[fusion] Replicate seed 2 applied to initialisation, augmentation and shuffle (partition and pairs unchanged, seed 28)
+[fusion] train lesions 1210 | pairs  491 | view pair-rate 0.812 | single-mass 447 | id-match 44 | label-disagree 1 | no counterpart view 204 | multi-mass unmatched 22
+[fusion] val   lesions  243 | pairs  100 | view pair-rate 0.823 | single-mass 87 | id-match 13 | label-disagree 0 | no counterpart view 39 | multi-mass unmatched 4
+[fusion] test  lesions  243 | pairs  101 | view pair-rate 0.831 | single-mass 86 | id-match 15 | label-disagree 2 | no counterpart view 35 | multi-mass unmatched 2
+[fusion] fusion_pairs_view_train.csv exists and matches (491 pairs) - kept
+[fusion] fusion_pairs_view_val.csv exists and matches (100 pairs) - kept
+[fusion] fusion_pairs_view_test.csv exists and matches (101 pairs) - kept
+============================================================
+  TEST PASS: scoring the frozen test partition for vgg16_fusion_view_cuda0917_s2
+============================================================
+[fusion] Loaded /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0917/weights/vgg16_fusion_view_cuda0917_s2_best.weights.h5
+[data_loader] decode health: 0/200 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/200 (0.00%)
+[fusion] vgg16_fusion_view_cuda0917_s2 val: n=100 AUC 0.9113  threshold 0.5058 -> sens 0.9149 spec 0.7358
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_s2_predictions_val.csv
+[data_loader] decode health: 0/202 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/202 (0.00%)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_s2_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_s2_results.json
+2026-09-19 20:30:31.726589: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:30:31.726607: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:30:31.726610: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:30:31.726621: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:30:31.726630: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:30:40.282694: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:30:45.657115: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[fusion] tag vgg16_fusion_context_cuda0918  pair=context  rows=all  box=oracle  margins 0.2/1.0  crop_sizing=mask_margin
+[fusion] train lesions 1210 | pairs 1210 | view pair-rate 0.812 | single-mass 447 | id-match 44 | label-disagree 1 | no counterpart view 204 | multi-mass unmatched 22
+[fusion] val   lesions  243 | pairs  243 | view pair-rate 0.823 | single-mass 87 | id-match 13 | label-disagree 0 | no counterpart view 39 | multi-mass unmatched 4
+[fusion] test  lesions  243 | pairs  243 | view pair-rate 0.831 | single-mass 86 | id-match 15 | label-disagree 2 | no counterpart view 35 | multi-mass unmatched 2
+============================================================
+  TEST PASS: scoring the frozen test partition for vgg16_fusion_context_cuda0918
+============================================================
+[fusion] Loaded /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0918/vgg16_fusion_context_cuda0918_best.weights.h5
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+[fusion] vgg16_fusion_context_cuda0918 val: n=243 AUC 0.8760  threshold 0.5593 -> sens 0.9107 spec 0.6794
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_context_cuda0918_predictions_val.csv
+[data_loader] decode health: 0/486 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/486 (0.00%)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_context_cuda0918_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_context_cuda0918_results.json
+2026-09-19 20:30:50.829947: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:30:50.829964: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:30:50.829968: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:30:50.829978: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:30:50.829987: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+/Users/teodort/Desktop/Final Project/ddsm-dl-screening/.ddsm-env/lib/python3.11/site-packages/keras/src/saving/saving_lib.py:801: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 26 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+2026-09-19 20:30:58.767774: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:31:02.169764: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[fusion] tag vgg16_fusion_control_all_cuda0918  pair=control  rows=all  box=oracle  margins 0.2/0.2  crop_sizing=mask_margin
+[fusion] train lesions 1210 | pairs 1210 | view pair-rate 0.812 | single-mass 447 | id-match 44 | label-disagree 1 | no counterpart view 204 | multi-mass unmatched 22
+[fusion] val   lesions  243 | pairs  243 | view pair-rate 0.823 | single-mass 87 | id-match 13 | label-disagree 0 | no counterpart view 39 | multi-mass unmatched 4
+[fusion] test  lesions  243 | pairs  243 | view pair-rate 0.831 | single-mass 86 | id-match 15 | label-disagree 2 | no counterpart view 35 | multi-mass unmatched 2
+============================================================
+  TEST PASS: scoring the frozen test partition for vgg16_fusion_control_all_cuda0918
+============================================================
+[fusion] Loaded /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/_cuda/s0918/vgg16_fusion_control_all_cuda0918_best.weights.h5
+[data_loader] decode health: 0/243 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/243 (0.00%)
+[fusion] vgg16_fusion_control_all_cuda0918 val: n=243 AUC 0.8612  threshold 0.2389 -> sens 0.9018 spec 0.4580
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_control_all_cuda0918_predictions_val.csv
+[data_loader] decode health: 0/243 failed (0.000%)
+[data_loader] whole-image fallbacks: 0/243 (0.00%)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_control_all_cuda0918_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_control_all_cuda0918_results.json
+
+--- [test] primary endpoint + Family B ---
+2026-09-19 20:31:07.338034: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:31:07.338058: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:31:07.338061: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:31:07.338072: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:31:07.338080: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+=== PRIMARY: vgg16_crop_rung3_unet_promoted_cuda0917 vs BI-RADS on the comparison set (n=203 of 203, image-level, max; anchor recomputed on these rows) ===
+  AUC model 0.7874  AUC BI-RADS 0.8090  diff -0.0216 [-0.0988, +0.0525] patient-bootstrap  z=-0.598  p=0.5498
+
+=== SECONDARY: 10 pairwise DeLong, Holm-corrected (lesion-level, n=243) ===
+  vgg16_crop_rung2_oracle_cuda0917 vs vgg16_crop_rung3_unet_promoted_cuda0917 dAUC +0.0435 [-0.0286, +0.1065]  p 0.1493  Holm 0.1597     McNemar p 0.1486 (b=23, c=35)
+  vgg16_crop_rung2_oracle_cuda0917 vs vgg16_crop_rung4_cam_cuda0917 dAUC +0.1741 [+0.0707, +0.2624]  p 0.0000  Holm 0.0002 *   McNemar p 0.0052 (b=27, c=53)
+  vgg16_crop_rung2_oracle_cuda0917 vs vgg16_crop_rung6_shuffled_cuda0917 dAUC +0.3359 [+0.2140, +0.4460]  p 0.0000  Holm 0.0000 *   McNemar p 0.0000 (b=10, c=57)
+  vgg16_crop_rung2_oracle_cuda0917 vs vgg16_crop_rung7_whole_cuda0917 dAUC +0.1155 [+0.0082, +0.2060]  p 0.0042  Holm 0.0167 *   McNemar p 0.1949 (b=30, c=42)
+  vgg16_crop_rung3_unet_promoted_cuda0917 vs vgg16_crop_rung4_cam_cuda0917 dAUC +0.1306 [+0.0352, +0.2219]  p 0.0027  Holm 0.0136 *   McNemar p 0.1610 (b=36, c=50)
+  vgg16_crop_rung3_unet_promoted_cuda0917 vs vgg16_crop_rung6_shuffled_cuda0917 dAUC +0.2924 [+0.1721, +0.3988]  p 0.0000  Holm 0.0000 *   McNemar p 0.0002 (b=24, c=59)
+  vgg16_crop_rung3_unet_promoted_cuda0917 vs vgg16_crop_rung7_whole_cuda0917 dAUC +0.0720 [-0.0195, +0.1565]  p 0.0606  Holm 0.1597     McNemar p 0.9099 (b=39, c=39)
+  vgg16_crop_rung4_cam_cuda0917 vs vgg16_crop_rung6_shuffled_cuda0917 dAUC +0.1617 [+0.0560, +0.2699]  p 0.0007  Holm 0.0043 *   McNemar p 0.0117 (b=21, c=42)
+  vgg16_crop_rung4_cam_cuda0917 vs vgg16_crop_rung7_whole_cuda0917 dAUC -0.0586 [-0.1176, +0.0030]  p 0.0532  Holm 0.1597     McNemar p 0.0824 (b=35, c=21)
+  vgg16_crop_rung6_shuffled_cuda0917 vs vgg16_crop_rung7_whole_cuda0917 dAUC -0.2204 [-0.3291, -0.1111]  p 0.0000  Holm 0.0000 *   McNemar p 0.0001 (b=54, c=19)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/comparison_report_test.json
+
+--- [test] Family A (architectures) ---
+2026-09-19 20:31:19.142769: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:31:19.142787: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:31:19.142790: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:31:19.142802: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:31:19.142810: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+
+=== SECONDARY: 6 pairwise DeLong, Holm-corrected (lesion-level, n=243) ===
+  vgg16_crop_m020_cuda0917   vs resnet50_crop_m020_cuda0917 dAUC -0.0076 [-0.0653, +0.0457]  p 0.7810  Holm 1.0000     McNemar p 0.0372 (b=21, c=38)
+  vgg16_crop_m020_cuda0917   vs densenet121_crop_m020_cuda0917 dAUC -0.0207 [-0.0662, +0.0217]  p 0.3773  Holm 1.0000     McNemar p 0.1696 (b=21, c=32)
+  vgg16_crop_m020_cuda0917   vs efficientnet_crop_m020_cuda0917 dAUC -0.0054 [-0.0537, +0.0355]  p 0.8150  Holm 1.0000     McNemar p 0.3317 (b=22, c=30)
+  resnet50_crop_m020_cuda0917 vs densenet121_crop_m020_cuda0917 dAUC -0.0131 [-0.0567, +0.0364]  p 0.5971  Holm 1.0000     McNemar p 0.4404 (b=24, c=18)
+  resnet50_crop_m020_cuda0917 vs efficientnet_crop_m020_cuda0917 dAUC +0.0022 [-0.0491, +0.0554]  p 0.9339  Holm 1.0000     McNemar p 0.2718 (b=31, c=22)
+  densenet121_crop_m020_cuda0917 vs efficientnet_crop_m020_cuda0917 dAUC +0.0153 [-0.0268, +0.0563]  p 0.4433  Holm 1.0000     McNemar p 0.7911 (b=30, c=27)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/comparison_architectures_test.json
+
+--- [test] A5: three-seed ensembles (descriptive; replace nothing, enter no family) ---
+2026-09-19 20:31:27.077912: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:31:27.077936: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:31:27.077940: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:31:27.077950: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:31:27.077958: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+[ensemble] val: members rung3_unet_promoted_cuda0917 0.8652, rung3_unet_promoted_cuda0917_s1 0.8625, rung3_unet_promoted_cuda0917_s2 0.8685
+[ensemble] val: mean of members 0.8654  ensemble 0.8695 [0.8107, 0.9158] patient-bootstrap  threshold 0.4037
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_ens3_predictions_val.csv
+[ensemble] test: members rung3_unet_promoted_cuda0917 0.7794, rung3_unet_promoted_cuda0917_s1 0.7848, rung3_unet_promoted_cuda0917_s2 0.7757
+[ensemble] test: mean of members 0.7800  ensemble 0.7861 [0.7191, 0.8458] patient-bootstrap  threshold 0.4037
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_ens3_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_crop_rung3_unet_promoted_cuda0917_ens3_ensemble.json
+2026-09-19 20:31:31.182729: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:31:31.182749: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:31:31.182756: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:31:31.182767: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:31:31.182775: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+[ensemble] val: members vgg16_fusion_view_unet_promoted_cuda0917 0.9257, vgg16_fusion_view_unet_promoted_cuda0917_s1 0.9121, vgg16_fusion_view_unet_promoted_cuda0917_s2 0.9121
+[ensemble] val: mean of members 0.9166  ensemble 0.9177 [0.8510, 0.9655] patient-bootstrap  threshold 0.4697
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_ens3_predictions_val.csv
+[ensemble] test: members vgg16_fusion_view_unet_promoted_cuda0917 0.8597, vgg16_fusion_view_unet_promoted_cuda0917_s1 0.8546, vgg16_fusion_view_unet_promoted_cuda0917_s2 0.8593
+[ensemble] test: mean of members 0.8578  ensemble 0.8722 [0.7901, 0.9349] patient-bootstrap  threshold 0.4697
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_ens3_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_unet_promoted_cuda0917_ens3_ensemble.json
+2026-09-19 20:31:35.214909: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:31:35.214931: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:31:35.214935: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:31:35.214945: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:31:35.214953: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+[ensemble] val: members vgg16_fusion_view_cuda0917 0.9049, vgg16_fusion_view_cuda0917_s1 0.9101, vgg16_fusion_view_cuda0917_s2 0.9113
+[ensemble] val: mean of members 0.9087  ensemble 0.9133 [0.8498, 0.9672] patient-bootstrap  threshold 0.5407
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_ens3_predictions_val.csv
+[ensemble] test: members vgg16_fusion_view_cuda0917 0.8243, vgg16_fusion_view_cuda0917_s1 0.8534, vgg16_fusion_view_cuda0917_s2 0.8388
+[ensemble] test: mean of members 0.8388  ensemble 0.8436 [0.7571, 0.9174] patient-bootstrap  threshold 0.5407
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_ens3_predictions_test.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/vgg16_fusion_view_cuda0917_ens3_ensemble.json
+
+--- [test] fusion (a): declared contrast vs vgg16_fusion_control ---
+2026-09-19 20:31:39.301428: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:31:39.301449: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:31:39.301453: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:31:39.301463: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:31:39.301471: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+
+=== SECONDARY: 1 pairwise DeLong, Holm-corrected (lesion-level, n=101) ===
+  vgg16_fusion_view_unet_promoted_cuda0917 vs vgg16_fusion_control_cuda0917 dAUC +0.0314 [-0.0706, +0.1226]  p 0.5053  Holm 0.5053     McNemar p 0.1859 (b=10, c=18)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/comparison_fusion_declared_test.json
+
+--- [test] fusion (b): same-pairs controls, one view and naive averaging ---
+  pairs: artifacts/fusion_pairs_view_test.csv (store holds no such split)
+[pairs] 101 pairs from artifacts/fusion_pairs_view_test.csv
+[pairs] rung 3 table: 243 lesions from vgg16_crop_rung3_unet_promoted_cuda0917_ens3_predictions_test.csv
+[pairs] pairs whose two views carry different labels: 0
+
+control            AUC              95% CI   what it answers
+view_a_only     0.8054  [0.7107, 0.9008]   one view vs two — the declaration's question
+mean_a_b        0.8754  [0.7938, 0.9479]   learned fusion vs naive averaging
+
+rung 3 on all 243 lesions, context only (different rows, not a control): 0.7861
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/rung3_on_pairs_promoted_cuda0917_test.json
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/rung3_on_pairs_promoted_cuda0917_test_predictions_test.csv
+2026-09-19 20:31:45.379352: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:31:45.379375: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:31:45.379379: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:31:45.379389: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:31:45.379397: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+=== 101 test pairs, 88 patients, 48 malignant ===
+
+  fusion_ens3_unet       0.8722
+  naive_averaging        0.8754
+  one_view_rung3         0.8054
+  fusion_ens3_oracle     0.8436
+
+=== Holm family of two (pre-specified) ===
+  (i)  learned fusion vs naive two-view averaging
+      0.8722 vs 0.8754  diff -0.0031 [-0.0507, +0.0483]
+      DeLong p 0.8873  Holm 0.8873  -> not significant
+  (ii) learned fusion vs one view
+      0.8722 vs 0.8054  diff +0.0668 [-0.0169, +0.1409]
+      DeLong p 0.0513  Holm 0.1027  -> not significant
+
+=== Descriptive, outside the family ===
+  oracle-box fusion vs U-Net-box fusion: 0.8436 vs 0.8722  gap -0.0287 [-0.1321, +0.0612]
+  (the localiser's residual cost to the paired system)
+
+-> outputs/results/fusion_pair_comparisons_test.json
+
+--- [test] fusion (c): image level vs the BI-RADS anchor, descriptive ---
+2026-09-19 20:31:50.893812: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:31:50.893831: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:31:50.893835: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:31:50.893846: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:31:50.893854: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+=== PRIMARY: vgg16_fusion_view_unet_promoted_cuda0917 vs BI-RADS on the comparison set (n=83 of 203, image-level, max; anchor recomputed on these rows) ===
+  AUC model 0.8699  AUC BI-RADS 0.7967  diff +0.0732 [-0.0290, +0.1745] patient-bootstrap  z=1.412  p=0.1580
+  WARNING: 83 rows scored, expected 203
+  WARNING: BI-RADS AUC recomputed here differs from config.BIRADS - comparison set and config are out of step
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/comparison_fusion_imagelevel_test.json
+
+--- [test] fusion (d): declared context contrast vs vgg16_fusion_control_all ---
+2026-09-19 20:31:54.944713: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:31:54.944731: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:31:54.944735: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:31:54.944747: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:31:54.944755: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+
+=== SECONDARY: 1 pairwise DeLong, Holm-corrected (lesion-level, n=243) ===
+  vgg16_fusion_context_cuda0918 vs vgg16_fusion_control_all_cuda0918 dAUC -0.0478 [-0.0983, -0.0017]  p 0.0293  Holm 0.0293 *   McNemar p 0.6985 (b=28, c=32)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/comparison_fusion_context_test.json
+
+--- [test] ladder ---
+2026-09-19 20:31:59.058818: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:31:59.058835: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:31:59.058839: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:31:59.058850: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:31:59.058858: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+ rung   source                                      description                                       tag  margin    auc  ci_lo  ci_hi   n  box_iou_test  detection_test                      iou_gt_source iou_provider_splits                                              iou_boxes_from
+    1   oracle                      Perfect localisation, tight          vgg16_crop_rung1_oracle_cuda0917  0.0000 0.7821 0.7115 0.8465 243        1.0000          1.0000 artifacts/localiser_boxes_test.csv                   -                                                           -
+    2   oracle Perfect localisation + margin (the v4 condition)          vgg16_crop_rung2_oracle_cuda0917  0.2000 0.8229 0.7592 0.8797 243        1.0000          1.0000 artifacts/localiser_boxes_test.csv                   -                                                           -
+    3     unet         Supervised U-Net - the realisable system   vgg16_crop_rung3_unet_promoted_cuda0917  0.2000 0.7794 0.7124 0.8386 243        0.4831          0.9794 artifacts/localiser_boxes_test.csv      train+val+test candidate folder outputs/results/localiser_bundle/boxes_A24
+    4      cam       Weakly-supervised CAM - no mask annotation             vgg16_crop_rung4_cam_cuda0917  0.2000 0.6488 0.5748 0.7241 243        0.0238          0.7531 artifacts/localiser_boxes_test.csv      train+val+test                                                  artifacts/
+    5   jitter              Oracle + the U-Net's measured error vgg16_crop_rung5_jitter_promoted_cuda0917  0.2000 0.7189 0.6463 0.7864 243        0.5422          0.9753 artifacts/localiser_boxes_test.csv      train+val+test candidate folder outputs/results/localiser_bundle/boxes_A24
+    6 shuffled    Size- and position-plausible but wrong lesion        vgg16_crop_rung6_shuffled_cuda0917  0.2000 0.4871 0.3994 0.5754 243        0.0129          1.0000 artifacts/localiser_boxes_test.csv      train+val+test                                                  artifacts/
+    7    whole                     No localisation (Pipeline A)           vgg16_crop_rung7_whole_cuda0917  0.2000 0.7074 0.6266 0.7824 243        0.0000          0.0000 artifacts/localiser_boxes_test.csv                   -                                                           -
+[ladder] figure -> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/figures/ladder_vgg16_test.png
+
+--- [test] ladder error analysis (§4) ---
+2026-09-19 20:32:05.769320: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:32:05.769338: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:32:05.769342: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:32:05.769352: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:32:05.769360: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/ladder_error_analysis_test_cuda0917.json
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/ladder_error_analysis_test_cuda0917_per_lesion.csv
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/figures/ladder_error_analysis_test_cuda0917.png
+
+[test] n=243  rung2 0.8229  rung3 0.7794  rung5 0.7189
+  rung3_minus_rung5: +0.0606  CI [-0.0128, +0.1325]
+  rung2_minus_rung3: +0.0435  CI [-0.0286, +0.1065]
+  rung2_minus_rung5: +0.1041  CI [+0.0384, +0.1650]
+  oracle (rung 2) on localiser's victims (n=75): 0.8086  vs the rest (n=168): 0.821
+  oracle (rung 2) on jitter's victims (n=61): 0.8613  vs the rest (n=182): 0.8074
+
+--- [test] analysis ---
+2026-09-19 20:32:24.864288: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:32:24.864307: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:32:24.864311: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:32:24.864322: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:32:24.864330: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+
+=== vgg16_crop_rung3_unet_promoted_cuda0917 (lesion-level pipeline) ===
+BI-RADS comparison set (n=203, image-level, max): AUC 0.787 [0.720, 0.854]  vs BI-RADS 0.809 [0.747, 0.872]
+calibration: T=1.31  ECE 0.156 -> 0.134  Brier 0.201 -> 0.195
+operating point thr=0.316: sens 0.823 spec 0.454
+  cbis_test       prev 0.480  PPV 0.581 (+0.102 over prior)  NPV 0.736
+  nhs_assessment  prev 0.263  PPV 0.349 (+0.087 over prior)  NPV 0.878
+  nhs_screening   prev 0.009  PPV 0.014 (+0.005 over prior)  NPV 0.996
+fixed point (Table 5 comparability): accuracy 0.626  precision 0.567  recall 0.823  F1 0.671  (tp 93 fp 71 tn 59 fn 20)
+at BI-RADS sensitivity 0.94 (thr 0.247): sens 0.867 spec 0.377 vs BI-RADS spec 0.427
+decision curve @ 26.3%: model beats both defaults for pt in [0.06, 0.6]
+subtlety: 1: 0.00 (n=5)  2: 0.72 (n=22)  3: 0.66 (n=46)  4: 0.90 (n=66)  5: 0.81 (n=104)
+breast_density: 1: 0.76 (n=64)  2: 0.85 (n=113)  3: 0.75 (n=48)  4: 0.53 (n=18)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/analysis_vgg16_crop_rung3_unet_promoted_cuda0917.json
+
+=== vgg16_crop_rung2_oracle_cuda0917 (lesion-level pipeline) ===
+BI-RADS comparison set (n=203, image-level, max): AUC 0.791 [0.722, 0.856]  vs BI-RADS 0.809 [0.747, 0.872]
+calibration: T=1.25  ECE 0.109 -> 0.124  Brier 0.179 -> 0.178
+operating point thr=0.285: sens 0.947 spec 0.438
+  cbis_test       prev 0.480  PPV 0.608 (+0.129 over prior)  NPV 0.900
+  nhs_assessment  prev 0.263  PPV 0.375 (+0.113 over prior)  NPV 0.959
+  nhs_screening   prev 0.009  PPV 0.015 (+0.006 over prior)  NPV 0.999
+fixed point (Table 5 comparability): accuracy 0.675  precision 0.594  recall 0.947  F1 0.730  (tp 107 fp 73 tn 57 fn 6)
+at BI-RADS sensitivity 0.94 (thr 0.205): sens 0.956 spec 0.323 vs BI-RADS spec 0.427
+decision curve @ 26.3%: model beats both defaults for pt in [0.02, 0.6]
+subtlety: 1: 0.33 (n=5)  2: 0.88 (n=22)  3: 0.72 (n=46)  4: 0.84 (n=66)  5: 0.87 (n=104)
+breast_density: 1: 0.88 (n=64)  2: 0.87 (n=113)  3: 0.71 (n=48)  4: 0.58 (n=18)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/analysis_vgg16_crop_rung2_oracle_cuda0917.json
+
+=== vgg16_full_cuda0917 (lesion-level pipeline) ===
+BI-RADS comparison set (n=203, image-level, max): AUC 0.715 [0.633, 0.799]  vs BI-RADS 0.809 [0.747, 0.872]
+calibration: T=1.66  ECE 0.128 -> 0.090  Brier 0.229 -> 0.224
+operating point thr=0.372: sens 0.925 spec 0.313
+  cbis_test       prev 0.480  PPV 0.554 (+0.074 over prior)  NPV 0.818
+  nhs_assessment  prev 0.263  PPV 0.324 (+0.061 over prior)  NPV 0.921
+  nhs_screening   prev 0.009  PPV 0.012 (+0.003 over prior)  NPV 0.998
+fixed point (Table 5 comparability): accuracy 0.606  precision 0.554  recall 0.925  F1 0.693  (tp 98 fp 79 tn 36 fn 8)
+at BI-RADS sensitivity 0.94 (thr 0.348): sens 0.934 spec 0.270 vs BI-RADS spec 0.427
+decision curve @ 26.3%: model beats both defaults for pt in [0.11, 0.6]
+subtlety: 1: 0.67 (n=5)  2: 0.63 (n=20)  3: 0.66 (n=44)  4: 0.74 (n=66)  5: 0.71 (n=86)
+breast_density: 1: 0.76 (n=47)  2: 0.70 (n=108)  3: 0.71 (n=48)  4: 0.60 (n=18)
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/analysis_vgg16_full_cuda0917.json
+
+--- [test] Grad-CAM grounding ---
+2026-09-19 20:32:41.759116: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:32:41.759137: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:32:41.759141: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:32:41.759155: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:32:41.759164: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+[explain] WARNING: test split requested - only under the pre-registered single test pass (D1).
+[explain] vgg16_crop_rung3_unet_promoted_cuda0917 <- vgg16_crop_rung3_unet_promoted_cuda0917_best.weights.h5; CAM layer block5_conv3; boxes=unet; margin=0.20; split=test
+  50/243
+  100/243
+  150/243
+  200/243
+
+=== vgg16_crop_rung3_unet_promoted_cuda0917 on test (n=243, thr 0.316) ===
+chance level (mask fraction of canvas): 0.289
+attention_in_mask 0.366 unconditioned -> 0.483 on the 184 crops that contain the lesion (59 of 243 exclude it entirely, 24.3%)
+correct   n=152  attention_in_mask 0.393  cam_iou 0.234  peak_in_mask 0.612  mask_in_crop 0.774
+incorrect n= 91  attention_in_mask 0.321  cam_iou 0.129  peak_in_mask 0.451  mask_in_crop 0.617
+  TP n= 93  attention_in_mask 0.420  cam_iou 0.336
+  TN n= 59  attention_in_mask 0.351  cam_iou 0.072
+  FP n= 71  attention_in_mask 0.326  cam_iou 0.150
+  FN n= 20  attention_in_mask 0.303  cam_iou 0.058
+CAM peak on top-1% brightest pixels: 0.049 overall, 0.071 malignant, 0.031 benign
+Mann-Whitney attention_in_mask correct vs incorrect: p = 0.0545
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/explain_vgg16_crop_rung3_unet_promoted_cuda0917_test.csv
+
+--- [test] MC-dropout uncertainty ---
+2026-09-19 20:33:05.283118: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:33:05.283135: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:33:05.283138: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:33:05.283149: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:33:05.283158: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+2026-09-19 20:33:13.035921: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-09-19 20:33:18.309141: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+[uncertainty] WARNING: test split requested - only under the pre-registered single test pass (D1).
+
+--- Split Summary ---
+  train/val patient-level leakage check: PASS
+  train/test patient-level leakage check: PASS
+  val/test patient-level leakage check: PASS
+  Images — train: 1210 (71.3%) | val: 243 (14.3%) | test: 243 (14.3%)
+
+
+=== vgg16_crop_rung3_unet_promoted_cuda0917 on val (n=243, N=50 passes, thr 0.319) ===
+AUC deterministic 0.8652 | MC mean 0.8631 | median MC std 0.0624
+misclassification-detection AUROC: mc_std 0.730  mutual_info 0.678  softmax_uncertainty 0.774
+ deferred | AUC mc_std   AUC MI AUC softmax |   sens   spec  PPV@26%  (mc_std)
+     0.00 |     0.8631   0.8631      0.8652 |  0.902  0.580    0.433
+     0.05 |     0.8716   0.8678      0.8729 |  0.906  0.589    0.440
+     0.10 |     0.8744   0.8682      0.8802 |  0.903  0.617    0.457
+     0.15 |     0.8789   0.8711      0.8868 |  0.896  0.627    0.461
+     0.20 |     0.8827   0.8748      0.8928 |  0.894  0.660    0.483
+     0.25 |     0.8840   0.8761      0.8976 |  0.890  0.681    0.499
+     0.30 |     0.8875   0.8860      0.9057 |  0.898  0.695    0.512
+     0.35 |     0.9032   0.8940      0.9160 |  0.915  0.737    0.553
+     0.40 |     0.9140   0.9055      0.9158 |  0.947  0.761    0.585
+     0.45 |     0.9195   0.9214      0.9194 |  0.958  0.778    0.605
+     0.50 |     0.9250   0.9194      0.9311 |  0.954  0.807    0.638
+
+=== vgg16_crop_rung3_unet_promoted_cuda0917 on test (n=243, N=50 passes, thr 0.319) ===
+AUC deterministic 0.7794 | MC mean 0.7794 | median MC std 0.0686
+misclassification-detection AUROC: mc_std 0.706  mutual_info 0.643  softmax_uncertainty 0.756
+ deferred | AUC mc_std   AUC MI AUC softmax |   sens   spec  PPV@26%  (mc_std)
+     0.00 |     0.7794   0.7794      0.7794 |  0.832  0.446    0.348
+     0.03 |     0.7914   0.7869      0.7867 |  0.843  0.457    0.356
+     0.07 |     0.7939   0.7965      0.7948 |  0.837  0.463    0.357
+     0.18 |     0.8153   0.8080      0.8049 |  0.863  0.486    0.374
+     0.25 |     0.8240   0.8301      0.8203 |  0.864  0.505    0.383
+     0.30 |     0.8293   0.8373      0.8209 |  0.871  0.548    0.407
+     0.36 |     0.8392   0.8355      0.8272 |  0.886  0.558    0.417
+     0.39 |     0.8470   0.8471      0.8374 |  0.892  0.581    0.431
+     0.46 |     0.8449   0.8423      0.8436 |  0.886  0.661    0.482
+     0.51 |     0.8539   0.8472      0.8479 |  0.891  0.704    0.517
+     0.57 |     0.8560   0.8384      0.8562 |  0.893  0.714    0.527
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/results/uncertainty_vgg16_crop_rung3_unet_promoted_cuda0917.json
+
+--- [test] data-flow figure ---
+2026-09-19 20:33:23.435299: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M3 Pro
+2026-09-19 20:33:23.435319: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 18.00 GB
+2026-09-19 20:33:23.435322: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 6.66 GB
+2026-09-19 20:33:23.435333: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-19 20:33:23.435342: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+[data_loader] mass_case_description_train_set.csv: merged 87 duplicate rows (1318 -> 1231 unique on 'image file path'), 6 of which disagreed on label
+[data_loader] mass_case_description_test_set.csv: merged 17 duplicate rows (378 -> 361 unique on 'image file path'), 2 of which disagreed on label
+{
+  "raw_rows_train": 1318,
+  "raw_rows_test": 378,
+  "raw_patients": 892,
+  "lesions": 1696,
+  "images": 1592,
+  "patients": 892,
+  "partitions": {
+    "train": {
+      "patients": 644,
+      "images": 1146,
+      "images_malignant": 533,
+      "lesions": 1210,
+      "lesions_malignant": 559,
+      "birads_comparison": 1018
+    },
+    "val": {
+      "patients": 129,
+      "images": 225,
+      "images_malignant": 108,
+      "lesions": 243,
+      "lesions_malignant": 112,
+      "birads_comparison": 209
+    },
+    "test": {
+      "patients": 119,
+      "images": 221,
+      "images_malignant": 106,
+      "lesions": 243,
+      "lesions_malignant": 113,
+      "birads_comparison": 203
+    }
+  }
+}
+-> /Users/teodort/Desktop/Final Project/ddsm-dl-screening/outputs/figures/data_flow.png
+
+--- [test] ledger check ---
+snapshot 2026-09-19T17:23:06+00:00: 143 tables | now: 143
+  CHANGED : 0
+  MISSING : 0
+  NEW     : 0
+
+ledger intact: every snapshotted table is byte-identical.
+=== done Sat Sep 19 20:33:24 EEST 2026 ===

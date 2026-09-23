@@ -1,0 +1,29 @@
+{
+  "tag": "vgg16_fusion_view_unet_promoted_cuda0917_s1",
+  "arch": "vgg16",
+  "pair": "view",
+  "paired": true,
+  "symmetric": true,
+  "seed": 1,
+  "patience": 25,
+  "batch_size": 32,
+  "store": "outputs/fusion_store_vgg16_fusion_view_unet_promoted",
+  "exact_val_auc": 0.912084,
+  "n_val": 100,
+  "history_best_val_auc": 0.9177037477493286,
+  "best_epoch": 23,
+  "stage_epochs": {
+    "frozen": 29,
+    "finetune": 48
+  },
+  "tf_version": "2.17.0",
+  "gpus": [
+    "/physical_device:GPU:0"
+  ],
+  "platform": "Linux-6.8.0-139-generic-x86_64-with-glibc2.39",
+  "wall_time_s": 216.8,
+  "gpu_name": "NVIDIA GeForce RTX 4090",
+  "gpu_compute_capability": "8.9",
+  "gpu_driver": "595.91.07",
+  "seed_effective": 1
+}

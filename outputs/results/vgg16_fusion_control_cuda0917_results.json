@@ -1,0 +1,77 @@
+{
+  "model": "vgg16",
+  "n_test_samples": 101,
+  "n_positive": 48,
+  "n_negative": 53,
+  "n_patients": 88,
+  "operating_threshold": 0.157876,
+  "threshold_source": "validation",
+  "target_sensitivity": 0.9,
+  "bootstrap": {
+    "unit": "patient",
+    "n_iterations": 1000,
+    "ci_level": 0.95
+  },
+  "metrics": {
+    "auc_roc": {
+      "value": 0.8282,
+      "ci_95_lower": 0.7484,
+      "ci_95_upper": 0.9029
+    },
+    "auc_pr": {
+      "value": 0.818,
+      "ci_95_lower": 0.7218,
+      "ci_95_upper": 0.9126
+    },
+    "sensitivity": {
+      "value": 0.9375,
+      "ci_95_lower": 0.8571,
+      "ci_95_upper": 1.0
+    },
+    "specificity": {
+      "value": 0.3774,
+      "ci_95_lower": 0.2549,
+      "ci_95_upper": 0.5094
+    },
+    "accuracy": {
+      "value": 0.6436,
+      "ci_95_lower": 0.5686,
+      "ci_95_upper": 0.7216
+    }
+  },
+  "confusion_matrix": {
+    "tn": 20,
+    "fp": 33,
+    "fn": 3,
+    "tp": 45
+  },
+  "baselines": {
+    "birads_auc_roc": 0.809,
+    "birads_auc_roc_ci": [
+      0.747,
+      0.872
+    ],
+    "birads_sensitivity": 0.94,
+    "birads_specificity": 0.427,
+    "birads_auc_pr": 0.77,
+    "birads_variant": "drop_zero",
+    "birads_n": 203,
+    "delta_auc_roc": 0.019223270440251627,
+    "delta_sensitivity": -0.0024999999999999467,
+    "delta_auc_pr": 0.048009661393071945,
+    "birads_comparison_is_paired": false
+  },
+  "literature_context": {
+    "wang_2024_auc_reference": 0.9,
+    "wang_2024_sensitivity_reference": 0.85,
+    "wang_2024_specificity_reference": 0.8
+  },
+  "tag": "vgg16_fusion_control_cuda0917",
+  "pair": "control",
+  "box_source": "oracle",
+  "margins": [
+    0.2,
+    0.2
+  ],
+  "n_pairs": 101
+}

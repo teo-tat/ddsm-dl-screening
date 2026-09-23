@@ -1,0 +1,14 @@
+{
+  "tag": "vgg16_crop_m020_cuda0917_s2",
+  "source": "crop",
+  "crop_margin": 0.2,
+  "seed": 2,
+  "box_source": null,
+  "boxes_dir": null,
+  "boxes_md5": null,
+  "trained_from_store": "outputs/crop_store_m020",
+  "store_files": {
+    "val_images.npy": "b4358e2b12e250ec",
+    "train_images.npy": "475e30f8b1060e11"
+  }
+}

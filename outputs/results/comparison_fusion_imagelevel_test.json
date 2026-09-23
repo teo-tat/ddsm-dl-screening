@@ -1,0 +1,27 @@
+{
+  "primary": {
+    "model": "vgg16_fusion_view_unet_promoted_cuda0917",
+    "unit": "image",
+    "aggregation": "max",
+    "n": 83,
+    "n_expected": 203,
+    "n_malignant": 42,
+    "auc_model": 0.8699186991869919,
+    "auc_birads": 0.7967479674796749,
+    "auc_diff": 0.07317073170731703,
+    "auc_diff_ci_patient_bootstrap": [
+      -0.029004694629694745,
+      0.17454069571090833
+    ],
+    "z": 1.4117025431686736,
+    "p_value": 0.15803756422709714,
+    "birads_anchor_from_config": 0.809,
+    "correction": "none (single pre-registered comparison)",
+    "birads_anchor_recomputed_on_scored_rows": true,
+    "row_set": "images of the test BI-RADS comparison set that this model emits a prediction for, after dropping BI-RADS 0",
+    "warning": "83 rows scored, expected 203",
+    "row_set_note": "83 of 203 comparison-set images. A view-fusion model predicts per PAIR and its table carries crop A's meta columns, so it covers only images that (a) have a counterpart view in the pair store and (b) are the A-side of that pair. The BI-RADS anchor quoted here (0.7967) is recomputed on these same rows and is NOT the whole-comparison-set anchor. Quote the two together or neither.",
+    "warning_birads": "BI-RADS AUC recomputed here differs from config.BIRADS - comparison set and config are out of step"
+  },
+  "split": "test"
+}

@@ -1,0 +1,34 @@
+{
+  "raw_rows_train": 1318,
+  "raw_rows_test": 378,
+  "raw_patients": 892,
+  "lesions": 1696,
+  "images": 1592,
+  "patients": 892,
+  "partitions": {
+    "train": {
+      "patients": 644,
+      "images": 1146,
+      "images_malignant": 533,
+      "lesions": 1210,
+      "lesions_malignant": 559,
+      "birads_comparison": 1018
+    },
+    "val": {
+      "patients": 129,
+      "images": 225,
+      "images_malignant": 108,
+      "lesions": 243,
+      "lesions_malignant": 112,
+      "birads_comparison": 209
+    },
+    "test": {
+      "patients": 119,
+      "images": 221,
+      "images_malignant": 106,
+      "lesions": 243,
+      "lesions_malignant": 113,
+      "birads_comparison": 203
+    }
+  }
+}

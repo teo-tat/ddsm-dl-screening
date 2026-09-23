@@ -1,0 +1,30 @@
+{
+  "secondary": {
+    "unit": "lesion",
+    "n": 243,
+    "family_size": 1,
+    "comparisons": [
+      {
+        "model_a": "vgg16_fusion_context_cuda0918",
+        "model_b": "vgg16_fusion_control_all_cuda0918",
+        "auc_a": 0.8760223555070884,
+        "auc_b": 0.8611641221374047,
+        "auc_diff": 0.014858233369683727,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.019658119658119592,
+          0.05218936991681152
+        ],
+        "z": 0.8570805337170343,
+        "p_delong": 0.3914003785524235,
+        "mcnemar_chi2": 18.282608695652176,
+        "p_mcnemar": 1.9043784225347693e-05,
+        "b_a_wrong_b_right": 8,
+        "c_a_right_b_wrong": 38,
+        "p_delong_holm": 0.3914003785524235,
+        "significant_holm_005": false
+      }
+    ],
+    "note": "DeLong p-values Holm-corrected within the family; McNemar descriptive"
+  },
+  "split": "val"
+}

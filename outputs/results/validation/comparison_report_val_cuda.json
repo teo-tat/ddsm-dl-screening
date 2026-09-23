@@ -1,0 +1,22 @@
+{
+  "primary": {
+    "model": "vgg16_crop_rung3_unet_bundle_cuda",
+    "unit": "image",
+    "aggregation": "max",
+    "n": 209,
+    "n_expected": 209,
+    "n_malignant": 108,
+    "auc_model": 0.8083975064173087,
+    "auc_birads": 0.8626696002933628,
+    "auc_diff": -0.05427209387605414,
+    "auc_diff_ci_patient_bootstrap": [
+      -0.12765165264546272,
+      0.011707088864306799
+    ],
+    "z": -1.6783300337670304,
+    "p_value": 0.09328268799558397,
+    "birads_anchor_from_config": 0.809,
+    "correction": "none (single pre-registered comparison)"
+  },
+  "split": "val"
+}

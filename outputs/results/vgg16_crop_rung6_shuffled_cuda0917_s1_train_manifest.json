@@ -1,0 +1,14 @@
+{
+  "tag": "vgg16_crop_rung6_shuffled_cuda0917_s1",
+  "source": "crop",
+  "crop_margin": 0.2,
+  "seed": 1,
+  "box_source": "shuffled",
+  "boxes_dir": null,
+  "boxes_md5": null,
+  "trained_from_store": "outputs/crop_store_rung6_shuffled",
+  "store_files": {
+    "val_images.npy": "d1889686281b1dad",
+    "train_images.npy": "1358fd50d9b03e23"
+  }
+}

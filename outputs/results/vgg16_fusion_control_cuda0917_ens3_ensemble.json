@@ -1,0 +1,28 @@
+{
+  "out_tag": "vgg16_fusion_control_cuda0917_ens3",
+  "members": [
+    "vgg16_fusion_control_cuda0917",
+    "vgg16_fusion_control_cuda0917_s1",
+    "vgg16_fusion_control_cuda0917_s2"
+  ],
+  "method": "mean",
+  "splits": [
+    {
+      "split": "val",
+      "n": 100,
+      "method": "mean",
+      "member_auc": {
+        "vgg16_fusion_control_cuda0917": 0.888398233641108,
+        "vgg16_fusion_control_cuda0917_s1": 0.8920112404656765,
+        "vgg16_fusion_control_cuda0917_s2": 0.862705740666399
+      },
+      "member_auc_mean": 0.8810384049243946,
+      "ensemble_auc": 0.8924126856684063,
+      "ensemble_auc_ci": [
+        0.8228582572241172,
+        0.9471797994463742
+      ],
+      "threshold": 0.32620205481847125
+    }
+  ]
+}

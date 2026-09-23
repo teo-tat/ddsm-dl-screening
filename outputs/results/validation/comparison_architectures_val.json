@@ -1,0 +1,125 @@
+{
+  "secondary": {
+    "unit": "lesion",
+    "n": 243,
+    "family_size": 6,
+    "comparisons": [
+      {
+        "model_a": "vgg16_crop_m020_cuda0917",
+        "model_b": "resnet50_crop_m020_cuda0917",
+        "auc_a": 0.876840239912759,
+        "auc_b": 0.8043211559432935,
+        "auc_diff": 0.07251908396946549,
+        "auc_diff_ci_patient_bootstrap": [
+          0.01981275993181757,
+          0.12505333940172775
+        ],
+        "z": 2.601663834438612,
+        "p_delong": 0.009277274069518315,
+        "mcnemar_chi2": 5.640625,
+        "p_mcnemar": 0.01754895019147673,
+        "b_a_wrong_b_right": 22,
+        "c_a_right_b_wrong": 42,
+        "p_delong_holm": 0.05566364441710989,
+        "significant_holm_005": false
+      },
+      {
+        "model_a": "vgg16_crop_m020_cuda0917",
+        "model_b": "densenet121_crop_m020_cuda0917",
+        "auc_a": 0.876840239912759,
+        "auc_b": 0.8472600872410033,
+        "auc_diff": 0.029580152671755622,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.011020048313077029,
+          0.07743841363225279
+        ],
+        "z": 1.5582682374604082,
+        "p_delong": 0.1191696750295719,
+        "mcnemar_chi2": 1.4464285714285714,
+        "p_mcnemar": 0.2291018840650585,
+        "b_a_wrong_b_right": 23,
+        "c_a_right_b_wrong": 33,
+        "p_delong_holm": 0.42031193155345364,
+        "significant_holm_005": false
+      },
+      {
+        "model_a": "vgg16_crop_m020_cuda0917",
+        "model_b": "efficientnet_crop_m020_cuda0917",
+        "auc_a": 0.876840239912759,
+        "auc_b": 0.8576881134133043,
+        "auc_diff": 0.019152126499454636,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.014981570379969302,
+          0.05735543139388752
+        ],
+        "z": 1.106140011286195,
+        "p_delong": 0.2686659229278434,
+        "mcnemar_chi2": 0.1956521739130435,
+        "p_mcnemar": 0.6582534143112833,
+        "b_a_wrong_b_right": 21,
+        "c_a_right_b_wrong": 25,
+        "p_delong_holm": 0.5373318458556868,
+        "significant_holm_005": false
+      },
+      {
+        "model_a": "resnet50_crop_m020_cuda0917",
+        "model_b": "densenet121_crop_m020_cuda0917",
+        "auc_a": 0.8043211559432935,
+        "auc_b": 0.8472600872410033,
+        "auc_diff": -0.04293893129770987,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.09365387628065226,
+          0.006787479956470793
+        ],
+        "z": -1.620718692455485,
+        "p_delong": 0.10507798288836341,
+        "mcnemar_chi2": 1.396551724137931,
+        "p_mcnemar": 0.2373017786499998,
+        "b_a_wrong_b_right": 34,
+        "c_a_right_b_wrong": 24,
+        "p_delong_holm": 0.42031193155345364,
+        "significant_holm_005": false
+      },
+      {
+        "model_a": "resnet50_crop_m020_cuda0917",
+        "model_b": "efficientnet_crop_m020_cuda0917",
+        "auc_a": 0.8043211559432935,
+        "auc_b": 0.8576881134133043,
+        "auc_diff": -0.053366957470010856,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.09679451436710397,
+          -0.007548867841761582
+        ],
+        "z": -2.2022567249565017,
+        "p_delong": 0.027647179171042684,
+        "mcnemar_chi2": 4.166666666666667,
+        "p_mcnemar": 0.041226833337163704,
+        "b_a_wrong_b_right": 35,
+        "c_a_right_b_wrong": 19,
+        "p_delong_holm": 0.13823589585521343,
+        "significant_holm_005": false
+      },
+      {
+        "model_a": "densenet121_crop_m020_cuda0917",
+        "model_b": "efficientnet_crop_m020_cuda0917",
+        "auc_a": 0.8472600872410033,
+        "auc_b": 0.8576881134133043,
+        "auc_diff": -0.010428026172300986,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.046987308442390595,
+          0.02936262096802738
+        ],
+        "z": -0.5277215048328765,
+        "p_delong": 0.5976926451229096,
+        "mcnemar_chi2": 0.4166666666666667,
+        "p_mcnemar": 0.5186050164287255,
+        "b_a_wrong_b_right": 33,
+        "c_a_right_b_wrong": 27,
+        "p_delong_holm": 0.5976926451229096,
+        "significant_holm_005": false
+      }
+    ],
+    "note": "DeLong p-values Holm-corrected within the family; McNemar descriptive"
+  },
+  "split": "val"
+}

@@ -1,0 +1,697 @@
+{
+  "split": "val",
+  "n": 243,
+  "tags": {
+    "2": "vgg16_crop_rung2_oracle_cuda0917",
+    "3": "vgg16_crop_rung3_unet_promoted_cuda0917",
+    "5": "vgg16_crop_rung5_jitter_promoted_cuda0917"
+  },
+  "boxes_dir": "outputs/results/localiser_bundle/boxes_A24",
+  "overall": {
+    "rung2": {
+      "n": 243,
+      "auc": 0.8749318429661941,
+      "ci": [
+        0.8226862031901775,
+        0.916747047047047
+      ]
+    },
+    "rung3": {
+      "n": 243,
+      "auc": 0.865185387131952,
+      "ci": [
+        0.8055688709738874,
+        0.9113397071746091
+      ]
+    },
+    "rung5": {
+      "n": 243,
+      "auc": 0.7617230098146128,
+      "ci": [
+        0.6977715969016713,
+        0.8235798553670926
+      ]
+    }
+  },
+  "paired_auc_differences": {
+    "rung3_minus_rung5": {
+      "diff": 0.1034623773173392,
+      "ci": [
+        0.04617082595742842,
+        0.16355795610606583
+      ]
+    },
+    "rung2_minus_rung3": {
+      "diff": 0.009746455834242052,
+      "ci": [
+        -0.026830667421522812,
+        0.05004371203464977
+      ]
+    },
+    "rung2_minus_rung5": {
+      "diff": 0.11320883315158126,
+      "ci": [
+        0.05860022635300837,
+        0.1664698190366069
+      ]
+    }
+  },
+  "localiser_outcome": {
+    "detection": 0.9753086419753086,
+    "mean_iou_incl": 0.526995364070115,
+    "bins": {
+      "none": 6,
+      "0": 48,
+      "(0, 0.3)": 8,
+      "[0.3, 0.5)": 17,
+      ">= 0.5": 164
+    }
+  },
+  "jitter_replay": {
+    "detection": 0.9711934156378601,
+    "mean_iou_incl": 0.4878029922442307,
+    "bins": {
+      "none": 7,
+      "0": 53,
+      "(0, 0.3)": 13,
+      "[0.3, 0.5)": 24,
+      ">= 0.5": 146
+    }
+  },
+  "by_localiser_iou": {
+    "none": {
+      "n": 6,
+      "malignant_frac": 0.16666666666666666,
+      "rung2": {
+        "n": 6,
+        "auc": 1.0,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      },
+      "rung3": {
+        "n": 6,
+        "auc": 1.0,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      },
+      "rung5": {
+        "n": 6,
+        "auc": 0.19999999999999996,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      }
+    },
+    "0": {
+      "n": 48,
+      "malignant_frac": 0.2708333333333333,
+      "rung2": {
+        "n": 48,
+        "auc": 0.7494505494505495,
+        "ci": [
+          0.512349014621742,
+          0.9045109395109396
+        ]
+      },
+      "rung3": {
+        "n": 48,
+        "auc": 0.7252747252747253,
+        "ci": [
+          0.5050110479797979,
+          0.8825
+        ]
+      },
+      "rung5": {
+        "n": 48,
+        "auc": 0.5296703296703297,
+        "ci": [
+          0.3321962915601025,
+          0.7064987163029526
+        ]
+      }
+    },
+    "(0, 0.3)": {
+      "n": 8,
+      "malignant_frac": 0.625,
+      "rung2": {
+        "n": 8,
+        "auc": 1.0,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      },
+      "rung3": {
+        "n": 8,
+        "auc": 1.0,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      },
+      "rung5": {
+        "n": 8,
+        "auc": 0.8,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      }
+    },
+    "[0.3, 0.5)": {
+      "n": 17,
+      "malignant_frac": 0.29411764705882354,
+      "rung2": {
+        "n": 17,
+        "auc": 0.8333333333333334,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      },
+      "rung3": {
+        "n": 17,
+        "auc": 0.8166666666666668,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      },
+      "rung5": {
+        "n": 17,
+        "auc": 0.85,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      }
+    },
+    ">= 0.5": {
+      "n": 164,
+      "malignant_frac": 0.5365853658536586,
+      "rung2": {
+        "n": 164,
+        "auc": 0.8835227272727272,
+        "ci": [
+          0.8230946820283354,
+          0.9330422297297298
+        ]
+      },
+      "rung3": {
+        "n": 164,
+        "auc": 0.8850179425837321,
+        "ci": [
+          0.8267192642493498,
+          0.93040383352553
+        ]
+      },
+      "rung5": {
+        "n": 164,
+        "auc": 0.797846889952153,
+        "ci": [
+          0.7194199039720645,
+          0.8734013072601555
+        ]
+      }
+    }
+  },
+  "by_jitter_iou": {
+    "none": {
+      "n": 7,
+      "malignant_frac": 0.5714285714285714,
+      "rung2": {
+        "n": 7,
+        "auc": 1.0,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      },
+      "rung3": {
+        "n": 7,
+        "auc": 1.0,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      },
+      "rung5": {
+        "n": 7,
+        "auc": 0.6666666666666667,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      }
+    },
+    "0": {
+      "n": 53,
+      "malignant_frac": 0.3584905660377358,
+      "rung2": {
+        "n": 53,
+        "auc": 0.9520123839009289,
+        "ci": [
+          0.8789590681951793,
+          0.9917293720809549
+        ]
+      },
+      "rung3": {
+        "n": 53,
+        "auc": 0.9195046439628483,
+        "ci": [
+          0.8168672839506174,
+          0.9814814814814814
+        ]
+      },
+      "rung5": {
+        "n": 53,
+        "auc": 0.654798761609907,
+        "ci": [
+          0.497166764765449,
+          0.8068995765275256
+        ]
+      }
+    },
+    "(0, 0.3)": {
+      "n": 13,
+      "malignant_frac": 0.3076923076923077,
+      "rung2": {
+        "n": 13,
+        "auc": 0.75,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      },
+      "rung3": {
+        "n": 13,
+        "auc": 0.7222222222222223,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      },
+      "rung5": {
+        "n": 13,
+        "auc": 0.3611111111111111,
+        "ci": null,
+        "note": "n < 20 or too few patients for a CI"
+      }
+    },
+    "[0.3, 0.5)": {
+      "n": 24,
+      "malignant_frac": 0.4583333333333333,
+      "rung2": {
+        "n": 24,
+        "auc": 0.6713286713286714,
+        "ci": [
+          0.4423076923076923,
+          0.8692307692307693
+        ]
+      },
+      "rung3": {
+        "n": 24,
+        "auc": 0.7482517482517482,
+        "ci": [
+          0.5314685314685315,
+          0.9230769230769231
+        ]
+      },
+      "rung5": {
+        "n": 24,
+        "auc": 0.6363636363636365,
+        "ci": [
+          0.40559440559440557,
+          0.8525641025641025
+        ]
+      }
+    },
+    ">= 0.5": {
+      "n": 146,
+      "malignant_frac": 0.5068493150684932,
+      "rung2": {
+        "n": 146,
+        "auc": 0.9016516516516516,
+        "ci": [
+          0.8528576305636131,
+          0.9500014351320322
+        ]
+      },
+      "rung3": {
+        "n": 146,
+        "auc": 0.8691816816816816,
+        "ci": [
+          0.8045788372507123,
+          0.924510613353079
+        ]
+      },
+      "rung5": {
+        "n": 146,
+        "auc": 0.844406906906907,
+        "ci": [
+          0.7644655761186053,
+          0.9091951134725975
+        ]
+      }
+    }
+  },
+  "victims": {
+    "localiser": {
+      "rule": "no box or IoU < 0.3",
+      "n_bad": 62,
+      "n_good": 181,
+      "rung2_on_bad": {
+        "n": 62,
+        "auc": 0.8347613219094246,
+        "ci": [
+          0.6821186974789917,
+          0.9491416040100251
+        ]
+      },
+      "rung2_on_good": {
+        "n": 181,
+        "auc": 0.8765884652981426,
+        "ci": [
+          0.8231108622620381,
+          0.9296264347704367
+        ]
+      },
+      "rung3_on_bad": {
+        "n": 62,
+        "auc": 0.8041615667074664,
+        "ci": [
+          0.6493413175808882,
+          0.9091991476332341
+        ]
+      },
+      "rung3_on_good": {
+        "n": 181,
+        "auc": 0.8740224828934506,
+        "ci": [
+          0.8147367639956159,
+          0.925229666563491
+        ]
+      },
+      "rung5_on_bad": {
+        "n": 62,
+        "auc": 0.583843329253366,
+        "ci": [
+          0.4235432049748371,
+          0.7530243347338935
+        ]
+      },
+      "rung5_on_good": {
+        "n": 181,
+        "auc": 0.7960043988269795,
+        "ci": [
+          0.7252965696917065,
+          0.8615904272714521
+        ]
+      }
+    },
+    "jitter": {
+      "rule": "no box or IoU < 0.3",
+      "n_bad": 73,
+      "n_good": 170,
+      "rung2_on_bad": {
+        "n": 73,
+        "auc": 0.9202898550724637,
+        "ci": [
+          0.8301215277777778,
+          0.9785363722656081
+        ]
+      },
+      "rung2_on_good": {
+        "n": 170,
+        "auc": 0.8654671280276817,
+        "ci": [
+          0.8003023812427587,
+          0.9186043074565767
+        ]
+      },
+      "rung3_on_bad": {
+        "n": 73,
+        "auc": 0.8993558776167471,
+        "ci": [
+          0.7988170734494264,
+          0.9649982619719462
+        ]
+      },
+      "rung3_on_good": {
+        "n": 170,
+        "auc": 0.8530103806228373,
+        "ci": [
+          0.7881655106369165,
+          0.9074785663713993
+        ]
+      },
+      "rung5_on_bad": {
+        "n": 73,
+        "auc": 0.5700483091787439,
+        "ci": [
+          0.42425192570330844,
+          0.7123987268518519
+        ]
+      },
+      "rung5_on_good": {
+        "n": 170,
+        "auc": 0.822560553633218,
+        "ci": [
+          0.7510996212121213,
+          0.8893974630021141
+        ]
+      }
+    }
+  },
+  "bad_box_rates": {
+    "subtlety": [
+      {
+        "subtlety": 1.0,
+        "n": 10,
+        "bad_box_rate": 0.8,
+        "malignant_frac": 0.6
+      },
+      {
+        "subtlety": 2.0,
+        "n": 16,
+        "bad_box_rate": 0.3125,
+        "malignant_frac": 0.5
+      },
+      {
+        "subtlety": 3.0,
+        "n": 50,
+        "bad_box_rate": 0.34,
+        "malignant_frac": 0.34
+      },
+      {
+        "subtlety": 4.0,
+        "n": 65,
+        "bad_box_rate": 0.2923076923076923,
+        "malignant_frac": 0.35384615384615387
+      },
+      {
+        "subtlety": 5.0,
+        "n": 102,
+        "bad_box_rate": 0.12745098039215685,
+        "malignant_frac": 0.5686274509803921
+      }
+    ],
+    "breast_density": [
+      {
+        "breast_density": 1.0,
+        "n": 62,
+        "bad_box_rate": 0.3387096774193548,
+        "malignant_frac": 0.4032258064516129
+      },
+      {
+        "breast_density": 2.0,
+        "n": 103,
+        "bad_box_rate": 0.23300970873786409,
+        "malignant_frac": 0.4854368932038835
+      },
+      {
+        "breast_density": 3.0,
+        "n": 58,
+        "bad_box_rate": 0.1896551724137931,
+        "malignant_frac": 0.603448275862069
+      },
+      {
+        "breast_density": 4.0,
+        "n": 20,
+        "bad_box_rate": 0.3,
+        "malignant_frac": 0.1
+      }
+    ],
+    "mass shape": [
+      {
+        "mass shape": "ARCHITECTURAL_DISTORTION",
+        "n": 17,
+        "bad_box_rate": 0.47058823529411764,
+        "malignant_frac": 0.7058823529411765
+      },
+      {
+        "mass shape": "ASYMMETRIC_BREAST_TISSUE",
+        "n": 5,
+        "bad_box_rate": 0.6,
+        "malignant_frac": 0.6
+      },
+      {
+        "mass shape": "FOCAL_ASYMMETRIC_DENSITY",
+        "n": 2,
+        "bad_box_rate": 0.0,
+        "malignant_frac": 1.0
+      },
+      {
+        "mass shape": "IRREGULAR",
+        "n": 65,
+        "bad_box_rate": 0.23076923076923078,
+        "malignant_frac": 0.676923076923077
+      },
+      {
+        "mass shape": "IRREGULAR-ARCHITECTURAL_DISTORTION",
+        "n": 8,
+        "bad_box_rate": 0.25,
+        "malignant_frac": 1.0
+      },
+      {
+        "mass shape": "LOBULATED",
+        "n": 50,
+        "bad_box_rate": 0.1,
+        "malignant_frac": 0.38
+      },
+      {
+        "mass shape": "LOBULATED-LYMPH_NODE",
+        "n": 3,
+        "bad_box_rate": 0.0,
+        "malignant_frac": 0.0
+      },
+      {
+        "mass shape": "LYMPH_NODE",
+        "n": 18,
+        "bad_box_rate": 0.7222222222222222,
+        "malignant_frac": 0.0
+      },
+      {
+        "mass shape": "OVAL",
+        "n": 56,
+        "bad_box_rate": 0.2857142857142857,
+        "malignant_frac": 0.26785714285714285
+      },
+      {
+        "mass shape": "OVAL-LYMPH_NODE",
+        "n": 1,
+        "bad_box_rate": 0.0,
+        "malignant_frac": 0.0
+      },
+      {
+        "mass shape": "ROUND",
+        "n": 18,
+        "bad_box_rate": 0.0,
+        "malignant_frac": 0.5
+      }
+    ],
+    "mass margins": [
+      {
+        "mass margins": "CIRCUMSCRIBED",
+        "n": 54,
+        "bad_box_rate": 0.2962962962962963,
+        "malignant_frac": 0.07407407407407407
+      },
+      {
+        "mass margins": "CIRCUMSCRIBED-OBSCURED",
+        "n": 5,
+        "bad_box_rate": 0.2,
+        "malignant_frac": 0.0
+      },
+      {
+        "mass margins": "CIRCUMSCRIBED-OBSCURED-ILL_DEFINED",
+        "n": 1,
+        "bad_box_rate": 0.0,
+        "malignant_frac": 0.0
+      },
+      {
+        "mass margins": "ILL_DEFINED",
+        "n": 55,
+        "bad_box_rate": 0.32727272727272727,
+        "malignant_frac": 0.5636363636363636
+      },
+      {
+        "mass margins": "ILL_DEFINED-SPICULATED",
+        "n": 4,
+        "bad_box_rate": 0.25,
+        "malignant_frac": 0.25
+      },
+      {
+        "mass margins": "MICROLOBULATED",
+        "n": 14,
+        "bad_box_rate": 0.07142857142857142,
+        "malignant_frac": 0.7857142857142857
+      },
+      {
+        "mass margins": "OBSCURED",
+        "n": 37,
+        "bad_box_rate": 0.24324324324324326,
+        "malignant_frac": 0.08108108108108109
+      },
+      {
+        "mass margins": "OBSCURED-ILL_DEFINED",
+        "n": 2,
+        "bad_box_rate": 0.0,
+        "malignant_frac": 1.0
+      },
+      {
+        "mass margins": "SPICULATED",
+        "n": 63,
+        "bad_box_rate": 0.19047619047619047,
+        "malignant_frac": 0.9206349206349206
+      },
+      {
+        "mass margins": null,
+        "n": 8,
+        "bad_box_rate": 0.5,
+        "malignant_frac": 0.25
+      }
+    ],
+    "gt_size_quartile": [
+      {
+        "gt_size_quartile": "q1 smallest",
+        "n": 61,
+        "bad_box_rate": 0.39344262295081966,
+        "malignant_frac": 0.2786885245901639
+      },
+      {
+        "gt_size_quartile": "q2",
+        "n": 61,
+        "bad_box_rate": 0.2786885245901639,
+        "malignant_frac": 0.4262295081967213
+      },
+      {
+        "gt_size_quartile": "q3",
+        "n": 60,
+        "bad_box_rate": 0.15,
+        "malignant_frac": 0.5166666666666667
+      },
+      {
+        "gt_size_quartile": "q4 largest",
+        "n": 61,
+        "bad_box_rate": 0.19672131147540983,
+        "malignant_frac": 0.6229508196721312
+      }
+    ],
+    "multi_lesion_image": [
+      {
+        "multi_lesion_image": 0.0,
+        "n": 213,
+        "bad_box_rate": 0.20187793427230047,
+        "malignant_frac": 0.48826291079812206
+      },
+      {
+        "multi_lesion_image": 1.0,
+        "n": 30,
+        "bad_box_rate": 0.6333333333333333,
+        "malignant_frac": 0.26666666666666666
+      }
+    ],
+    "y_true": [
+      {
+        "y_true": 0.0,
+        "n": 131,
+        "bad_box_rate": 0.3282442748091603,
+        "malignant_frac": 0.0
+      },
+      {
+        "y_true": 1.0,
+        "n": 112,
+        "bad_box_rate": 0.16964285714285715,
+        "malignant_frac": 1.0
+      }
+    ]
+  },
+  "score_change_by_class": {
+    "0": {
+      "mean_rung3_minus_rung2": 2.0041137592500065e-06,
+      "mean_rung5_minus_rung2": 0.14876385385753543
+    },
+    "1": {
+      "mean_rung3_minus_rung2": -0.013823351257347643,
+      "mean_rung5_minus_rung2": -0.07358418328554503
+    }
+  }
+}

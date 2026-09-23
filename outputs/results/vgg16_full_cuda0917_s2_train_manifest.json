@@ -1,0 +1,14 @@
+{
+  "tag": "vgg16_full_cuda0917_s2",
+  "source": "crop",
+  "crop_margin": 0.2,
+  "seed": 2,
+  "box_source": null,
+  "boxes_dir": null,
+  "boxes_md5": null,
+  "trained_from_store": "outputs/crop_store_full_image",
+  "store_files": {
+    "val_images.npy": "ce84e96e89b8440d",
+    "train_images.npy": "37a38373b10b09da"
+  }
+}

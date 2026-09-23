@@ -1,0 +1,141 @@
+{
+  "tag": "vgg16_crop_rung3_unet_promoted_cuda0917",
+  "split": "val",
+  "box_source": "unet",
+  "margin": 0.2,
+  "tau": 0.3,
+  "cam_layer": "block5_conv3",
+  "threshold": 0.3163105249404907,
+  "threshold_source": "validation",
+  "n": 243,
+  "n_correct": 180,
+  "chance_attention": 0.28942599416309733,
+  "all": {
+    "n": 243,
+    "attention_in_mask": 0.37406958821447744,
+    "cam_iou": 0.22475101771651004,
+    "peak_in_mask": 0.588477366255144,
+    "mask_in_crop": 0.7816950951093509,
+    "peak_on_bright": 0.06584362139917696
+  },
+  "correct": {
+    "n": 180,
+    "attention_in_mask": 0.39404463018475044,
+    "cam_iou": 0.2400969632906465,
+    "peak_in_mask": 0.6277777777777778,
+    "mask_in_crop": 0.8087204234467612,
+    "peak_on_bright": 0.05555555555555555
+  },
+  "incorrect": {
+    "n": 63,
+    "attention_in_mask": 0.3169980397279831,
+    "cam_iou": 0.18090545893326318,
+    "peak_in_mask": 0.47619047619047616,
+    "mask_in_crop": 0.7044798712881785,
+    "peak_on_bright": 0.09523809523809523
+  },
+  "conditioned_on_mask_in_crop": {
+    "mask_in_crop_gt_0": {
+      "n": 195,
+      "attention_in_mask": 0.4661482560826565,
+      "cam_iou": 0.28007434515442026,
+      "peak_in_mask": 0.7333333333333333,
+      "mask_in_crop": 0.9741123492901141,
+      "peak_on_bright": 0.07179487179487179
+    },
+    "mask_in_crop_ge_0.5": {
+      "n": 192,
+      "attention_in_mask": 0.4608784156505,
+      "cam_iou": 0.27894091191718373,
+      "peak_in_mask": 0.7291666666666666,
+      "mask_in_crop": 0.9829196808859706,
+      "peak_on_bright": 0.07291666666666667
+    },
+    "mask_in_crop_ge_0.9": {
+      "n": 184,
+      "attention_in_mask": 0.4536998654509574,
+      "cam_iou": 0.2836391654593085,
+      "peak_in_mask": 0.7336956521739131,
+      "mask_in_crop": 0.9945403353675552,
+      "peak_on_bright": 0.06521739130434782
+    },
+    "n_crops_excluding_lesion": 48,
+    "frac_crops_excluding_lesion": 0.1975
+  },
+  "by_outcome": {
+    "TP": {
+      "n": 101,
+      "attention_in_mask": 0.43896192337069095,
+      "cam_iou": 0.36966596116002337,
+      "peak_in_mask": 0.8217821782178217,
+      "mask_in_crop": 0.8907156123383211,
+      "peak_on_bright": 0.06930693069306931
+    },
+    "TN": {
+      "n": 79,
+      "attention_in_mask": 0.3366187237065228,
+      "cam_iou": 0.07444545968549365,
+      "peak_in_mask": 0.379746835443038,
+      "mask_in_crop": 0.7038911313195771,
+      "peak_on_bright": 0.0379746835443038
+    },
+    "FP": {
+      "n": 52,
+      "attention_in_mask": 0.3429521083428377,
+      "cam_iou": 0.21097459806710378,
+      "peak_in_mask": 0.5384615384615384,
+      "mask_in_crop": 0.7206036012906295,
+      "peak_on_bright": 0.11538461538461539
+    },
+    "FN": {
+      "n": 11,
+      "attention_in_mask": 0.1943060790032156,
+      "cam_iou": 0.03876043757328933,
+      "peak_in_mask": 0.18181818181818182,
+      "mask_in_crop": 0.6282586021856829,
+      "peak_on_bright": 0.0
+    }
+  },
+  "mannwhitney_attention_correct_vs_incorrect": {
+    "U": 6662.0,
+    "p": 0.03814134928400018
+  },
+  "within_predicted_class": {
+    "predicted_malignant": {
+      "TP": {
+        "n": 101,
+        "attention_in_mask": 0.43896192337069095,
+        "cam_iou": 0.36966596116002337,
+        "peak_in_mask": 0.8217821782178217,
+        "mask_in_crop": 0.8907156123383211,
+        "peak_on_bright": 0.06930693069306931
+      },
+      "FP": {
+        "n": 52,
+        "attention_in_mask": 0.3429521083428377,
+        "cam_iou": 0.21097459806710378,
+        "peak_in_mask": 0.5384615384615384,
+        "mask_in_crop": 0.7206036012906295,
+        "peak_on_bright": 0.11538461538461539
+      }
+    },
+    "predicted_benign": {
+      "TN": {
+        "n": 79,
+        "attention_in_mask": 0.3366187237065228,
+        "cam_iou": 0.07444545968549365,
+        "peak_in_mask": 0.379746835443038,
+        "mask_in_crop": 0.7038911313195771,
+        "peak_on_bright": 0.0379746835443038
+      },
+      "FN": {
+        "n": 11,
+        "attention_in_mask": 0.1943060790032156,
+        "cam_iou": 0.03876043757328933,
+        "peak_in_mask": 0.18181818181818182,
+        "mask_in_crop": 0.6282586021856829,
+        "peak_on_bright": 0.0
+      }
+    }
+  }
+}

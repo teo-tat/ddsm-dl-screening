@@ -1,0 +1,14 @@
+{
+  "tag": "vgg16_crop_rung2_oracle_cuda0917_s2",
+  "source": "crop",
+  "crop_margin": 0.2,
+  "seed": 2,
+  "box_source": "oracle",
+  "boxes_dir": null,
+  "boxes_md5": null,
+  "trained_from_store": "outputs/crop_store_rung2_oracle",
+  "store_files": {
+    "val_images.npy": "45b03244ecca5d4f",
+    "train_images.npy": "9b9e9ce05176195c"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "secondary": {
+    "unit": "lesion",
+    "n": 243,
+    "family_size": 10,
+    "comparisons": [
+      {
+        "model_a": "vgg16_crop_rung2_oracle_cuda",
+        "model_b": "vgg16_crop_rung3_unet_bundle_cuda",
+        "auc_a": 0.8861095965103598,
+        "auc_b": 0.8144765539803708,
+        "auc_diff": 0.07163304252998903,
+        "auc_diff_ci_patient_bootstrap": [
+          0.015345657502796269,
+          0.12738349097446167
+        ],
+        "z": 2.7363701455444223,
+        "p_delong": 0.006212110713056495,
+        "mcnemar_chi2": 10.181818181818182,
+        "p_mcnemar": 0.001418322554605278,
+        "b_a_wrong_b_right": 24,
+        "c_a_right_b_wrong": 53,
+        "p_delong_holm": 0.02484844285222598,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung2_oracle_cuda",
+        "model_b": "vgg16_crop_rung4_cam_cuda",
+        "auc_a": 0.8861095965103598,
+        "auc_b": 0.7256679389312976,
+        "auc_diff": 0.16044165757906226,
+        "auc_diff_ci_patient_bootstrap": [
+          0.08508351887356458,
+          0.25482560077605126
+        ],
+        "z": 4.375406268160429,
+        "p_delong": 1.2120651746859367e-05,
+        "mcnemar_chi2": 9.141304347826088,
+        "p_mcnemar": 0.0024990288576112185,
+        "b_a_wrong_b_right": 31,
+        "c_a_right_b_wrong": 61,
+        "p_delong_holm": 8.484456222801557e-05,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung2_oracle_cuda",
+        "model_b": "vgg16_crop_rung6_shuffled_cuda",
+        "auc_a": 0.8861095965103598,
+        "auc_b": 0.5597737186477645,
+        "auc_diff": 0.3263358778625953,
+        "auc_diff_ci_patient_bootstrap": [
+          0.23283006547488255,
+          0.4122879965654052
+        ],
+        "z": 7.529664785566374,
+        "p_delong": 5.087074970824675e-14,
+        "mcnemar_chi2": 49.42156862745098,
+        "p_mcnemar": 2.0646817588954036e-12,
+        "b_a_wrong_b_right": 15,
+        "c_a_right_b_wrong": 87,
+        "p_delong_holm": 5.087074970824675e-13,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung2_oracle_cuda",
+        "model_b": "vgg16_crop_rung7_whole_cuda",
+        "auc_a": 0.8861095965103598,
+        "auc_b": 0.7054934569247546,
+        "auc_diff": 0.18061613958560518,
+        "auc_diff_ci_patient_bootstrap": [
+          0.09844555927396784,
+          0.26345627377163894
+        ],
+        "z": 4.8705027284711875,
+        "p_delong": 1.1131466407302648e-06,
+        "mcnemar_chi2": 22.011904761904763,
+        "p_mcnemar": 2.709645743781408e-06,
+        "b_a_wrong_b_right": 20,
+        "c_a_right_b_wrong": 64,
+        "p_delong_holm": 8.905173125842118e-06,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung3_unet_bundle_cuda",
+        "model_b": "vgg16_crop_rung4_cam_cuda",
+        "auc_a": 0.8144765539803708,
+        "auc_b": 0.7256679389312976,
+        "auc_diff": 0.08880861504907323,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.0011259527395864133,
+          0.19090600045988546
+        ],
+        "z": 2.1028376454949638,
+        "p_delong": 0.0354799640268632,
+        "mcnemar_chi2": 0.0,
+        "p_mcnemar": 1.0,
+        "b_a_wrong_b_right": 45,
+        "c_a_right_b_wrong": 46,
+        "p_delong_holm": 0.0709599280537264,
+        "significant_holm_005": false
+      },
+      {
+        "model_a": "vgg16_crop_rung3_unet_bundle_cuda",
+        "model_b": "vgg16_crop_rung6_shuffled_cuda",
+        "auc_a": 0.8144765539803708,
+        "auc_b": 0.5597737186477645,
+        "auc_diff": 0.2547028353326063,
+        "auc_diff_ci_patient_bootstrap": [
+          0.1472117496462257,
+          0.3462831339789172
+        ],
+        "z": 5.4710332165259725,
+        "p_delong": 4.474194221372179e-08,
+        "mcnemar_chi2": 23.52,
+        "p_mcnemar": 1.2362200039195415e-06,
+        "b_a_wrong_b_right": 16,
+        "c_a_right_b_wrong": 59,
+        "p_delong_holm": 4.026774799234961e-07,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung3_unet_bundle_cuda",
+        "model_b": "vgg16_crop_rung7_whole_cuda",
+        "auc_a": 0.8144765539803708,
+        "auc_b": 0.7054934569247546,
+        "auc_diff": 0.10898309705561615,
+        "auc_diff_ci_patient_bootstrap": [
+          0.013547584696783539,
+          0.20808864158659623
+        ],
+        "z": 2.5536805438704624,
+        "p_delong": 0.010659100169499496,
+        "mcnemar_chi2": 2.3058823529411763,
+        "p_mcnemar": 0.12888507323288978,
+        "b_a_wrong_b_right": 35,
+        "c_a_right_b_wrong": 50,
+        "p_delong_holm": 0.03197730050849849,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung4_cam_cuda",
+        "model_b": "vgg16_crop_rung6_shuffled_cuda",
+        "auc_a": 0.7256679389312976,
+        "auc_b": 0.5597737186477645,
+        "auc_diff": 0.16589422028353307,
+        "auc_diff_ci_patient_bootstrap": [
+          0.044845817936979344,
+          0.2644502138901218
+        ],
+        "z": 3.4438971152653317,
+        "p_delong": 0.0005733938520874162,
+        "mcnemar_chi2": 24.720588235294116,
+        "p_mcnemar": 6.627243641643688e-07,
+        "b_a_wrong_b_right": 13,
+        "c_a_right_b_wrong": 55,
+        "p_delong_holm": 0.003440363112524497,
+        "significant_holm_005": true
+      },
+      {
+        "model_a": "vgg16_crop_rung4_cam_cuda",
+        "model_b": "vgg16_crop_rung7_whole_cuda",
+        "auc_a": 0.7256679389312976,
+        "auc_b": 0.7054934569247546,
+        "auc_diff": 0.020174482006542926,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.04333157031216272,
+          0.08029581411575018
+        ],
+        "z": 0.7192461381991326,
+        "p_delong": 0.47198927611558394,
+        "mcnemar_chi2": 3.25,
+        "p_mcnemar": 0.07142345772985215,
+        "b_a_wrong_b_right": 19,
+        "c_a_right_b_wrong": 33,
+        "p_delong_holm": 0.47198927611558394,
+        "significant_holm_005": false
+      },
+      {
+        "model_a": "vgg16_crop_rung6_shuffled_cuda",
+        "model_b": "vgg16_crop_rung7_whole_cuda",
+        "auc_a": 0.5597737186477645,
+        "auc_b": 0.7054934569247546,
+        "auc_diff": -0.14571973827699014,
+        "auc_diff_ci_patient_bootstrap": [
+          -0.24189591050235884,
+          -0.03674931761173082
+        ],
+        "z": -3.0468823691184257,
+        "p_delong": 0.002312281785870526,
+        "mcnemar_chi2": 12.568965517241379,
+        "p_mcnemar": 0.00039220562227904043,
+        "b_a_wrong_b_right": 43,
+        "c_a_right_b_wrong": 15,
+        "p_delong_holm": 0.01156140892935263,
+        "significant_holm_005": true
+      }
+    ],
+    "note": "DeLong p-values Holm-corrected within the family; McNemar descriptive"
+  },
+  "split": "val"
+}

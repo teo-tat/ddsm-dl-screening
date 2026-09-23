@@ -1,0 +1,58 @@
+{
+  "n_pairs": 101,
+  "n_patients": 88,
+  "n_malignant": 48,
+  "draws": 1000,
+  "aucs": {
+    "fusion_ens3_unet": 0.872248427672956,
+    "naive_averaging": 0.8753930817610063,
+    "one_view_rung3": 0.8054245283018868,
+    "fusion_ens3_oracle": 0.8435534591194969
+  },
+  "holm_family": [
+    {
+      "test": "(i)  learned fusion vs naive two-view averaging",
+      "a": "fusion_ens3_unet",
+      "b": "naive_averaging",
+      "auc_a": 0.872248427672956,
+      "auc_b": 0.8753930817610063,
+      "diff": -0.0031446540880503138,
+      "ci95": [
+        -0.0507401339530587,
+        0.048329546897389934
+      ],
+      "p_delong": 0.8872599893442691,
+      "bootstrap_frac_positive": 0.437,
+      "p_holm": 0.8872599893442691,
+      "significant_holm_005": false
+    },
+    {
+      "test": "(ii) learned fusion vs one view",
+      "a": "fusion_ens3_unet",
+      "b": "one_view_rung3",
+      "auc_a": 0.872248427672956,
+      "auc_b": 0.8054245283018868,
+      "diff": 0.06682389937106914,
+      "ci95": [
+        -0.0168633485309017,
+        0.1409313944864975
+      ],
+      "p_delong": 0.05133496593288723,
+      "bootstrap_frac_positive": 0.936,
+      "p_holm": 0.10266993186577446,
+      "significant_holm_005": false
+    }
+  ],
+  "descriptive_oracle_gap": {
+    "a": "fusion_ens3_oracle",
+    "b": "fusion_ens3_unet",
+    "auc_a": 0.8435534591194969,
+    "auc_b": 0.872248427672956,
+    "diff": -0.0286949685534591,
+    "ci95": [
+      -0.13214339999565716,
+      0.06116666666666662
+    ],
+    "in_holm_family": false
+  }
+}

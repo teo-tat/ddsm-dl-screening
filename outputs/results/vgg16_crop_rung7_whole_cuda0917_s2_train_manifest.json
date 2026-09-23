@@ -1,0 +1,14 @@
+{
+  "tag": "vgg16_crop_rung7_whole_cuda0917_s2",
+  "source": "crop",
+  "crop_margin": 0.2,
+  "seed": 2,
+  "box_source": "whole",
+  "boxes_dir": null,
+  "boxes_md5": null,
+  "trained_from_store": "outputs/crop_store_rung7_whole",
+  "store_files": {
+    "val_images.npy": "adddc7b4dd08b2ed",
+    "train_images.npy": "631631bf9e8bfd08"
+  }
+}
