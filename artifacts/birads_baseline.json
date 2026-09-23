@@ -1,0 +1,119 @@
+{
+  "per_partition": {
+    "train": {
+      "partition": "train",
+      "n_full": 1146,
+      "n": 1018,
+      "n_excluded_birads0": 128,
+      "n_malignant": 517,
+      "n_benign": 501,
+      "n_patients": 578,
+      "auc_roc": 0.8235193056826386,
+      "auc_roc_ci": [
+        0.793839929681487,
+        0.8559525604595312
+      ],
+      "auc_pr": 0.7916778886233822,
+      "auc_pr_ci": [
+        0.7609545319195723,
+        0.8241238848070118
+      ],
+      "sens": 0.9245647969052224,
+      "sens_ci": [
+        0.8985378627196062,
+        0.9443289877659103
+      ],
+      "spec": 0.5069860279441117,
+      "spec_ci": [
+        0.46332162144614863,
+        0.550544117743194
+      ],
+      "tp": 478,
+      "fp": 247,
+      "tn": 254,
+      "fn": 39
+    },
+    "val": {
+      "partition": "val",
+      "n_full": 225,
+      "n": 209,
+      "n_excluded_birads0": 16,
+      "n_malignant": 108,
+      "n_benign": 101,
+      "n_patients": 121,
+      "auc_roc": 0.8626696002933626,
+      "auc_roc_ci": [
+        0.8103445838587285,
+        0.9089353968099592
+      ],
+      "auc_pr": 0.8419698049071809,
+      "auc_pr_ci": [
+        0.787002088678763,
+        0.8949289040759998
+      ],
+      "sens": 0.9629629629629629,
+      "sens_ci": [
+        0.9086183563719779,
+        0.9855044586630923
+      ],
+      "spec": 0.42574257425742573,
+      "spec_ci": [
+        0.3337769739431524,
+        0.523149854732554
+      ],
+      "tp": 104,
+      "fp": 58,
+      "tn": 43,
+      "fn": 4
+    },
+    "test": {
+      "partition": "test",
+      "n_full": 221,
+      "n": 203,
+      "n_excluded_birads0": 18,
+      "n_malignant": 100,
+      "n_benign": 103,
+      "n_patients": 110,
+      "auc_roc": 0.8089805825242719,
+      "auc_roc_ci": [
+        0.7466189075929487,
+        0.8716919923631071
+      ],
+      "auc_pr": 0.7698852202242523,
+      "auc_pr_ci": [
+        0.7006251798979914,
+        0.8418425807725809
+      ],
+      "sens": 0.94,
+      "sens_ci": [
+        0.8752318455214906,
+        0.972213876041648
+      ],
+      "spec": 0.42718446601941745,
+      "spec_ci": [
+        0.3359680595026458,
+        0.5236370023776817
+      ],
+      "tp": 94,
+      "fp": 59,
+      "tn": 44,
+      "fn": 6
+    }
+  },
+  "config": {
+    "variant": "drop_zero",
+    "threshold": 4.0,
+    "auc_roc": 0.809,
+    "auc_roc_ci": [
+      0.747,
+      0.872
+    ],
+    "auc_pr": 0.77,
+    "sens": 0.94,
+    "spec": 0.427,
+    "n_test_comparison": 203,
+    "n_test_full": 221,
+    "comparison_set": "artifacts/birads_comparison_set.csv",
+    "partition_source": "lesion-level patient partition (data_loader.patient_partition)"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "model": "vgg16",
+  "weights": "outputs/weights/vgg16_full_best.weights.h5",
+  "cam_layer": "block5_conv3",
+  "cam_target": "predicted class",
+  "threshold_rule": "tau x max activation over content region",
+  "intensity_norm": "fixed_max",
+  "tau": 0.5,
+  "min_px": 16,
+  "threshold_source": "validation sweep, mid-plateau",
+  "sweep_table": [
+    {
+      "tau": 0.1,
+      "iou_inclusive": 0.011152821069743095,
+      "iou_any_inclusive": 0.011704024804918082,
+      "detection": 0.8189300411522634,
+      "at_iou50": 0.0,
+      "at_iou30": 0.00411522633744856,
+      "centroid_hit": 0.024691358024691357
+    },
+    {
+      "tau": 0.2,
+      "iou_inclusive": 0.011809045217623198,
+      "iou_any_inclusive": 0.012523660695199773,
+      "detection": 0.8189300411522634,
+      "at_iou50": 0.0,
+      "at_iou30": 0.00411522633744856,
+      "centroid_hit": 0.03292181069958848
+    },
+    {
+      "tau": 0.3,
+      "iou_inclusive": 0.012322934308664634,
+      "iou_any_inclusive": 0.013180036536674775,
+      "detection": 0.8189300411522634,
+      "at_iou50": 0.0,
+      "at_iou30": 0.00823045267489712,
+      "centroid_hit": 0.03292181069958848
+    },
+    {
+      "tau": 0.4,
+      "iou_inclusive": 0.012354626048738849,
+      "iou_any_inclusive": 0.01336310281063909,
+      "detection": 0.8189300411522634,
+      "at_iou50": 0.0,
+      "at_iou30": 0.00823045267489712,
+      "centroid_hit": 0.024691358024691357
+    },
+    {
+      "tau": 0.5,
+      "iou_inclusive": 0.011843054641100961,
+      "iou_any_inclusive": 0.01292361736006763,
+      "detection": 0.8189300411522634,
+      "at_iou50": 0.0,
+      "at_iou30": 0.00411522633744856,
+      "centroid_hit": 0.03292181069958848
+    },
+    {
+      "tau": 0.6,
+      "iou_inclusive": 0.01282827378950736,
+      "iou_any_inclusive": 0.013912422136434824,
+      "detection": 0.8189300411522634,
+      "at_iou50": 0.0,
+      "at_iou30": 0.0,
+      "centroid_hit": 0.02880658436213992
+    },
+    {
+      "tau": 0.7,
+      "iou_inclusive": 0.011112048367091431,
+      "iou_any_inclusive": 0.01214971366343627,
+      "detection": 0.8189300411522634,
+      "at_iou50": 0.0,
+      "at_iou30": 0.0,
+      "centroid_hit": 0.02880658436213992
+    },
+    {
+      "tau": 0.8,
+      "iou_inclusive": 0.010717759132922588,
+      "iou_any_inclusive": 0.011353609548406467,
+      "detection": 0.8189300411522634,
+      "at_iou50": 0.0,
+      "at_iou30": 0.00411522633744856,
+      "centroid_hit": 0.024691358024691357
+    }
+  ],
+  "splits": [
+    "val",
+    "train",
+    "test"
+  ]
+}
