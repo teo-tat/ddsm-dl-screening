@@ -8,7 +8,8 @@ test labels included, so the loader refuses it unless the test pass has set its 
 
   report the six report figures, from the ablation bars to the silent sizes
   matrix one row per trained classifier tag, decoded from tag and histories
-  stages the Chollet stage-progression table, one pipeline, one seed
+  stages the stage-progression table: Chollet's workflow steps 5–7, then transfer learning;
+    one pipeline, one seed
   ablations the single-variable ablation table, against the replica baseline
   crops one validation lesion seen through every box source of the ladder
   data-flow the partition and consumer diagram, counted from the CSVs at run time
@@ -1475,7 +1476,10 @@ def main(argv: list[str] | None = None) -> None:
     _add_common(p, table_default="experiment_matrix.csv")
     p.set_defaults(func=cmd_matrix)
 
-    p = sub.add_parser("stages", help="the Chollet stage-progression table")
+    p = sub.add_parser(
+        "stages",
+        help="the stage-progression table: Chollet's workflow steps 5–7, then transfer learning",
+    )
     _add_common(p, table_default="stage_table.csv")
     p.set_defaults(func=cmd_stages)
 

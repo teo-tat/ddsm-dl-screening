@@ -8,7 +8,7 @@ frozen artefact to add provenance would itself break the freeze.
 | artefact | written by | what it is |
 | :--- | :--- | :--- |
 | `birads_baseline.json` | `src/birads_baseline.py` | the BI-RADS anchor per partition |
-| `birads_comparison_set.csv` | `src/birads_baseline.py` | the image rows the primary endpoint is scored on (read by `src/compare.py:68`, `src/analysis.py:170` and `notebooks/scripts/figures.py:868` via `config.BIRADS["comparison_set"]`) |
+| `birads_comparison_set.csv` | `src/birads_baseline.py` | the image rows the primary endpoint is scored on (read by `src/compare.py:68`, `src/analysis.py:170` and `notebooks/scripts/figures.py:869` via `config.BIRADS["comparison_set"]`) |
 | `cam_boxes.csv` | `src/cam_localise.py` | weakly-supervised CAM boxes, the rung-4 box source |
 | `cam_manifest.json` | `src/cam_localise.py` | the CAM run's configuration |
 | `cam_metrics.json` | `src/cam_localise.py` | CAM localisation metrics |

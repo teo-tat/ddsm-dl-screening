@@ -240,7 +240,8 @@ CROP_PAD_SQUARE: bool = False
 # Specialist baseline
 
 # The radiologist's BI-RADS assessment, read as an ordered score. Assessment 0 means
-# incomplete imaging (ACR, 2013), not low suspicion, so those images are left out.
+# incomplete: additional imaging and/or prior mammograms are needed (ACR BI-RADS Atlas,
+# 5th ed., 2013), not low suspicion, so those images are left out.
 BIRADS: dict = {
     "variant": "drop_zero",
     "threshold": 4.0,
@@ -256,18 +257,20 @@ BIRADS: dict = {
     "partition_source": "lesion-level patient partition (data_loader.patient_partition)",
 }
 
-# Malignancy rates (NHS England, 2026: 2,150,000 screened; 73,451 recalled; 19,291
-# cancers). Predictive values and net benefit are re-weighted to these.
+# Malignancy rates (NHS England, Breast Screening Programme, England, 2024-25; women aged 45
+# and over: about 2.15 million screened, 73,451 referred for assessment, 19,291 cancers).
+# Predictive values and net benefit are re-weighted to these.
 PREVALENCE: dict = {
     "cbis_test": 0.4796,
     "nhs_assessment": 0.2626,  # 19,291 / 73,451
-    "nhs_screening": 0.0090,  # 19,291 / 2,150,000
+    "nhs_screening": 0.0090,  # 19,291 / 2.15 million (rounded)
 }
 
 # An image's score is the highest probability among its lesions.
 IMAGE_SCORE_AGGREGATION: str = "max"
 
-# Targets from the literature (Wang, 2024, Table 5), measured on other studies' splits.
+# Reference targets (AUC 0.90, sensitivity 0.85, specificity 0.80), for context only.
+# Wang (2024) Table 5 lists CBIS-DDSM classification AUCs of 0.80 to 0.98, each on its own split.
 LITERATURE_AUC_REFERENCE: float = 0.90
 LITERATURE_SENSITIVITY_REFERENCE: float = 0.85
 LITERATURE_SPECIFICITY_REFERENCE: float = 0.80

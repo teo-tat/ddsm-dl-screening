@@ -442,7 +442,7 @@ echo "    outputs/_cuda/ is the deliberate CUDA landing area, so this"
 echo "    is a path-resolution decision, not a missing transfer: either the files"
 echo "    are copied across, or both readers learn the _cuda path. It returns to"
 echo "    the recomputed set once that is settled, which must happen before the"
-echo "    test pass regardless (run_test_pass.sh:171 refuses without it)."
+echo "    test pass regardless (run_test_pass.sh:218-228 refuses without it)."
 
 say "8. ledger check: the declared tables changed, and nothing else did"
 # Not "nothing moved": the declared tables move on purpose (DECLARED_TABLES above).

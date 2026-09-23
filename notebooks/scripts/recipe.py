@@ -53,26 +53,26 @@ def build_main(argv: list[str] | None = None) -> int:
         "decoder": rec(
             "TernausNet-style U-Net decoder, transposed-conv upsampling, "
             "base_filters 32, depth 4",
-            "src/localise.py:210-213 build_unet_pretrained; config.py:306-307",
+            "src/localise.py:247-258 build_unet_pretrained; config.py:306-307",
             False,
         ),
         "params": mk("params"),
         # pretrained weights and their preprocessing
         "pretrained_weights": rec(
             "ImageNet VGG16 (Keras applications)",
-            "src/localise.py:252 build_unet_pretrained docstring",
+            "src/localise.py:231-233 build_unet_pretrained, VGG16(weights='imagenet')",
             False,
         ),
         "input_preprocessing": rec(
             "in-graph: x * 255.0 -> tf.repeat to 3 channels -> RGB->BGR ([..., ::-1]) "
             "-> subtract Caffe channel means (103.939, 116.779, 123.68)",
-            "src/localise.py:242 _CAFFE_BGR_MEAN; :281-284 caffe_preprocess Lambda",
+            "src/localise.py:205 _CAFFE_BGR_MEAN; :226-229 caffe_preprocess Lambda",
             False,
         ),
-        "input_channels": rec(3, "src/localise.py:283 tf.repeat(t * 255.0, 3, axis=-1)", False),
+        "input_channels": rec(3, "src/localise.py:228 tf.repeat(t * 255.0, 3, axis=-1)", False),
         "store_intensity_range": rec(
             "[0,1] float16 in the tensor store; scaling happens in-graph",
-            "src/localise_eval.py:36-41 _load (scale=1.0 for float16)",
+            "src/localise_eval.py:36-53 _load (scale=1.0 for float16)",
             False,
         ),
         # data
@@ -83,7 +83,8 @@ def build_main(argv: list[str] | None = None) -> int:
         ),
         "cache_percentiles": rec(
             {"low": 1.0, "high": 99.0},
-            "src/config.py:85-86 PERCENTILE_LOW / PERCENTILE_HIGH",
+            "src/precompute_localiser.py:97-101 and src/data_loader.py:553-554: "
+            "config.py:166 PERCENTILE_LOW, config.py:305 LOC_PERCENTILE_HIGH",
             False,
         ),
         "canvas": mk("input", "letterbox canvas h,w"),
@@ -105,34 +106,36 @@ def build_main(argv: list[str] | None = None) -> int:
         ),
         # augmentation
         "augmentation": mk("augmentation"),
-        "aug_hflip_p": rec(0.5, "src/localise.py:516 tf.image.random_flip_left_right", False),
+        "aug_hflip_p": rec(0.5, "src/localise.py:467 tf.image.random_flip_left_right", False),
         "aug_rotation_deg": rec(
             {"min": -10.0, "max": 10.0},
-            "src/localise.py:503-504 RandomRotation(factor=AUG_MAX_ROTATION_DEG/360) "
-            "= +-10 deg; config.py:172",
+            "src/localise.py:454-455 RandomRotation(factor=AUG_MAX_ROTATION_DEG/360) "
+            "= +-10 deg; config.py:224",
             False,
         ),
-        "aug_rotation_fill": rec({"mode": "constant", "value": 0.0}, "src/localise.py:505", False),
+        "aug_rotation_fill": rec(
+            {"mode": "constant", "value": 0.0}, "src/localise.py:456-457", False
+        ),
         "aug_interpolation": rec(
-            "bilinear (Keras RandomRotation default)", "src/localise.py:503", False
+            "bilinear (Keras RandomRotation default)", "src/localise.py:454", False
         ),
         "aug_mask_handling": rec(
             "image and mask concatenated on the channel axis, one transform, "
             "mask re-thresholded at > 0.5 after rotation",
-            "src/localise.py:516-519 _augment_pair",
+            "src/localise.py:462-469 _augment_pair",
             False,
         ),
         # objective
         "loss": rec(
             "0.5 * BCE + 0.5 * soft-Dice",
-            "src/localise.py:486 bce_dice_loss; train_localiser_l4.py:482",
+            "src/localise.py:431 bce_dice_loss; train_localiser_l4.py:513",
             False,
         ),
         "dice_bce_weights": mk("dice_bce_weights"),
         # optimisation
         "optimizer": rec(
             "Adam (Keras), no weight decay",
-            "src/train_localiser_l4.py:482,484 tf.keras.optimizers.Adam",
+            "src/train_localiser_l4.py:512,516 tf.keras.optimizers.Adam",
             False,
         ),
         "optimizer_params": rec(
@@ -150,12 +153,12 @@ def build_main(argv: list[str] | None = None) -> int:
             "prog = clip((step-warmup_steps)/max(1,total_steps-warmup_steps),0,1); "
             "cos = floor + 0.5*(peak-floor)*(1+cos(pi*prog)); "
             "lr = warm if step < warmup_steps else cos",
-            "src/localise.py:384-399 WarmupCosine.__call__",
+            "src/localise.py:352-361 WarmupCosine.__call__",
             False,
         ),
         "two_rate": rec(
             "encoder and decoder on separate optimisers of the same schedule shape",
-            "src/localise.py:404-443 TwoRateModel; train_localiser_l4.py:484",
+            "src/localise.py:372-410 TwoRateModel; train_localiser_l4.py:516",
             False,
         ),
         "precision": mk("precision"),
@@ -172,37 +175,42 @@ def build_main(argv: list[str] | None = None) -> int:
         "output_prior_bias": mk("output_prior_bias", "log(p/(1-p))"),
         "output_bias_formula": rec(
             "log(output_prior / (1 - output_prior))",
-            "src/train_localiser_l4.py:513; localise.py:219-221",
+            "src/train_localiser_l4.py:505-507, 561; localise.py:260-264",
             False,
         ),
         # selection
         "selection_metric": mk("selection_metric"),
         "hard_iou_threshold": mk("hard_iou_threshold"),
-        "selection_min_px": rec(64, "src/config.py:319 LOC_MIN_COMPONENT_PX", False),
+        "selection_min_px": rec(
+            "none (hard IoU at the 0.10 mask threshold, no minimum component size)",
+            "src/train_localiser_l4.py:583 monitor=val_hard_iou; src/localise.py:441-448 hard_iou",
+            False,
+        ),
         "secondary_checkpoint": mk("secondary_checkpoint"),
         "best_epoch": mk("best_epoch"),
         # inference and boxes
         "inference_mode": rec(
             "whole-image at 1024x576 (no tiling)",
-            "notebooks/scripts/localise_eval_run4.sh:14 passes no --tiled; "
+            "the evaluation launcher, kept outside the repository, passes no --tiled; "
             "tiling arrived with cache v3",
             False,
         ),
         "flip_tta_at_gate": rec(False, "localiser_bundle.REFERENCE_RULE tta=False", False),
         "box_rule": rec(
             "largest surviving connected component",
-            "src/localise.py:58-90 mask_to_box, keep_largest="
-            "config.LOC_KEEP_LARGEST_COMPONENT (True, config.py:318)",
+            "src/localise.py:42-68 mask_to_box, keep_largest="
+            "config.LOC_KEEP_LARGEST_COMPONENT (True, config.py:317)",
             False,
         ),
-        "box_threshold": rec(0.10, "src/config.py:317 LOC_MASK_THRESHOLD", False),
-        "box_min_px": rec(64, "src/config.py:319 LOC_MIN_COMPONENT_PX", False),
+        "box_threshold": rec(0.10, "src/config.py:316 LOC_MASK_THRESHOLD", False),
+        "box_min_px": rec(64, "src/config.py:318 LOC_MIN_COMPONENT_PX", False),
         # reproducibility
         "seed": mk("seed"),
         "seed_handling": rec(
-            "config.set_seeds(seed): tf.random.set_seed + np.random.seed; "
-            "the patch plan is a pure function of (seed + epoch)",
-            "src/localise.py:541 config.set_seeds; config.py:7 SEED=28",
+            "config.set_seeds(seed): PYTHONHASHSEED + random.seed + np.random.seed + "
+            "tf.random.set_seed; the patch plan is a pure function of (seed + epoch)",
+            "src/train_localiser_l4.py:447 config.set_seeds (config.py:10-20); "
+            "train_localiser_l4.py:189 patch plan; config.py:7 SEED=28",
             False,
         ),
         # the reference number every candidate is gated against
@@ -256,10 +264,10 @@ RUN4_CODE = {
     "framework": ("keras-tf2.17", "src/localise.py"),
     "input_scaling": (
         "x255 -> RGB->BGR -> Caffe channel means subtracted",
-        "localise.py:283 caffe_preprocess",
+        "localise.py:228 caffe_preprocess",
     ),
-    "input_channels": (3, "localise.py:283 tf.repeat(..., 3)"),
-    "optimizer": ("Adam", "train_localiser_l4.py:482"),
+    "input_channels": (3, "localise.py:228 tf.repeat(..., 3)"),
+    "optimizer": ("Adam", "train_localiser_l4.py:512"),
     "weight_decay": (0.0, "Adam has none"),
     "encoder_bn": ("none (VGG16 has no BatchNorm)", "architecture"),
     "inference": ("whole-image at 1024x576", "localise_eval, run 4 was not tiled"),
@@ -269,9 +277,9 @@ RUN4_CODE = {
     "box_min_px": (64, "config.LOC_MIN_COMPONENT_PX"),
     "decoder": (
         "TernausNet-style U-Net decoder, transposed-conv upsampling, base_filters 32, depth 4",
-        "src/localise.py:210-213",
+        "src/localise.py:247-258",
     ),
-    "pretrained_weights": ("ImageNet VGG16 (Keras applications)", "src/localise.py:252"),
+    "pretrained_weights": ("ImageNet VGG16 (Keras applications)", "src/localise.py:231-233"),
 }
 
 FIELDS = [

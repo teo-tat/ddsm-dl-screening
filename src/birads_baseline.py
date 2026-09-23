@@ -1,6 +1,7 @@
 """The BI-RADS clinical baseline: the radiologist's recorded assessment scored as
 an ordinal predictor on each partition's mammograms and thresholded at >= 4 (biopsy
-indicated), with assessment 0 (incomplete, further imaging) dropped as off-scale.
+indicated), with assessment 0 (incomplete: additional imaging and/or prior mammograms
+needed) dropped as off-scale.
 It writes artifacts/birads_*, and refuses to run while either file exists.
 """
 

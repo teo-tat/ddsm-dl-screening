@@ -1,4 +1,4 @@
-"""Does the crop classifier attend to the biopsy-confirmed lesion? Grad-CAM shows
+"""Does the crop classifier attend to the annotated lesion? Grad-CAM shows
 where the evidence for the model's call lies; it is compared here with the
 ground-truth ROI mask inside the same crop, split by whether the call was correct.
 """
