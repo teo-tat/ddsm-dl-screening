@@ -69,3 +69,6 @@ outputs/results/weights_roundtrip_*/
 outputs/results/*_dryrun.*
 outputs/results/*_dryrun_*
 refs/promoted_pointer.dryrun.json
+
+# Written by notebook 02 when its FORCE switches rebuild the cached geometry tables.
+outputs/_scratch/
