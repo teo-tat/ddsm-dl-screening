@@ -5,11 +5,11 @@ A guard that only ever refuses is untested, so this checks both directions: an
 unauthorised read of the test partition through a guarded loader is refused, and a
 matching token is admitted. The guard covers the public loading functions (split_frames,
 build_datasets and fusion.build_pairs), not every function that could return test rows.
-With no token set, it also calls each command-line refusal of the test partition and
-birads_baseline's refusal to overwrite its frozen records; a refusal inside main() runs
-with its first read replaced by a sentinel, so no check reads data. Each command line is
-also run with a test argv, its reads before the refusal answered in memory, to show that
-it reaches the refusal.
+With no token set, it also calls each command-line refusal of the test partition and the
+refusals of birads_baseline and localise_eval to overwrite frozen records; a refusal
+inside main() runs with its first read replaced by a sentinel, so no check reads data.
+Each command line is also run with a test argv, its reads before the refusal answered in
+memory, to show that it reaches the refusal.
 """
 
 from __future__ import annotations
@@ -454,6 +454,20 @@ for name, call, patches, argv in wiring:
         out.startswith("REFUSED") and not left,
         f"runtime; {out[:60]}; files {left}",
     )
+
+print("\n=== 9. localise_eval refuses to overwrite its frozen outputs ===")
+from src import localise_eval  # noqa: E402
+
+out, left = run_entry(
+    localise_eval.main,
+    [(localise_eval, "_load_model", stop)],
+    ["localise_eval", "--weights", "w.weights.h5"],
+)
+chk(
+    "src.localise_eval with no --out-dir: main refuses before its first read",
+    out.startswith("REFUSED") and not left,
+    f"{out[:60]}; files {left}",
+)
 
 print(f"\n{len(PASS)} passed, {len(FAIL)} failed")
 sys.exit(1 if FAIL else 0)

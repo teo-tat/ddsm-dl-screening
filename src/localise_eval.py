@@ -509,6 +509,13 @@ def main() -> None:
         )
 
     out = Path(args.out_dir)
+    names = [f"localiser_boxes{k}_{s}.csv" for s in args.splits for k in ("", f"_k{K}")]
+    names += ["localiser_metrics.json", "localiser_error_model.json"]
+    if out.resolve() == OUT.resolve() and any((out / n).exists() for n in names):
+        raise SystemExit(
+            "REFUSED: [localise_eval] the localiser outputs in artifacts/ are frozen; "
+            "--out-dir to another folder is required"
+        )
     out.mkdir(parents=True, exist_ok=True)
     # Tiled inference needs the model declared at the tile size, not the canvas;
     # the network is fully convolutional, so the same weights load either way.
