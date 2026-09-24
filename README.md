@@ -469,7 +469,13 @@ because the record cites them.
 
 The reported results were produced by an earlier, unconsolidated set of run scripts. The tools in
 `notebooks/scripts/` are their consolidation; section 1 above lists the stored outputs they rebuild
-from the repository alone. The earlier scripts and the pod launchers are kept outside the
+from the repository alone. The test pass, too, ran on the earlier code: the code manifest recorded
+at the pass (`outputs/logs/test_pass_code_manifest/manifest_20260919T170641Z.sha256`, local
+material that is not committed) lists the scripts as they ran on 19 September 2026, so its code
+entries no longer match this repository's code, which was consolidated and edited afterwards. Its
+entries for the protocol, `refs/test_maps_manifest.json` and the 28 weights files, three of which
+are the released rung-3 seeds, still match.
+The earlier scripts and the pod launchers are kept outside the
 repository; where `docs/remote_runs.md` cites a path under `outputs/_cuda/` or
 `outputs/_superseded/`, or a launcher kept outside the repository, it refers to that local
 material.
