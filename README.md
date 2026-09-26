@@ -7,13 +7,12 @@ Template 3.2, Project Idea 2: Deep Learning Breast Cancer Detection.
 **In brief.** The system reads a whole mammogram, finds the mass itself and classifies it as benign
 or malignant, with no radiologist's outline to start from. On the held-out test partition (119
 patients), scored once under a protocol frozen beforehand, it reached an image-level AUC of 0.7874
-[0.7195, 0.8536], statistically indistinguishable from the radiologists' own BI-RADS assessments of
-the same 203 images (0.8090; difference −0.0216, p 0.550). The negatives are benign masses that
-radiologists marked, not normal breasts, so the task is to tell malignant from benign masses.
-Descriptively, where the localiser finds the lesion the classifier does about as well as on crops
-from the radiologists' own outlines, so most of the gap to ground-truth cropping comes from the
-lesions the localiser misses. The system did not reach the targets set at the start, such as an AUC
-of 0.90.
+[0.7195, 0.8536], statistically indistinguishable from the radiologists' recorded BI-RADS
+assessments of the same 203 mammograms (0.8090; difference −0.0216, p 0.550). The negatives are
+benign masses that radiologists marked, not normal breasts, so the task is to tell malignant from
+benign masses. Finding the mass cost about 0.04 AUC against ground-truth boxes, with up to 0.11 not
+excluded, mainly through the lesions the localiser missed entirely. The system did not reach the
+targets set at the start, such as an AUC of 0.90.
 
 ## What this project is
 
@@ -22,9 +21,17 @@ outline is not available at screening, so a usable system must find the lesion i
 pipeline has two stages:
 
 1. **Localiser.** An ensemble of seven U-Net-family segmentation networks (three Keras, four
-   PyTorch) proposes one box per mammogram.
-2. **Classifier.** A VGG16, fine-tuned from ImageNet, classifies the crop inside that box as benign
-   or malignant; every lesion on the mammogram is scored from that crop.
+   PyTorch) proposes at most one box per mammogram.
+2. **Classifier.** A VGG16, fine-tuned from ImageNet, classifies the crop around that box, or the
+   whole mammogram when there is none, as benign or malignant; every lesion on the mammogram is
+   scored from that crop.
+
+![The system and the evaluation harness around it](docs/figures/system_overview.png)
+
+*One validation mass through the system (a benign mass called malignant, a false positive), and
+the evaluation harness around both stages; from the project report (Figure 3.1). Images derived
+from CBIS-DDSM [1], [2], distributed by The Cancer Imaging Archive [4] under CC BY 3.0;
+letterboxed, cropped, intensity-windowed and annotated.*
 
 Around the pipeline the project measures:
 
@@ -54,32 +61,61 @@ image level, as are the specialist baseline and the difference; every other row 
 
 | quantity | validation | test |
 | :--- | :--- | :--- |
-| Full pipeline, image level (209 / 203 images) | 0.8574 | **0.7874 [0.7195, 0.8536]** |
+| System, image level (209 / 203 images) | 0.8574 | **0.7874 [0.7195, 0.8536]** |
 | Specialist baseline, same images | 0.8627 | 0.8090 [0.747, 0.872] |
-| Pipeline minus baseline | −0.0052, p 0.853 | **−0.0216 [−0.0988, +0.0525], p 0.550** |
+| System minus baseline | −0.0052, p 0.853 | **−0.0216 [−0.0988, +0.0525], p 0.550** |
 | Sensitivity / specificity at the threshold fitted on validation for 0.90 sensitivity (243 lesions) | 0.9018 / 0.6031 | 0.8230 / 0.4538 |
 | Development progression, AUC: baseline, scaled, regularised, VGG16 | 0.6604 (0.6647), 0.6920 (0.6859), 0.8040 (0.8275), 0.8777 (0.8768) | 0.6568, 0.6897, 0.7946, 0.8304 |
 | Four architectures on ground-truth crops, AUC | 0.7967 to 0.8777 (0.8043 to 0.8768) | 0.8304 to 0.8511; no pair differs after Holm correction |
 | Ladder, AUC: ground-truth box with margin, localiser box, whole image | 0.8735 (0.8749), 0.8654 (0.8652), 0.7217 (0.7211) | 0.8229, 0.7800 (0.7794), 0.7074 |
 | Ladder controls, AUC: CAM box, jittered box, shuffled box | 0.7246 (0.7248), 0.7652 (0.7617), 0.5640 (0.5453) | 0.6488, 0.7339 (0.7189), 0.4871 |
-| Lesions the localiser finds (168 on test): pipeline against ground-truth crops | — | 0.8395 against 0.8210 |
-| Localisation failures (no box, or box IoU below 0.3: 75 on test, 65 of them complete misses): pipeline against ground-truth crops | — | 0.6235 against 0.8086 |
+| Cost of localisation: ground-truth box with margin minus localiser box (Holm over ten ladder comparisons) | +0.0097, Holm 1.000 | +0.0435 [−0.0286, +0.1065], Holm 0.160 |
+| Lesions the localiser finds (168 on test): system against ground-truth crops | — | 0.8395 against 0.8210 |
+| Localisation failures (no box, or box IoU below 0.3: 75 on test, 65 of them complete misses): system against ground-truth crops | — | 0.6235 against 0.8086 |
 | MC-dropout deferral at the cut-off fitted on validation | 30.0 % deferred; retained AUC 0.8875 | 35.8 % deferred; retained AUC 0.8392 |
 
-The pipeline, the specialist comparison, the operating point and the rows below the ladder
-controls are seed 28, the pre-registered seed. In the development, architecture and ladder rows,
-where more than one seed was trained, the first figure is the mean over seeds and seed 28 follows in
-brackets; these means are descriptive. The validation means are over three seeds (five for the
-ground-truth box with margin). On test, only the localiser box and the jittered box were scored with
-three seeds; the other test figures in those rows are seed 28.
+The system, the specialist comparison, the operating point and the rows below the ladder
+controls are seed 28, the run the protocol fixes as the model under test. In the development,
+architecture and ladder rows, where more than one seed was trained, the first figure is the mean
+over seeds and seed 28 follows in brackets; these means are descriptive. The validation means are
+over three seeds (five for the ground-truth box with margin). On test, only the localiser box and
+the jittered box were scored with three seeds; the other test figures in those rows are seed 28.
 
-The pipeline is statistically indistinguishable from the specialist baseline; it is not better, and
+The system is statistically indistinguishable from the specialist baseline; it is not better, and
 the interval does not establish equivalence. The targets set at the start (AUC 0.90, sensitivity
-0.85, specificity 0.80, beat the baseline) were not met. On the 168 test lesions the localiser
-finds, the pipeline's AUC is close to that of ground-truth crops of the same lesions; on the 75
-where it fails, the pipeline's AUC falls well below theirs. This split is descriptive. On the
-subset of lesions seen in both views (101 test pairs), learned two-view fusion did not beat simple
-averaging of the two views' scores (−0.0031, p 0.887); both sides are three-seed ensembles.
+0.85, specificity 0.80, beat the baseline) were not met.
+
+![ROC curves of the primary endpoint, validation and test](docs/figures/primary_roc.png)
+
+*The primary endpoint at image level: the system, each mammogram scored by its highest lesion
+probability, against the recorded BI-RADS category read as an ordinal score (assessment 0
+excluded), on (a) validation and (b) test. The square marks the specialists' operating point,
+category 4 or above. From the project report (Figure 5.3).*
+
+Imperfect localisation cost about 0.04 AUC against ground-truth boxes on test, with up to 0.11 not
+excluded (the cost-of-localisation row). On the 168 test lesions the localiser finds, the
+system's AUC is close to that of ground-truth crops of the same lesions; on the 75 where it fails,
+the system's AUC falls well below theirs. This split is descriptive. The shuffled-box control
+scores at chance, so the classifier reads the lesion itself.
+
+![The localisation-degradation ladder, test and validation AUC](docs/figures/ladder_auc.png)
+
+*The ladder at lesion level: each condition's test AUC at seed 28 with its 95 % patient-bootstrap
+interval (filled) and its validation AUC at seed 28 (hollow); the dashed line marks chance. From
+the project report (Figure 5.1).*
+
+VGG16 was chosen as the backbone for its lead on validation, which did not replicate on test: there
+it came nominally last of the four, and no pair differs. The fall is consistent with selecting on
+the same validation lesions. On the subset of lesions seen in both views (101 test pairs), learned
+two-view fusion did not beat simple averaging of the two views' scores (−0.0031, p 0.887); both
+sides are three-seed ensembles.
+
+**Limits.** The data are digitised film mammograms from four US institutions, taken between 1988
+and 1999, and masses only, so transfer to digital screening is untested and the results support no
+clinical use. The specialist baseline is the assessment recorded with each mass, which may have been
+updated after further information, not a reader study. The evaluation rests on one patient-level
+split, so its intervals are wide: the primary difference admits a deficit of up to 0.099 or an
+advantage of up to 0.053.
 
 ## Data
 
@@ -119,13 +155,15 @@ lesions on a separate stream, so no test box reaches a validation crop.
 
 There was earlier contact with the test partition. §33 of the protocol lists every later contact
 up to the pass and records that no test result informed any selection, gate, threshold, promotion
-or decision. Among them is a validation dry run of the pass script on 10 September in
-which the stages without a split setting defaulted to test and scored eight laptop models of 7 and 8
+or decision. Among them are the first localiser run and the CAM box source, scored on the test
+partition on 7 September, and a validation dry run of the pass script on 10 September in which the
+stages without a split setting defaulted to test and scored eight laptop models of 7 and 8
 September; its outputs were deleted or moved unopened, and the loader guard was added in response.
 §33 does not list an earlier contact. In June 2026, before the protocol existed, prototype
-classifiers were scored on the partition that later became the test set. Six of their result
-files are kept in `outputs/results/_superseded/`; five of them (`baseline`, `regularised`,
-`densenet121`, `resnet50` and `vgg16`) record the 243 lesions of what became the test set. No
+classifiers for the preliminary report were scored on held-out data. Six of their result files are
+kept in `outputs/results/_superseded/`; five of them (`baseline`, `regularised`, `densenet121`,
+`resnet50` and `vgg16`) cover 243 lesions (113 malignant), the counts of the final test partition.
+The files carry no patient identifiers, so the patients cannot be confirmed to be the same. No
 model or weight from that work is in the final system, whose models were all trained between 7 and
 18 September, but that exposure cannot be excluded as an influence on the choice of backbone.
 
@@ -140,6 +178,7 @@ notebooks/scripts/           command-line tools, the test-pass scripts, the test
                              final system's models
 docs/                        the evaluation protocol, the record of training runs, the seeds table,
                              the run-4 localiser recipe
+  figures/                   the three figures shown in this README
 refs/                        reference records used by the test pass and the promotion tools
                              (see refs/README.md)
 artifacts/                   frozen tables the pipeline reads (see artifacts/README.md)
@@ -203,9 +242,10 @@ also run `pip install "tensorflow[and-cuda]==2.17.0"` inside `.ddsm-env`. This w
 RTX 4090 (see section 2b on TF32).
 
 On the Apple GPU, TensorFlow's compiled graph silently dropped ReLU activations in this project's
-models. Every reported figure is therefore computed from a stored prediction table scored through
-the eager path, and every AUC is exact. The models behind the reported results were trained on
-NVIDIA GPUs (Kaggle T4 and P100; RunPod RTX 4090, RTX 5090 and A100); statistics ran on a laptop.
+models. Every reported figure is therefore computed from a stored prediction table scored on the
+laptop through the eager path, and every AUC is exact. The models behind the reported results were
+trained on NVIDIA GPUs (Kaggle T4 and P100; RunPod RTX 4090 and RTX 5090); statistics ran on a
+laptop.
 Laptop training appears in the record only as the superseded runs of 7–9 September; earlier laptop
 training is not recorded there.
 
